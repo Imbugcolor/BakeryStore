@@ -27,7 +27,7 @@
             <div id="navbar">
                 <ul>
                     <li><a href="#">TRANG CHỦ</a></li>
-                    <li><a href="#">DANH MỤC</a>
+                    <li><a href="#" onclick="return false;">DANH MỤC</a>
                         <ul class="subnav">
                             <li><a href="#">BÁNH QUY</a></li>
                             <li><a href="#">BÁNH KEM</a></li>
@@ -40,6 +40,9 @@
                 </ul>
             </div>
             <!--end navbar-->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <!--cart-shopping-->
             <div id="cart">
                 <i class="fas fa-search"></i>
@@ -52,22 +55,221 @@
 
         <!--slider-->
         <div id="slider">
-            <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="container">
+                        <div class="intro-content">
+                                <h1>Bánh Ngon</h1>
+                                <h2>Giảm giá <span>30%</span></h2>
+                                <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
+                                <button>Mua ngay</button>
+                        </div>
+                        <div class="img-slideshow"> 
+                            <img src="./assets/images/slideshow-v2-img2.png" alt="">
+                        </div>
+                </div>
+                <div class="container">
                     <div class="intro-content">
-                            <h1>Fresh Cakes</h1>
-                            <h2>Sale off <span>30%</span></h2>
-                            <p>Tartine offers the best cakes and sweets for you</p>
-                            <button>SHOP NOW</button>
+                            <h1>Bánh Cupcake</h1>
+                            <h2>Giảm giá <span>10%</span></h2>
+                            <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
+                            <button>Mua ngay</button>
                     </div>
-            </div>
-            <div class="img-slideshow"> 
-                <img src="./assets/images/slideshow-v2-img2.png" alt="">
+                    <div class="img-slideshow"> 
+                        <img src="./assets/images/slideshow-v2-img1.png" alt="">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="intro-content">
+                            <h1>Bánh Kem Tươi</h1>
+                            <h2>Giảm giá <span>40%</span></h2>
+                            <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
+                            <button>Mua ngay</button>
+                    </div>
+                    <div class="img-slideshow"> 
+                        <img src="./assets/images/slideshow-v2-img3.png" alt="">
+                    </div>
+                </div>
             </div>
         </div>
         <!--end slider-->
 
         <!--content-->
         <div id="content">
+            <!--services-section-->
+            <div id="services-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="box col-4 col-md-4 col-sm-6">
+                            <div class="icon-services">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="content-services">
+                                <h4>Miễn phí vận chuyển</h4>
+                                <p>Miễn phí giao hàng trên toàn thế giới đối với đơn đặt hàng trên 100.000 VND</p>
+                            </div>
+                        </div>
+                        <div class="box col-4 col-md-4 col-sm-6">
+                            <div class="icon-services">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="content-services">
+                                <h4>Tặng món quà tới những người bạn</h4>
+                                <p>Sản phẩm lỗi bất kỳ trong vòng 07 ngày đổi ngay.</p>
+                            </div>
+                        </div>
+                        <div class="box col-4 col-md-4 col-sm-6">
+                            <div class="icon-services">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="content-services">
+                                <h4>Được yêu thích bởi khách hàng của chúng tôi</h4>
+                                <p>Nhóm hỗ trợ của chúng tôi luôn sẵn sàng hỗ trợ cho bạn 7 ngày một tuần</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end services-section-->
+
+            <!--best-seller-section-->
+            <div id="best-seller-section">
+                <div class="best-seller-header">
+                    <h2 class="title-heading">SẢN PHẨM GIẢM GIÁ</h2>
+
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                        <div class="product col-3 col-md-4 col-sm-6">
+                            <div class="img-product">
+                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                            </div>
+                            <div class="name-product">
+                                <p>Bánh Kem Chocolate</p>
+                            </div>
+                            <div class="price-product">
+                                <p>48.000 <span>VND</span></p>
+                            </div>
+                            <div class="add-cart">
+                                <button class="add-cart-btn">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end best-seller-section-->
+
 
         </div>
         <!--end content-->
@@ -77,6 +279,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/owl.carousel.min.js"></script>
     <script>
+        /* menu show jquery */
+        $(document).ready(function(){
+            navMenuActive()
+            navMenuHide()
+        });
+        function navMenuActive(){
+            $('.menu-toggle').click(function(){
+                $('#navbar').toggleClass('active')
+            })
+        }
+        function navMenuHide(){
+            $('#navbar li').on('click', function(){
+            // $("#navbar").hide();
+            $("#navbar").removeClass('active')
+        });
+        }
+        /*end menu show jquery */
+
         /*scroll-header active */
         window.addEventListener('scroll', function (){
           let header = document.getElementById('header');
