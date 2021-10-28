@@ -228,13 +228,16 @@ body{
     text-align: center;
     font-size: 22px;
 }
+#best-seller-section .line{
+    border-bottom: 1px solid #979797;
+    margin:20px 25%;
+}
 #best-seller-section .container{
     margin-top: 80px;
 }
 #best-seller-section .product{
     text-align: center;
     margin: 30px 0; 
-    max-width: 300px;
 }
 #best-seller-section .product p{
     font-size: 18px;
@@ -246,6 +249,12 @@ body{
     border-radius: 5px;
     background-color: #F4511E;
     color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.product .add-cart .add-cart-btn:hover{
+    color: #FF4A52;
+    background-color: #333;
 }
 #best-seller-section .product .name-product{
     color: #3C5A98;
@@ -253,9 +262,11 @@ body{
 #best-seller-section .product .price-product{
     color: #FF4A52;
 }
+
 #best-seller-section .product .img-product img{
     width: 100%;
-    border-radius: 50%;
+    border-radius: 5%;
+    vertical-align: middle;
 }
 /*end content css */
 
@@ -265,18 +276,15 @@ body{
 
 }
 @media only screen and (max-width: 1203px){
-
-}
-@media only screen and (max-width: 740px){
     /*menu nav reponsive */
     #header .menu-toggle {
         display: block;
       }
       #navbar {
         position: absolute;
-        width: 100%;
+        width: 70%;
         height: calc(100vh - 60px);
-        background: #333;
+        background: #fff;
         top: 60px;
         left: -100%;
         transition: 0.5s;
@@ -288,19 +296,115 @@ body{
       #navbar ul li a {
         display: block;
         margin: 0;
-        border-bottom: 1px solid #01ce69;
+        /* border-bottom: 1px solid #FF4A52; */
       }
       #navbar ul {
         display: block;
         width: 100%;
-        text-align: center;
+        /* text-align: center; */
       }
-      #navbar ul li a:hover {
-        border-bottom: none;
+      #navbar ul li{
+          display: block;
       }
+      #navbar ul li .subnav{
+        display: none;
+        position: relative;
+        top: 0;
+        left: 3%;
+        background-color: #fff;
+      }
+      #navbar ul li .subnav li{
+          border-bottom: 1px solid #FF4A52;
+      }
+      #navbar ul li .subnav li a{
+        color: #3C5A98;
+      }
+      #navbar ul li .subnav.show{
+       display: block;
+    }
+      #navbar li::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0;
+        background-color: #ff1256;
+        left: 0;
+        bottom: 0;
+        transform: scale(0,1);
+        transition: .4s;
+    }
+    #navbar  li:hover .subnav{
+        display: none;
+    }
+    /*end menu nav reponsive */ 
+    #header #logo{
+        left: 40%;
+    }
+}
+@media only screen and (max-width: 740px){
+    /*menu nav reponsive */
+    #header .menu-toggle {
+        display: block;
+      }
+      #navbar {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: #fff;
+        top: 60px;
+        left: -100%;
+        transition: 0.5s;
+        border-radius: 0;
+      }
+      #navbar.active {
+        left: 0;
+      }
+      #navbar ul li a {
+        display: block;
+        margin: 0;
+        /* border-bottom: 1px solid #FF4A52; */
+      }
+      #navbar ul {
+        display: block;
+        width: 100%;
+        /* text-align: center; */
+      }
+      #navbar ul li{
+          display: block;
+      }
+      #navbar ul li .subnav{
+        display: none;
+        position: relative;
+        top: 0;
+        left: 3%;
+        background-color: #fff;
+      }
+      #navbar ul li .subnav li{
+          border-bottom: 1px solid #FF4A52;
+      }
+      #navbar ul li .subnav li a{
+        color: #3C5A98;
+      }
+      #navbar ul li .subnav.show{
+       display: block;
+    }
+      #navbar li::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0;
+        background-color: #ff1256;
+        left: 0;
+        bottom: 0;
+        transform: scale(0,1);
+        transition: .4s;
+    }
+        #navbar  li:hover .subnav{
+            display: none;
+        }
     /*end menu nav reponsive */
     #header #logo{
-        left: 25%;
+        left: 32%;
     }
     #slider .container .intro-content{
         position: absolute;
@@ -314,6 +418,19 @@ body{
         left: 15%;
         
     }
+    /* best-seller-product */
+    .product .add-cart .add-cart-btn{
+        padding: 8px 45px;
+        font-size: 12px;
+    }
+
+    /*end best-seller-product */
+
+    /*content padding */
+    #content {
+        padding: 0 15px;
+    }
+    /*end content padding */
 
 }
 
