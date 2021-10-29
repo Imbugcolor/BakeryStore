@@ -8,8 +8,9 @@ body{
 }
 /*header css */
 #header{
+    display: flex;
     height: 80px;
-    justify-content: space-between;
+    justify-content: space-between; 
     width: 100%;
     position: fixed;
     top: 0;
@@ -26,9 +27,7 @@ body{
 
 /*logo css */
 #logo{
-    position: absolute;
-    top: 0;
-    left: 3%;
+    margin-left: 3%;
     color: #FF4A52;
     line-height: 80px;
     font-size: 30px;
@@ -38,9 +37,9 @@ body{
 
 /*navbar css */
 #navbar{
-    position: absolute;
+    /* position: absolute;
     right: 15%;
-    top: 0;
+    top: 0; */
 }
 #navbar ul li{
     position: relative;
@@ -109,15 +108,20 @@ body{
 
 /*cart css */
 #cart {
-    position: absolute;
-    right: 3%;
-    top: 0;
+    margin-right: 3%;
     line-height: 80px;
     cursor: pointer;
     color: #FF4A52;
 }
 #cart i{
     margin: 0 10px;
+}
+#cart a{
+    text-decoration: none;
+    color: #FF4A52;
+}
+#cart span{
+    color: #3C5A98;
 }
 /*end cart css */
 
@@ -296,6 +300,7 @@ body{
       #navbar ul li a {
         display: block;
         margin: 0;
+        font-size: 22px;
         /* border-bottom: 1px solid #FF4A52; */
       }
       #navbar ul {
@@ -318,6 +323,10 @@ body{
       }
       #navbar ul li .subnav li a{
         color: #3C5A98;
+        line-height: 80px;
+      }
+      #navbar .subnav{
+          width: 300px;
       }
       #navbar ul li .subnav.show{
        display: block;
@@ -337,9 +346,7 @@ body{
         display: none;
     }
     /*end menu nav reponsive */ 
-    #header #logo{
-        left: 40%;
-    }
+  
 }
 @media only screen and (max-width: 740px){
     /*menu nav reponsive */
@@ -362,7 +369,8 @@ body{
       #navbar ul li a {
         display: block;
         margin: 0;
-        /* border-bottom: 1px solid #FF4A52; */
+        font-size: 16px;
+
       }
       #navbar ul {
         display: block;
@@ -378,6 +386,10 @@ body{
         top: 0;
         left: 3%;
         background-color: #fff;
+      }
+      #navbar ul li .subnav li a{
+        color: #3C5A98;
+        line-height: 50px;
       }
       #navbar ul li .subnav li{
           border-bottom: 1px solid #FF4A52;
@@ -403,9 +415,7 @@ body{
             display: none;
         }
     /*end menu nav reponsive */
-    #header #logo{
-        left: 32%;
-    }
+
     #slider .container .intro-content{
         position: absolute;
         bottom: 30px;
@@ -435,3 +445,95 @@ body{
 }
 
 /*end responsive */
+
+/*----------------CART PAGE---------------*/
+.product-container-cart{
+    max-width: 650px;
+    justify-content: space-around;
+    margin:130px auto;
+}
+.product-container-cart i{
+    font-size: 25px;
+    color:#FF4A52;
+    margin:0 10px;
+    cursor: pointer;
+}
+.product-header-cart{
+    width: 100%;
+    max-width:  650px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid #333;
+    margin: 0 auto;
+}
+.product-title-cart{
+    width: 52%;
+}
+.price-cart{
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+.quantity-cart{
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+.total-cart{
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+.products-cart{
+    width: 100%;
+    /* display: flex;  */
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+.products-cart img{
+    width: 80px;
+}
+.product-cart{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+.product-cart img{
+    width: 80px;
+}
+.product-cart .far{
+    width: 3% ;
+}
+.product-cart .name{
+    width: 20%;
+}
+.price{
+    width: 23%;
+    text-align: center;
+}
+.quantity{
+    width: 18%;
+    text-align: center;
+}
+.total{
+    width: 20%;
+    text-align: end;
+} 
+.basketTotalContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+.basketTotalContainer .basketTotalTitle{
+    width: 30%;
+    text-align: end;
+}
+.basketTotalContainer .basketTotal{
+    width: 30%;
+    text-align: end;
+}
+/*----------------END CART PAGE---------------*/

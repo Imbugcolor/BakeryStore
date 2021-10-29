@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web/css/all.css">
+    <title>Cửa Hàng Bánh Ngọt</title>
+</head>
+<body>
+    <div id="main">
+        <!--header-->
+        <div id="header">
+            <!--menu nav mobile-->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!--end menu nav mobile-->
+            <!--logo-->
+            <div id="logo">
+                BAKERY
+            </div>
+            <!--end logo-->
+            <!--navbar-->
+            <div id="navbar">
+                <ul>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li class="category"><a href="#" onclick="return false;">DANH MỤC <i class="fas fa-caret-down"></i></a>
+                        <ul class="subnav">
+                            <li><a href="#">BÁNH QUY</a></li>
+                            <li><a href="#">BÁNH KEM</a></li>
+                            <li><a href="#">BÁNH VÒNG</a></li>
+                            <li><a href="#">BÁNH BÔNG LAN</a></li>
+                        </ul>
+                    </li>                     
+                    <li><a href="#">TIN TỨC</a></li>
+                    <li><a href="#">LIÊN HỆ</a></li>
+                </ul>
+            </div>
+            <!--end navbar-->
+            <!--cart-shopping-->
+            <div id="cart">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-user"></i>
+                <a href=""><i class="fas fa-shopping-bag"></i>Giỏ hàng <span>0</span></a>
+            </div>
+            <!--end cart-shopping-->
+            
+        </div>
+        <!--end header-->
+
+        <!--Cart-places-->
+        <div class="product-container-cart">
+            <div class="product-header-cart">
+                <div class="product-title-cart">Sản phẩm</div>
+                <div class="price-cart">Giá tiền</div>
+                <div class="quantity-cart">Số lượng</div>
+                <div class="total-cart">Tổng tiền</div>
+            </div>
+            <div class="products-cart">
+                
+            </div>
+            <div class="basketTotal-cart">
+                
+            </div>
+        </div>
+        <!--End Cart-places-->
+
+        <script src="./assets/js/app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./assets/js/owl.carousel.min.js"></script>
+        <script>
+        /* menu show jquery */
+        $(document).ready(function(){
+            navMenuActive()
+            navMenuHide()
+            navSubMenuActive()
+            // navSubMenuHide()
+        });
+        function navMenuActive(){
+            $('.menu-toggle').click(function(){
+                $('#navbar').toggleClass('active')
+            })
+        }
+        function navMenuHide(){
+            $('#navbar li:not(#navbar .category)').on('click', function(){
+            // $("#navbar").hide();
+            $("#navbar").removeClass('active')
+        });
+        }
+        /*end menu show jquery */
+
+        /* subnav responsive show */
+        function navSubMenuActive(){
+            $('#navbar .category').click(function(){
+                $('#navbar ul li .subnav').toggleClass('show')
+            })
+        }     
+        /* end subnav responsive show */
+
+        /*scroll-header active */
+        window.addEventListener('scroll', function (){
+          let header = document.getElementById('header');
+          let windowPosition = window.scrollY > 0;
+          header.classList.toggle('scrolling-active', windowPosition);
+        })
+        /*end scroll-header active */
+
+         /* slide carousel jquery custom */
+         $('.owl-carousel').owlCarousel({
+            items:1,
+            lazyLoad: true,
+            loop: true,
+            margin: 10,          
+            autoplay: true,
+            autoPlaySpeed: 5000,
+            autoPlayTimeout: 5000,
+            autoplayHoverPause: true,
+            autoplaySpeed:1000
+        });
+        /*end slide carousel jquery custom*/
+
+    </script>
+    </body>
+</html>
