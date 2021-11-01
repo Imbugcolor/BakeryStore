@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $connect = mysqli_connect("localhost", "root", "", "bakerystore");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +36,7 @@
             <div id="navbar">
                 <ul>
                     <li><a href="#">TRANG CHỦ</a></li>
-                    <li class="category"><a href="#" onclick="return false;">DANH MỤC <i class="fas fa-caret-down"></i></a>
+                    <li class="category.php"><a href="category.php">DANH MỤC <i class="fas fa-caret-down"></i></a>
                         <ul class="subnav">
                             <li><a href="#">BÁNH QUY</a></li>
                             <li><a href="#">BÁNH KEM</a></li>
@@ -50,7 +54,15 @@
             <div id="cart">
                 <i class="fas fa-search"></i>
                 <i class="fas fa-user"></i>
-                <a href="cart.html"><i class="fas fa-shopping-bag"></i>Giỏ hàng <span>0</span></a>
+                <?php
+                    $numberCart = 0;
+                    if(isset($_SESSION['cart'])){
+                        foreach($_SESSION['cart'] as $key => $value){
+                            $numberCart ++;
+                        }
+                    }
+                ?>
+                <a href="cart.php"><i class="fas fa-shopping-bag"></i><span id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></a>
             </div>
             <!--end cart-shopping-->
         </div>
@@ -142,77 +154,139 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="product col-3 col-md-3 col-sm-6">
-                            <div class="img-product">
-                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                        <?php
+                            $query = "SELECT * FROM `product` WHERE cat_id=99";
+                            $result = mysqli_query($connect, $query);
+                            
+                            while($row = mysqli_fetch_array($result)) {?>
+                             <div class="product col-3 col-md-4 col-sm-12">
+                                <form method="get" action="index.php?id=<?=$row['id'] ?>" >  
+                                    <div class="product-single">
+                                        <div class="img-product">
+                                            <img src="./assets/images/<?=$row['image']?>" alt="">
+                                        </div>
+                                        <div class="name-product">
+                                            <p><?=$row['name'];?></p>
+                                        </div>
+                                        <div class="price-product">
+                                            <p><?=$row['price'];?> <span>VND</span></p>
+                                        </div>
+                                        <div class="view-product">
+                                            <a href="product_details.php?id=<?=$row['id'];?>" class="view-details" >Xem chi tiết</a>
+                                        </div>
+                                    </div>                              
+                                </form>
                             </div>
-                            <div class="name-product">
-                                <p>Bánh Kem Chocolate</p>
-                            </div>
-                            <div class="price-product">
-                                <p>45.000 <span>VND</span></p>
-                            </div>
-                            <div class="add-cart">
-                                <button class="add-cart-btn"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product col-3 col-md-3 col-sm-6">
-                            <div class="img-product">
-                                <img src="./assets/images/seller-product-2.jpg" alt="">
-                            </div>
-                            <div class="name-product">
-                                <p>Bánh Kem Dâu</p>
-                            </div>
-                            <div class="price-product">
-                                <p>55.000 <span>VND</span></p>
-                            </div>
-                            <div class="add-cart">
-                                <button class="add-cart-btn"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product col-3 col-md-3 col-sm-6">
-                            <div class="img-product">
-                                <img src="./assets/images/seller-product-3.jpg" alt="">
-                            </div>
-                            <div class="name-product">
-                                <p>Bánh Bông Lan</p>
-                            </div>
-                            <div class="price-product">
-                                <p>50.000 <span>VND</span></p>
-                            </div>
-                            <div class="add-cart">
-                                <button class="add-cart-btn"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                        <div class="product col-3 col-md-3 col-sm-6">
-                            <div class="img-product">
-                                <img src="./assets/images/seller-product-4.jpg" alt="">
-                            </div>
-                            <div class="name-product">
-                                <p>Cupcake Chocolate</p>
-                            </div>
-                            <div class="price-product">
-                                <p>40.000 <span>VND</span></p>
-                            </div>
-                            <div class="add-cart">
-                                <button class="add-cart-btn"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
-                            </div>
-                        </div>
-                               
+                           <?php }
+                            
+                        ?>
+                        
                     </div>
                 </div>
             </div>
             <!--end best-seller-section-->
-
-
         </div>
         <!--end content-->
 
+
+        <!--footer-->
+         <div id="footer">
+            <div class="footer_top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="footer_widget_single col-4 col-md-4 col-sm-6">
+                                <div class="footer_logo">
+                                    BAKERY
+                                </div>
+                                <div class="address">
+                                    <p>
+                                        TPHCM, Binh Thanh District <br> 
+                                        <a href="">+84 83 730 xx8</a> <br> 
+                                        <a href="">abcdxyz@gmail.com</a> <br> 
+                                    </p>
+                                </div>
+                                <div class="social-widget">
+                                    <a href="#"><i class="fab fa-facebook"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                            <div class="footer_widget_single col-4 col-md-4 col-sm-6">
+                                <div class="footer_company">
+                                    Company
+                                </div>
+                                <ul class="navlink">
+                                    <li> <a href="#">Pricing</a></li>
+                                    <li> <a href="#">About</a></li>
+                                    <li> <a href="#">Gallery</a></li>
+                                    <li> <a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="footer_widget_single col-4 col-md-4 col-sm-6">
+                                <div class="footer_instargram">
+                                    Instargram
+                                </div>
+                                <div class="ins-img">
+                                    <div class="row">
+                                        <div class="col-4 col-md-4 col-sm-6">
+                                            <div class="img-item">
+                                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-md-4 col-sm-6">
+                                            <div class="img-item">
+                                                <img src="./assets/images/seller-product-2.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-md-4 col-sm-6">
+                                            <div class="img-item">
+                                                <img src="./assets/images/seller-product-3.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-md-4 col-sm-6">
+                                            <div class="img-item">
+                                                <img src="./assets/images/seller-product-4.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-md-4 col-sm-6">
+                                            <div class="img-item">
+                                                <img src="./assets/images/seller-product-1.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-md-4 col-sm-6">
+                                            <div class="img-item">
+                                                <img src="./assets/images/seller-product-2.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 border-top-copyright"></div>
+                            <div class="copyright-text col-12 col-md-12 col-sm-12">
+                                <p>Copyright ©2021 All rights reserved | This template is made with <i class="far fa-heart"></i> by <a href="#">My Thuan Viet</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </div>    
+        <!--end footer-->
+
     </div>
+    
     <script src="./assets/js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/owl.carousel.min.js"></script>
     <script>
+       
         /* menu show jquery */
         $(document).ready(function(){
             navMenuActive()
@@ -262,7 +336,6 @@
             autoplaySpeed:1000
         });
         /*end slide carousel jquery custom*/
-
     </script>
 </body>
 </html>

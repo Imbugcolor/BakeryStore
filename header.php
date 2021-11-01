@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web/css/all.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Cửa Hàng Bánh Ngọt</title>
 </head>
 <body>
@@ -31,8 +32,8 @@
             <!--navbar-->
             <div id="navbar">
                 <ul>
-                    <li><a href="index.html">TRANG CHỦ</a></li>
-                    <li class="category"><a href="#" onclick="return false;">DANH MỤC <i class="fas fa-caret-down"></i></a>
+                    <li><a href="index.php">TRANG CHỦ</a></li>
+                    <li class="category"><a href="category.php" >DANH MỤC <i class="fas fa-caret-down"></i></a>
                         <ul class="subnav">
                             <li><a href="#">BÁNH QUY</a></li>
                             <li><a href="#">BÁNH KEM</a></li>
@@ -45,38 +46,31 @@
                 </ul>
             </div>
             <!--end navbar-->
+           
             <!--cart-shopping-->
             <div id="cart">
                 <i class="fas fa-search"></i>
                 <i class="fas fa-user"></i>
-                <a href=""><i class="fas fa-shopping-bag"></i>Giỏ hàng <span>0</span></a>
+                <?php
+                    $numberCart = 0;
+                    if(isset($_SESSION['cart'])){
+                        foreach($_SESSION['cart'] as $key => $value){
+                            $numberCart ++;
+                        }
+                    }
+                ?>
+                <a  href="cart.php"><i class="fas fa-shopping-bag"></i><span id="iCart"><span id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></span></a>
             </div>
             <!--end cart-shopping-->
-            
         </div>
         <!--end header-->
-
-        <!--Cart-places-->
-        <div class="product-container-cart">
-            <div class="product-header-cart">
-                <div class="product-title-cart">Sản phẩm</div>
-                <div class="price-cart">Giá tiền</div>
-                <div class="quantity-cart">Số lượng</div>
-                <div class="total-cart">Tổng tiền</div>
-            </div>
-            <div class="products-cart">
-                
-            </div>
-            <div class="basketTotal-cart">
-                
-            </div>
         </div>
-        <!--End Cart-places-->
 
-        <script src="./assets/js/app.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./assets/js/owl.carousel.min.js"></script>
-        <script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script>
+               
         /* menu show jquery */
         $(document).ready(function(){
             navMenuActive()
@@ -126,7 +120,27 @@
             autoplaySpeed:1000
         });
         /*end slide carousel jquery custom*/
-
+        function addCart(id){
+            num = $("#num").val();
+            $.post('addcart.php', {'id': id, 'num': num}, function(data){
+                alert("Thêm vào giỏ hàng thành công!");
+                $('#numberCart').text(data);
+            });
+        }
+        function updateCart(id){
+            num = $("#quantity_"+id).val();
+            $.post('updateCart.php', {'id': id, 'num': num}, function(data){
+                //after update cart, reload page
+                $("#listCart").load("http://localhost/BakeryStore/cart.php #tbCart");
+            });
+        }
+        function deleteCart(id){
+            $.post('updateCart.php', {'id': id, 'num': 0}, function(data){
+                //after update cart, reload page
+                $("#listCart").load("http://localhost/BakeryStore/cart.php #tbCart");
+                $("#iCart").load("http://localhost/BakeryStore/cart.php #numberCart");
+            });
+        }
     </script>
-    </body>
+</body>
 </html>
