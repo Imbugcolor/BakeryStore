@@ -6,7 +6,7 @@
 <div class="category-product">
     <div class="row">
         <div class="col-3 col-md-3 ">
-            <div class="nav-sidebar">
+            <!-- <div class="nav-sidebar">
                     <div class="nav-text">Danh Mục Sản Phẩm</div>
                     <ul>
                         <?php
@@ -21,7 +21,10 @@
                         
                         ?>    
                     </ul>
-            </div>
+            </div> -->
+            <?php
+            include('sidebar.php')
+            ?>
         </div>
         <div class="col-9 col-md-9 col-sm-12">  
             <div class="list-product">
@@ -33,7 +36,7 @@
                     $result2 = mysqli_query($connect, $productquery);
                             
                     while($row = mysqli_fetch_array($result2)) {?>
-                    <div class="product col-3 col-md-4 col-sm-12">
+                    <div class="product col-3 col-md-4 col-sm-6">
                         <form method="get" action="category.php?id=<?=$row['id'] ?>" > 
                             <div class="product-single">
                                 <div class="img-product">

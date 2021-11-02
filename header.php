@@ -33,13 +33,8 @@
             <div id="navbar">
                 <ul>
                     <li><a href="index.php">TRANG CHỦ</a></li>
-                    <li class="category"><a href="category.php" >DANH MỤC <i class="fas fa-caret-down"></i></a>
-                        <ul class="subnav">
-                            <li><a href="#">BÁNH QUY</a></li>
-                            <li><a href="#">BÁNH KEM</a></li>
-                            <li><a href="#">BÁNH VÒNG</a></li>
-                            <li><a href="#">BÁNH BÔNG LAN</a></li>
-                        </ul>
+                    <li class="category"><a href="category.php" >SẢN PHẨM</a>
+                        
                     </li>                     
                     <li><a href="#">TIN TỨC</a></li>
                     <li><a href="#">LIÊN HỆ</a></li>
@@ -49,8 +44,7 @@
            
             <!--cart-shopping-->
             <div id="cart">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-user"></i>
+                <!-- <i class="fas fa-search"></i> -->
                 <?php
                     $numberCart = 0;
                     if(isset($_SESSION['cart'])){
@@ -60,6 +54,31 @@
                     }
                 ?>
                 <a  href="cart.php"><i class="fas fa-shopping-bag"></i><span id="iCart"><span id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></span></a>
+                <div class="user" onclick="menuUserToggle();">
+                        <i class="usertoggle fas fa-user" ></i>
+                        <div class="user-menu">
+                            <h4 class="user_name">Chào! 
+                                <?php if(isset($_SESSION["login"])){
+                                    echo $_SESSION["login"]["1"];
+                                }?>
+                            </h4>
+                            <ul>
+                                <?php if(!isset($_SESSION["login"])){ ?>
+                                    <li><a href="login.php"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a></li>
+                                <?php 
+                                    }
+                                
+                                ?>
+                                <li><a href="infor_user.php"><i class="fas fa-info-circle"></i> Thông tin</a></li>
+                                <?php if(isset($_SESSION["login"])){ ?>
+                                <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                                <?php 
+                                    }
+                                
+                                ?>
+                            </ul>
+                        </div>
+                </div>
             </div>
             <!--end cart-shopping-->
         </div>
@@ -99,6 +118,13 @@
         }     
         /* end subnav responsive show */
 
+        /* user menu toggle */
+        function menuUserToggle(){
+            var toggleUserMenu = document.querySelector('.user-menu');
+            toggleUserMenu.classList.toggle('active-menu-user')
+        }
+         /* user menu toggle */
+
         /*scroll-header active */
         window.addEventListener('scroll', function (){
           let header = document.getElementById('header');
@@ -119,6 +145,7 @@
             autoplayHoverPause: true,
             autoplaySpeed:1000
         });
+
         /*end slide carousel jquery custom*/
         function addCart(id){
             num = $("#num").val();

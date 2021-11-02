@@ -83,6 +83,7 @@
         width: 100%;
     }
 }
+
 /*small screen*/
 @media only screen and (max-width: 740px){
     .col-sm-0{

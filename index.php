@@ -21,51 +21,9 @@
 <body>
     <div id="main">
         <!--header-->
-        <div id="header">
-            <!--menu nav mobile-->
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <!--end menu nav mobile-->
-            <!--logo-->
-            <div id="logo">
-                BAKERY
-            </div>
-            <!--end logo-->
-            <!--navbar-->
-            <div id="navbar">
-                <ul>
-                    <li><a href="#">TRANG CHỦ</a></li>
-                    <li class="category.php"><a href="category.php">DANH MỤC <i class="fas fa-caret-down"></i></a>
-                        <ul class="subnav">
-                            <li><a href="#">BÁNH QUY</a></li>
-                            <li><a href="#">BÁNH KEM</a></li>
-                            <li><a href="#">BÁNH VÒNG</a></li>
-                            <li><a href="#">BÁNH BÔNG LAN</a></li>
-                        </ul>
-                    </li>                     
-                    <li><a href="#">TIN TỨC</a></li>
-                    <li><a href="#">LIÊN HỆ</a></li>
-                </ul>
-            </div>
-            <!--end navbar-->
-           
-            <!--cart-shopping-->
-            <div id="cart">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-user"></i>
-                <?php
-                    $numberCart = 0;
-                    if(isset($_SESSION['cart'])){
-                        foreach($_SESSION['cart'] as $key => $value){
-                            $numberCart ++;
-                        }
-                    }
-                ?>
-                <a href="cart.php"><i class="fas fa-shopping-bag"></i><span id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></a>
-            </div>
-            <!--end cart-shopping-->
-        </div>
+        <?php
+            include('header.php');
+        ?>
         <!--end header-->
 
         <!--slider-->
@@ -285,44 +243,8 @@
     <script src="./assets/js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/owl.carousel.min.js"></script>
-    <script>
-       
-        /* menu show jquery */
-        $(document).ready(function(){
-            navMenuActive()
-            navMenuHide()
-            navSubMenuActive()
-            // navSubMenuHide()
-        });
-        function navMenuActive(){
-            $('.menu-toggle').click(function(){
-                $('#navbar').toggleClass('active')
-            })
-        }
-        function navMenuHide(){
-            $('#navbar li:not(#navbar .category)').on('click', function(){
-            // $("#navbar").hide();
-            $("#navbar").removeClass('active')
-        });
-        }
-        /*end menu show jquery */
-
-        /* subnav responsive show */
-        function navSubMenuActive(){
-            $('#navbar .category').click(function(){
-                $('#navbar ul li .subnav').toggleClass('show')
-            })
-        }     
-        /* end subnav responsive show */
-
-        /*scroll-header active */
-        window.addEventListener('scroll', function (){
-          let header = document.getElementById('header');
-          let windowPosition = window.scrollY > 0;
-          header.classList.toggle('scrolling-active', windowPosition);
-        })
-        /*end scroll-header active */
-
+     <script>
+      
          /* slide carousel jquery custom */
          $('.owl-carousel').owlCarousel({
             items:1,

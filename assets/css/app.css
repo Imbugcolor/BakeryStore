@@ -281,7 +281,7 @@ body{
     padding:15px 0 30px;
 }
 .view-product a{
-    width: 200px;
+    width: 80%;
     padding: 15px 0px;
     color: #fff;
     background-color: #01ce69;
@@ -553,6 +553,9 @@ body{
     .title-heading{
         font-size: 22px;
     }
+    .sideNavtoggle h2, .sideNavtoggle p{
+        display: none;
+    }
 }
 
 /*end responsive */
@@ -656,4 +659,53 @@ form textarea{
 
 /*---------------------END CATEGORY PAGE ---------------------*/
 
+/*------------USER MENU---------------*/
+.user{
+   display: inline;
+   position: relative;
+}
+.usertoggle:hover {
+    color: #FF5801;
+}
+.user-menu{
+    top: 30px;
+    background-color: #fff;
+    width: 200px;
+    height: 130px;
+    border-radius: 5px;
+    box-shadow:0 0 30px 0 rgb(82 63 105 / 10%);
+    position: absolute;
+    right:0;
+    visibility: hidden;
+   
+}
+.user-menu h4{
+    line-height: 30px;
+    color: #0F90F2;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+.user_name{
+    border-bottom: 1px solid #040E27;
+}
+.user-menu ul li {
+    line-height: 30px;
+    list-style-type: none;
+    
+}
+.user-menu ul li a{
+    color: #3C5A98 !important;
+   
+}
+.user-menu ul li a:hover{
+    color: #FF4A52 !important;
+}
+.active-menu-user{
+    visibility: visible;
+}
+/*------------END USER MENU---------------*/
 
+.inforuser_container{
+    height: 500px;
+}
