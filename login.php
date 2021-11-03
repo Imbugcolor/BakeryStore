@@ -14,13 +14,15 @@
         $result = mysqli_query($connect,$sqlLogin);
         $row = mysqli_fetch_row($result);
         if(mysqli_num_rows($result)==0){
-            $message = "Sai tài khoản hoặc mật khẩu!";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-            // header("location: login.php"); 
+            // $message = "Sai tài khoản hoặc mật khẩu!";
+            // echo "<script type='text/javascript'>alert('$message');</script>";
+            header("location: login.php?error=Sai tài khoản hoặc mật khẩu");
+            exit(); 
         } 
         else{     
             $_SESSION["login"] = $row;
             header("location: infor_user.php");
+            exit();
         } 
     }
     $userName ="";
@@ -48,6 +50,11 @@
         <div class="home"> <a href="index.php"><i class="fas fa-arrow-left"></i> Quay về trang chủ</a></div>
         <form class="login-email" action="" method="post">
             <p class="login-text" style="font-size: 2rem; font-weight: 700;">Đăng nhập</p>
+            <?php
+                if(isset($_GET['error'])){ ?>
+                    <p style="background-color: #FF4A52; border-radius: 50px; color: #fff; text-align: center; padding:5px 0; margin-bottom: 10px;" class="error"><?php echo $_GET['error']; ?></p>
+              <?php  }
+            ?>
             <div class="input-group">
                 <input type="text" name="username" placeholder="Tên tài khoản" value="<?php echo $userName ?>" required>
             </div>
