@@ -105,7 +105,13 @@
                                         <p>Số lượng: </p><input required type="number" min="1" id="num" name="num" >
                                     </div>
                                     <div class="add-cart">
-                                        <button class="add-cart-btn" onclick ="addCart(<?php echo $row['id']; ?> )" ><i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng</button>
+                                        <?php
+                                            if(isset($_SESSION["login"])){ ?>
+                                                <button class="add-cart-btn" onclick ="addCart(<?php echo $row['id']; ?> )" ><i class="fas fa-cart-plus"></i>Thêm vào giỏ hàng</button>
+                                           <?php } else { ?>
+                                                <a style="text-decoration: none; font-size: 18px; color: #FF1654; font-weight: 700;" href="login.php">Đăng nhập để thực hiện mua sản phẩm! <i style="font-size: 40px;" class="fas fa-sign-in-alt"></i></a>
+                                          <?php }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

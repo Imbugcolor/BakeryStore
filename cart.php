@@ -4,17 +4,25 @@
     session_start();
     include('header.php');
     include('conn.php');
-    if(isset($_POST["thanhtoan"])){
+    $numberCart = 0;
+    if(isset($_SESSION['cart'])){
+        foreach($_SESSION['cart'] as $key => $value){
+            $numberCart ++;
+            }
+    }
+    if(isset($_POST["thanhtoan"])){ 
+        if($numberCart > 0){ 
         $name = $_POST["full_name"];
         $email = $_POST["email"];
         $phone = $_POST["phone"];
         $address = $_POST["address"];
         $request = $_POST["request"];
+        $currentUserid = $_SESSION["login"]["0"];
         foreach($_SESSION["cart"] as $key => $value){
             $total = $value["price"] * $value["num"];
             $subTotal += $total;
         }
-        $sqlInsertOrder = 'INSERT INTO `order-info` (total,`user_name`,email,`address`,phone,request,date_order,`status`) VALUES("'.$subTotal.'","'.$name.'","'.$email.'","'.$address.'","'.$phone.'","'.$request.'","'.date("Y-m-d H:i:s").'","1")';
+        $sqlInsertOrder = 'INSERT INTO `order-info` (total,`user_id`,`full_name`,email,`address`,phone,request,date_order,`status`) VALUES("'.$subTotal.'","'.$currentUserid.'","'.$name.'","'.$email.'","'.$address.'","'.$phone.'","'.$request.'","'.date("Y-m-d H:i:s").'","1")';
         mysqli_query($connect,$sqlInsertOrder);
         $last_id = mysqli_insert_id($connect);
         foreach($_SESSION["cart"] as $key => $value){        
@@ -25,7 +33,9 @@
         ?>
         <h2 style="padding-top: 150px; text-align:center; color:#01CE69;">Đặt hàng thành công!</h2>
         <?php
-
+        } else { ?>
+        <h2 style="padding-top: 150px; text-align:center; color:#FF0000;">Bạn chưa thêm sản phẩm nào trong giỏ hàng.</h2>
+ <?php   }
     } 
 ?>
     <div class="cart-order">
@@ -81,21 +91,28 @@
             <form action="" method="post">
                 <div class="form-group">
                     <div class="row">
+                        <?php
+                                          
+                            $currentUser_id = $_SESSION["login"]["0"];
+                            $sqlslt = "SELECT * FROM `user` WHERE `user_id`='$currentUser_id'";
+                            $resultO = mysqli_query($connect, $sqlslt);
+                            $row = mysqli_fetch_array($resultO);
+                        ?>
                         <div class="col-6 col-md-6 col-sm-12">
-                            <input type="text" name="full_name" value="" class="form-control" placeholder="Họ và tên (Bắt buộc)" required="">                      
+                            <input type="text" name="full_name" value="<?php echo $row["full_name"]; ?>" class="form-control" placeholder="Họ và tên (Bắt buộc)" required="">                      
                         </div>
                         <div class="col-6 col-md-6 col-sm-12">
-                            <input type="number" name="phone" value="" class="form-control" placeholder="Điện thoại (Bắt buộc)" required="">                      
+                            <input type="number" name="phone" value="<?php echo $row["phone"]; ?>" class="form-control" placeholder="Điện thoại (Bắt buộc)" required="">                      
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-6 col-md-6 col-sm-12">
-                            <input type="email" name="email" value="" class="form-control" placeholder="Email (Bắt buộc)" required="">                      
+                            <input type="email" name="email" value="<?php echo $row["email"]; ?>" class="form-control" placeholder="Email (Bắt buộc)" required="">                      
                         </div>
                         <div class="col-6 col-md-6 col-sm-12">
-                            <input type="text" name="address" value="" class="form-control" placeholder="Địa chỉ" required="">                      
+                            <input type="text" name="address" value="<?php echo $row["address"]; ?>" class="form-control" placeholder="Địa chỉ" required="">                      
                         </div>
                     </div>
                 </div>

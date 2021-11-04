@@ -70,7 +70,7 @@ body {
     ?>    
 </div>
 
-<div id="main" class="sideNavtoggle" style="position: fixed; left:0;">
+<div id="main" class="sideNavtoggle" style="">
   <h2>Danh mục</h2>
   <p>Hiển thị các danh mục <br> sản phẩm</p>
   <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; open</span>

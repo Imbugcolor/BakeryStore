@@ -50,7 +50,13 @@
                         }
                     }
                 ?>
-                <a  href="cart.php"><i class="fas fa-shopping-bag"></i><span id="iCart"><span id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></span></a>
+                <?php 
+                    if(isset($_SESSION["login"])){ ?>
+                    <a  href="cart.php"><i class="fas fa-shopping-bag"></i><span id="iCart"><span id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></span></a>
+                 <?php   } else { ?>
+                    <a class="loginBtn-header" href="login.php">Đăng nhập</a>
+                 <?php }
+                ?>
                 <div class="user" onclick="menuUserToggle();">
                         <i class="usertoggle fas fa-user" ></i>
                         <div class="user-menu">
