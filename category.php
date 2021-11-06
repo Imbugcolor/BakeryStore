@@ -52,7 +52,7 @@
                         <form method="get" action="category.php?id=<?=$row['id'] ?>" > 
                             <div class="product-single">
                                 <div class="img-product">
-                                    <img src="./assets/images/<?=$row['image']?>" alt="">
+                                    <img src="./upload/<?=$row['image']?>" alt="">
                                 </div>
                                 <div class="name-product">
                                     <p><?=$row['name'];?></p>
@@ -87,7 +87,7 @@
                         <form method="get" action="category.php?id=<?=$row['id'] ?>" > 
                             <div class="product-single">
                                 <div class="img-product">
-                                    <img src="./assets/images/<?=$row['image']?>" alt="">
+                                    <img src="./upload/<?=$row['image']?>" alt="">
                                 </div>
                                 <div class="name-product">
                                     <p><?=$row['name'];?></p>

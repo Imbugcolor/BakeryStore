@@ -1,5 +1,6 @@
 <?php
     include('../conn.php');
+    ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +33,11 @@
                     }else{
                         include('./modules/dashboard.php');
                     }
-                    include('./modules/footer.php');
+                ?>
+            </div>
+            <div class="footer">
+                <?php
+                    // include('./modules/footer.php');
                 ?>
             </div>
         </div>

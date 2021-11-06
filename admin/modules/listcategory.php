@@ -24,19 +24,20 @@
                         <th>Ngày tạo</th>                                    
                     </tr>
                 </tfoot>
+                <?php
+                    $sql_sl = "SELECT * FROM `category`";
+                    $listCat = mysqli_query($connect,$sql_sl);
+                    while($row = mysqli_fetch_array($listCat)) {?>
+                
                 <tbody>
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
+                        <td><?php echo $row["cat_id"] ?></td>
+                        <td><?php echo $row["cat_name"] ?></td>
+                        <td><?php echo $row["cat_status"] ?></td>
+                        <td><?php echo $row["date_create"] ?></td>
                     </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>                        
-                    </tr>
+                   <?php }
+                   ?>
             
                 </div>
     </div>
