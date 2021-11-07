@@ -102,6 +102,12 @@
             </div>
             <!--end services-section-->
 
+            <!--sidebar-social-->
+            <?php
+                include('socialsidebar.php');
+            ?>
+            <!--sidebar-social-->
+            
             <!--best-seller-section-->
             <div id="best-seller-section">
                 <div class="best-seller-header">
@@ -125,7 +131,7 @@
                                             <p><?=$row['name'];?></p>
                                         </div>
                                         <div class="price-product">
-                                            <p><?=$row['price'];?> <span>VND</span></p>
+                                            <p><?=number_format($row['price'], 0, '', ',');?> <span>VND</span></p>
                                         </div>
                                         <div class="view-product">
                                             <a href="product_details.php?id=<?=$row['id'];?>" class="view-details" >Xem chi tiết</a>

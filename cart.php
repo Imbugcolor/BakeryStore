@@ -63,12 +63,12 @@
                         <td class="count"></td>
                         <td><img src="./assets/images/<?php echo $value["image"] ?>" alt=""></td>
                         <td style="color: #4752C4; font-weight: 700;"><?php echo $value["name"] ?></td>
-                        <td style="color: #FF4A52; font-weight: 700;"><?php echo $value["price"] ?> <span>VND</span></td>
+                        <td style="color: #FF4A52; font-weight: 700;"><?php echo  number_format($value["price"], 0, '', ','); ?> <span>VND</span></td>
                         <td>
                             <input style="width: 30px; font-weight: 700;" type="text" onchange="updateCart(<?php echo $key ?>)" id="quantity_<?php echo $key ?>" name="quantity_<?php echo $key ?>" value="<?php echo $value["num"] ?>" min="1">
                             <input type="hidden" name="id[]" value="99">
                         </td>
-                        <td style="color: #FF4A52; font-weight: 700;"><?php echo $total = $value["price"] * $value["num"];
+                        <td style="color: #FF4A52; font-weight: 700;"><?php $total = $value["price"] * $value["num"]; echo number_format($total, 0, '', ',');
                         $subTotal += $total;  ?> <span>VND</span></td>
                         <td><a href="javascript:void(0)" onclick="deleteCart(<?php echo $key ?>)"><i class="far fa-trash-alt"></i></a></td>
                     </tr>
@@ -80,7 +80,7 @@
                             <a style="text-decoration: none; width: 50px; height: 10px;padding:3px 35px; background: #1EC4B5; color:#fff;" href="category.php">Mua thêm</a>      
                         </td>
                         <td style="color: #333; font-weight: 700">Tổng cộng:</td>
-                        <td style="color: #FF5801; font-weight: 700; font-size: 20px;" colspan="1"><?php echo $subTotal; ?><span>VND</span></td>
+                        <td style="color: #FF5801; font-weight: 700; font-size: 20px;" colspan="1"><?php echo number_format($subTotal, 0, '', ','); ?> <span>VND</span></td>
                     </tr>
                 </table>
             </div>

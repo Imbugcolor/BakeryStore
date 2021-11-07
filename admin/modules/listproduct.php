@@ -2,9 +2,10 @@
     include('../conn.php');
 
 ?>
+
 <style>
     tbody td a:first-child{
-        padding: 5px 10px;
+        padding: 5px;
         background-color: #0F90F2;
         color: #fff;
         text-decoration: none;
@@ -12,7 +13,7 @@
         transition: 0.3s;
     }
     tbody td a:nth-child(2){
-        padding: 5px 10px;
+        padding: 5px;
         background-color: #FF4A52;
         color: #fff;
         text-decoration: none;
@@ -28,12 +29,13 @@
         background-color: #fff;
     }
 </style>
+
 <div class="card mb-4">
-        <div class="card-header">
+    <div class="card-header">
             <i class="fas fa-table me-1"></i>
                 DANH SÁCH SẢN PHẨM
-        </div>
-        <div class="card-body">
+    </div>
+    <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
@@ -48,25 +50,13 @@
                         </th>                                       
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Ảnh sản phẩm</th>
-                        <th>Mô tả</th>
-                        <th>Giá</th>
-                        <th>Loại sản phẩm</th>   
-                        <th>
-                            Cập nhật
-                        </th>                                      
-                    </tr>
-                </tfoot>
-                <?php
-                    $sql_sl = "SELECT * FROM `product`";
-                    $listProduct = mysqli_query($connect,$sql_sl);
-                    while($row = mysqli_fetch_array($listProduct)) {?>
-
                 <tbody>
+                <?php
+        
+                    $productquery = "SELECT * FROM `product`";
+                    $result2 = mysqli_query($connect, $productquery);
+                    while($row = mysqli_fetch_array($result2)) {?>
+
                     <tr>
                         <td><?php echo $row["id"] ?></td>
                         <td><?php echo $row["name"] ?></td>
@@ -74,13 +64,13 @@
                         <td><?php echo $row["description"] ?></td>
                         <td><?php echo $row["price"] ?></td>
                         <td><?php echo $row["cat_id"] ?></td>
-                        <td>
+                        <td style="width: 15%;">
                             <a href="?module=addproduct&id=<?php echo $row["id"]?>" name="update">Sửa</a>
                             <a href="?module=deleteproduct&id=<?php echo $row["id"]?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" name="remove">Xóa</a>
                         </td>
                     </tr>
                    <?php }
                    ?>
-            
-                </div>
-    </div>
+                </tbody>
+         </div> 
+</div>

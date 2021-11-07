@@ -31,6 +31,7 @@
             $description = $_POST["description_product"];
             $price = $_POST["price_product"];
             $cat_product = $_POST["cat_product"];
+            if($img != null){
             $path = "../upload/";
             $tmp_name = $_FILES['image_product']['tmp_name'];
             $img = $_FILES['image_product']['name'];
@@ -41,8 +42,14 @@
             
             $message = "Cập nhật sản phẩm thành công!";
             echo "<script type='text/javascript'>alert('$message');</script>";
+            } else {
+                $sql = "UPDATE `product` SET `name`='$name',`description`='$description',`price`='$price',`cat_id`='$cat_product' WHERE id=".$_GET["id"];
+                mysqli_query($connect,$sql);
+                $message = "Cập nhật sản phẩm thành công!";
+                echo "<script type='text/javascript'>alert('$message');</script>";
             }
     }
+}
 ?>
 <style>
     table tr td{
@@ -51,6 +58,22 @@
     }
     table tr:last-child{
         height: 100px;
+    }
+    .editbtn{
+        padding: 10px 50px;
+        background-color: #0F90F2;
+        border: 1px solid #0F90F2;
+        color: #fff;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+    .editbtn:hover{
+        background-color: #fff;
+        color: #0F90F2;
+    }
+    h2{
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
     }
 </style>
 <div class="container-add-product" style="margin:50px 100px; padding:50px; border-radius:5px; box-shadow:0 0 30px 0 rgb(82 63 105 / 10%);">
@@ -70,7 +93,7 @@
                 <td><input type="text" required name="name_product" value="<?=(!empty($row)? $row["name"]:"")?>"></td>
             </tr>
             <tr>
-                <td>Ảnh</td>
+                <td></td>
                 <td><?php if(!empty($row["image"])){ ?>
                     <img style="width: 100px; height:100px; " src="../upload/<?=$row["image"] ?>" alt="">
                    
@@ -78,7 +101,7 @@
                 </td>      
             </tr>
             <tr>
-                <td></td>
+                <td>Ảnh</td>
                 <td><input type="file"  name="image_product" value="<?=(!empty($row)? $row["image"]:"")?>"></td>
             </tr>
             <tr>
@@ -87,7 +110,7 @@
             </tr>
             <tr>
                 <td>Giá sản phẩm</td>
-                <td><input type="number" required name="price_product" value="<?=(!empty($row)? $row["price"]:"")?>"></td>
+                <td><input type="number" id="priceNum" required name="price_product" value="<?=(!empty($row)? $row["price"]:"")?>"></td>
             </tr>
             <tr>
                 <td>Danh mục sản phẩm</td>
@@ -103,9 +126,22 @@
                 </select></td>
             </tr>
             <tr>
-                <td><input type="submit" name="add_product" value="<?=!empty($_GET["id"])?"Cập nhật" :"Thêm mới"?>"></td>
+                <td><input type="submit" class="editbtn" name="add_product" value="<?=!empty($_GET["id"])?"Cập nhật" :"Thêm mới"?>"></td>
             </tr>
         </table>
 
     </form>
 </div>
+<script>
+    // Select your input element.
+var number = document.getElementById('priceNum');
+
+// Listen for input event on numInput.
+number.onkeydown = function(e) {
+    if(!((e.keyCode > 95 && e.keyCode < 106)
+      || (e.keyCode > 47 && e.keyCode < 58) 
+      || e.keyCode == 8)) {
+        return false;
+    }
+}
+</script>

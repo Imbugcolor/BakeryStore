@@ -25,7 +25,7 @@
                 $_POST['password-verify']='';
                 header('location: signup.php?error=Tên người sử dụng đã tồn tại');
             } else {
-                $sql = 'INSERT INTO `user` (`user_name`,`password`,`email`,`status`,date_create_user)
+                $sql = 'INSERT INTO `user` (`user_name`,`password`,`email`,`role`,date_create_user)
                 VALUES ("'.$username.'","'.$password.'","'.$email.'","1","'.date("Y-m-d H:i:s").'")';
                 $result = mysqli_query($connect, $sql);
                 if ($result) {

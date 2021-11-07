@@ -80,6 +80,11 @@
         }
     </style>
 </head>
+        <!--sidebar-social-->
+    <?php
+        include('socialsidebar.php');
+    ?>
+    <!--sidebar-social-->
     <div class="container" style="margin:100px 35px">
         <?php
                 
@@ -99,7 +104,7 @@
                             <div class="box-detail">
                                 <div class="text-detail">
                                     <h2 style="color: #4752C4"><?=$row['name'];?></h2>
-                                    <p class="price-detail"><span>Giá sản phẩm:</span> <br> <span style="color: #FF1654;"><?=$row['price'];?> VND</span></p>
+                                    <p class="price-detail"><span>Giá sản phẩm:</span> <br> <span style="color: #FF1654;"><?=number_format($row['price'], 0, '', ',');?> VND</span></p>
                                     <p><span>Mô tả: </span><?=$row['description']; ?></p>
                                     <div class="quantity-detail">
                                         <p>Số lượng: </p><input required type="number" min="1" id="num" name="num" >
@@ -123,7 +128,19 @@
         ?>
         
     </div>
-       
+<script>
+    // Select your input element.
+var number = document.getElementById('num');
+
+// Listen for input event on numInput.
+number.onkeydown = function(e) {
+    if(!((e.keyCode > 95 && e.keyCode < 106)
+      || (e.keyCode > 47 && e.keyCode < 58) 
+      || e.keyCode == 8)) {
+        return false;
+    }
+}
+</script>
 <?php
  include('footer.php');
 ?>

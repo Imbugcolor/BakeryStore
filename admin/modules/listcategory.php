@@ -4,7 +4,7 @@
 <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-                DataTable Example
+               Danh sách danh mục
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
@@ -24,12 +24,12 @@
                         <th>Ngày tạo</th>                                    
                     </tr>
                 </tfoot>
+                <tbody>
                 <?php
                     $sql_sl = "SELECT * FROM `category`";
                     $listCat = mysqli_query($connect,$sql_sl);
                     while($row = mysqli_fetch_array($listCat)) {?>
                 
-                <tbody>
                     <tr>
                         <td><?php echo $row["cat_id"] ?></td>
                         <td><?php echo $row["cat_name"] ?></td>
@@ -38,6 +38,6 @@
                     </tr>
                    <?php }
                    ?>
-            
+                </tbody>
                 </div>
     </div>

@@ -3,6 +3,11 @@
     include('conn.php');
     include('header.php');
 ?>
+ <!--sidebar-social-->
+ <?php
+    include('socialsidebar.php');
+    ?>
+    <!--sidebar-social-->
 <div class="category-product">
     <div class="row">
         <div class="col-3 col-md-2 " style="box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%); border-radius:5px;">
@@ -33,7 +38,7 @@
                     if(isset($_GET['id'])){
                         
                     $id = $_GET['id'];
-                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:4;
+                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:6;
                     $current_page = !empty($_GET['page'])?$_GET['page']:1;
                     $offset = ($current_page - 1) * $item_per_page;   
                     if($search){
@@ -58,7 +63,7 @@
                                     <p><?=$row['name'];?></p>
                                 </div>
                                 <div class="price-product">
-                                    <p><?=$row['price'];?> <span>VND</span></p>
+                                    <p><?=number_format($row['price'], 0, '', ',');?> <span>VND</span></p>
                                 </div>
                                 <div class="view-product">
                                     <a href="product_details.php?id=<?=$row['id'];?>" class="view-details" >Xem chi tiết</a>
@@ -68,7 +73,7 @@
                     </div>
                     <?php }}else {
                     $id = 0;
-                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:4;
+                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:6;
                     $current_page = !empty($_GET['page'])?$_GET['page']:1;
                     $offset = ($current_page - 1) * $item_per_page;
                     if($search){
@@ -93,7 +98,7 @@
                                     <p><?=$row['name'];?></p>
                                 </div>
                                 <div class="price-product">
-                                    <p><?=$row['price'];?> <span>VND</span></p>
+                                    <p><?=number_format($row['price'], 0, '', ',');?> <span>VND</span></p>
                                 </div>
                                 <div class="view-product">
                                     <a href="product_details.php?id=<?=$row['id'];?>" class="view-details" >Xem chi tiết</a>

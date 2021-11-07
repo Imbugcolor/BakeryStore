@@ -44,10 +44,10 @@
                                     Company
                                 </div>
                                 <ul class="navlink">
-                                    <li> <a href="#">Pricing</a></li>
-                                    <li> <a href="#">About</a></li>
-                                    <li> <a href="#">Gallery</a></li>
-                                    <li> <a href="#">Contact</a></li>
+                                    <li> <a href="#">Home</a></li>
+                                    <li> <a href="#">Sản phẩm</a></li>
+                                    <li> <a href="#">Blog</a></li>
+                                    <li> <a href="#">Liên hệ</a></li>
                                 </ul>
                             </div>
                             

@@ -34,6 +34,10 @@
     line-height: 80px;
     font-size: 30px;
     font-weight: 700;
+    cursor: pointer;
+}
+#logo a{
+    text-decoration: none;
 }
 /*end logo css */
 
@@ -117,6 +121,7 @@
 }
 #cart i{
     margin: 0 10px;
+    font-size: 20px;
 }
 #cart a{
     text-decoration: none;
@@ -124,6 +129,27 @@
 }
 #cart span{
     color: #3C5A98;
+}
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+  
+.label-warning[href],
+.badge-warning[href] {
+    background-color: #c67605;
+}
+#numberCart{
+    font-size: 12px;
+    background: #EDD83C;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -15px; 
+    
 }
 /*end cart css */
 

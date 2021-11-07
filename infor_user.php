@@ -37,6 +37,10 @@
                 <input type="text" placeholder="Tài khoản" name="username" disabled value="<?php echo $row["user_name"]; ?>" required>
             </div>
             <div class="input-group">
+                <label>Vai trò:</label>
+                <input type="text" placeholder="Tài khoản" name="username" disabled value="<?php if($_SESSION["login"]["7"]==0){echo "Admin";} else{echo "Người dùng";}  ?>" required>
+            </div>
+            <div class="input-group">
                 <label>Email:</label>
                 <input type="email" placeholder="Email" name="email" disabled value="<?php echo $row["email"]; ?>" required>
             </div>

@@ -23,7 +23,7 @@
             <!--end menu nav mobile-->
             <!--logo-->
             <div id="logo">
-                BAKERY
+            <a href="index.php">BAKERY</a>
             </div>
             <!--end logo-->
             <!--navbar-->
@@ -35,6 +35,12 @@
                     </li>                     
                     <li><a href="#">TIN TỨC</a></li>
                     <li><a href="#">LIÊN HỆ</a></li>
+                    <?php
+                        if(isset($_SESSION["login"]) && $_SESSION["login"]["7"] == 0){
+                            ?>
+                            <li><a href="admin/index.php">ADMIN</a></li>
+                      <?php  }
+                    ?>
                 </ul>
             </div>
             <!--end navbar-->
@@ -52,7 +58,7 @@
                 ?>
                 <?php 
                     if(isset($_SESSION["login"])){ ?>
-                    <a  href="cart.php"><i class="fas fa-shopping-bag"></i><span id="iCart"><span id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></span></a>
+                    <a  href="cart.php"><i class="fas fa-shopping-bag"></i><span class="badge badge-warning" id="numberCart" style="font-size: 14px;"><?php echo $numberCart; ?></span></a>
                  <?php   } else { ?>
                     <a class="loginBtn-header" href="login.php">Đăng nhập</a>
                  <?php }
