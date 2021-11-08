@@ -52,9 +52,10 @@
                 </thead>
                 <tbody>
                 <?php
-        
-                    $productquery = "SELECT * FROM `product`";
-                    $result2 = mysqli_query($connect, $productquery);
+    
+                    // $productquery = "SELECT * FROM `product`";
+                    $namecat_sl="SELECT * FROM `category`,`product` WHERE `category`.cat_id = `product`.cat_id";
+                    $result2 = mysqli_query($connect, $namecat_sl);
                     while($row = mysqli_fetch_array($result2)) {?>
 
                     <tr>
@@ -63,7 +64,7 @@
                         <td><img style="width:50px; height:50px;" src="../upload/<?php echo $row["image"] ?>"></td>
                         <td><?php echo $row["description"] ?></td>
                         <td><?php echo $row["price"] ?></td>
-                        <td><?php echo $row["cat_id"] ?></td>
+                        <td><?php echo $row["cat_name"] ?></td>
                         <td style="width: 15%;">
                             <a href="?module=addproduct&id=<?php echo $row["id"]?>" name="update">Sửa</a>
                             <a href="?module=deleteproduct&id=<?php echo $row["id"]?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" name="remove">Xóa</a>

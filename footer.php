@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="footer_widget_single col-4 col-md-4 col-sm-6">
                                 <div class="footer_logo">
-                                    BAKERY
+                                <i class="fas fa-store"></i>BAKERY
                                 </div>
                                 <div class="address">
                                     <p>

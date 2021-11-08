@@ -275,7 +275,6 @@
     font-size: 18px;
     padding: 5px 0;
 }
-
 .product .name-product{
     color: #3C5A98;
 }
@@ -328,6 +327,10 @@
     box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%);
     border-radius: 5px;
     overflow: hidden;
+    transition: 0.3s;
+}
+.product-single:hover{
+    box-shadow: 0 0 30px 0 rgb(82 63 105 / 30%);
 }
 /*end content css */
 

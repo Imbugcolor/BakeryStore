@@ -16,16 +16,19 @@
     <div id="main">
         <!--header-->
         <div id="header">
+
             <!--menu nav mobile-->
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             <!--end menu nav mobile-->
+
             <!--logo-->
             <div id="logo">
-            <a href="index.php">BAKERY</a>
+            <a href="index.php"><i class="fas fa-store"></i>BAKERY</a>
             </div>
             <!--end logo-->
+
             <!--navbar-->
             <div id="navbar">
                 <ul>
@@ -90,6 +93,7 @@
                 </div>
             </div>
             <!--end cart-shopping-->
+            
         </div>
         <!--end header-->
         </div>

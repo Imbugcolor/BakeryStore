@@ -106,8 +106,14 @@
             <?php
                 include('socialsidebar.php');
             ?>
-            <!--sidebar-social-->
+            <!--end sidebar-social-->
             
+            <!--back-to-top-scroll-->
+            <?php
+                include('backtotop.php');
+            ?>
+            <!--end back-to-top-scroll-->
+
             <!--best-seller-section-->
             <div id="best-seller-section">
                 <div class="best-seller-header">
@@ -152,94 +158,9 @@
 
 
         <!--footer-->
-         <div id="footer">
-            <div class="footer_top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="footer_widget_single col-4 col-md-4 col-sm-6">
-                                <div class="footer_logo">
-                                    BAKERY
-                                </div>
-                                <div class="address">
-                                    <p>
-                                        TPHCM, Binh Thanh District <br> 
-                                        <a href="">+84 83 730 xx8</a> <br> 
-                                        <a href="">abcdxyz@gmail.com</a> <br> 
-                                    </p>
-                                </div>
-                                <div class="social-widget">
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                            <div class="footer_widget_single col-4 col-md-4 col-sm-6">
-                                <div class="footer_company">
-                                    Company
-                                </div>
-                                <ul class="navlink">
-                                    <li> <a href="#">Pricing</a></li>
-                                    <li> <a href="#">About</a></li>
-                                    <li> <a href="#">Gallery</a></li>
-                                    <li> <a href="#">Contact</a></li>
-                                </ul>
-                            </div>
-                            
-                            <div class="footer_widget_single col-4 col-md-4 col-sm-6">
-                                <div class="footer_instargram">
-                                    Instargram
-                                </div>
-                                <div class="ins-img">
-                                    <div class="row">
-                                        <div class="col-4 col-md-4 col-sm-6">
-                                            <div class="img-item">
-                                                <img src="./assets/images/seller-product-1.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-sm-6">
-                                            <div class="img-item">
-                                                <img src="./assets/images/seller-product-2.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-sm-6">
-                                            <div class="img-item">
-                                                <img src="./assets/images/seller-product-3.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-sm-6">
-                                            <div class="img-item">
-                                                <img src="./assets/images/seller-product-4.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-sm-6">
-                                            <div class="img-item">
-                                                <img src="./assets/images/seller-product-1.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-sm-6">
-                                            <div class="img-item">
-                                                <img src="./assets/images/seller-product-2.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 border-top-copyright"></div>
-                            <div class="copyright-text col-12 col-md-12 col-sm-12">
-                                <p>Copyright ©2021 All rights reserved | This template is made with <i class="far fa-heart"></i> by <a href="#">My Thuan Viet</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-         </div>    
+         <?php
+            include('footer.php');
+         ?>
         <!--end footer-->
 
     </div>

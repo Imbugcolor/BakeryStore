@@ -4,10 +4,16 @@
     include('header.php');
 ?>
  <!--sidebar-social-->
- <?php
-    include('socialsidebar.php');
+    <?php
+        include('socialsidebar.php');
     ?>
-    <!--sidebar-social-->
+<!--end sidebar-social-->
+
+<!--back-to-top-scroll-->
+<?php
+    include('backtotop.php');
+?>
+<!--end back-to-top-scroll-->
 <div class="category-product">
     <div class="row">
         <div class="col-3 col-md-2 " style="box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%); border-radius:5px;">
