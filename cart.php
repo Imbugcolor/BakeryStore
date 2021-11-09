@@ -61,7 +61,7 @@
                     <tr>
                      
                         <td class="count"></td>
-                        <td><img src="./assets/images/<?php echo $value["image"] ?>" alt=""></td>
+                        <td><img src="./upload/<?php echo $value["image"] ?>" alt=""></td>
                         <td style="color: #4752C4; font-weight: 700;"><?php echo $value["name"] ?></td>
                         <td style="color: #FF4A52; font-weight: 700;"><?php echo  number_format($value["price"], 0, '', ','); ?> <span>VND</span></td>
                         <td>

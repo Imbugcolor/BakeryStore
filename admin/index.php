@@ -2,7 +2,7 @@
     include('../conn.php');
     ob_start();
     session_start();
-    if(!isset($_SESSION["login"]) || $_SESSION["login"]["7"] != 0){
+    if(!isset($_SESSION["login"]) || $_SESSION["login"]["7"] != 1){
         header("location: ../login.php");
     }
    

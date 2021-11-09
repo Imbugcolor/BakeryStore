@@ -3,15 +3,17 @@
     if(empty($_GET["id"])){
     if(isset($_POST['addNewCat'])){
         $catName = $_POST["catName"];
-        $status = isset($_POST["status"]) ? $_POST["status"] : 0;
+        $status = isset($_POST["status"]) ? 1 : 0;
         $sql_insert = "INSERT INTO `category`(cat_name,cat_status,date_create) VALUES('$catName','$status','".date("Y-m-d H:i:s")."') ";
         $addCat = mysqli_query($connect,$sql_insert) or die ("Lỗi thêm mới!");
+        header('location: index.php?module=listcategory'); 
     } } else{
         if(isset($_POST['addNewCat'])){
         $catName = $_POST["catName"];
         $status = isset($_POST["status"]) ? 1 : 0;
         $sql_insert = "UPDATE `category` SET `cat_name`='$catName', `cat_status`='$status' WHERE cat_id=".$_GET["id"];
         $addCat = mysqli_query($connect,$sql_insert) or die ("Lỗi cập nhật!");
+        header('location: index.php?module=listcategory'); 
         }
     }
 ?>

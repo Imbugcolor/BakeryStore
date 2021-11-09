@@ -39,7 +39,7 @@
                     <li><a href="#">TIN TỨC</a></li>
                     <li><a href="#">LIÊN HỆ</a></li>
                     <?php
-                        if(isset($_SESSION["login"]) && $_SESSION["login"]["7"] == 0){
+                        if(isset($_SESSION["login"]) && $_SESSION["login"]["7"] == 1){
                             ?>
                             <li><a href="admin/index.php">ADMIN</a></li>
                       <?php  }

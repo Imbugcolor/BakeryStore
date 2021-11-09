@@ -35,19 +35,20 @@
 <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-               Danh sách tài khoản
+               Danh sách đơn hàng
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Tên tài khoản</th>
-                        <th>Mật khẩu</th>
+                        <th>Tổng giá đơn hàng</th>
+                        <th>Tên khách hàng</th>
                         <th>Email</th>
+                        <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
-                        <th>Vai trò</th>
-                        <th>Ngày tạo</th>                                  
+                        <th>Yêu cầu</th>
+                        <th>Ngày đặt hàng</th>                                  
                         <th>Trạng thái</th>
                         <th>Cập nhật</th>                                   
                     </tr>
@@ -55,34 +56,36 @@
                 <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Tên tài khoản</th>
-                        <th>Mật khẩu</th>
+                        <th>Tổng giá đơn hàng</th>
+                        <th>Tên khách hàng</th>
                         <th>Email</th>
+                        <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
-                        <th>Vai trò</th>
-                        <th>Ngày tạo</th>                                  
-                        <th>Trạng thái</th>    
-                        <th>Cập nhật</th>     
+                        <th>Yêu cầu</th>
+                        <th>Ngày đặt hàng</th>                                  
+                        <th>Trạng thái</th>
+                        <th>Cập nhật</th>      
                     </tr>
                 </tfoot>
                 <tbody>
                 <?php
-                    $sql_sl = "SELECT * FROM `user`";
-                    $listCat = mysqli_query($connect,$sql_sl);
-                    while($row = mysqli_fetch_array($listCat)) {?>
+                    $sql_sl = "SELECT * FROM `order-info`";
+                    $listorder = mysqli_query($connect,$sql_sl);
+                    while($row = mysqli_fetch_array($listorder)) {?>
                 
                     <tr>
-                        <td><?php echo $row["user_id"] ?></td>
-                        <td><?php echo $row["user_name"] ?></td>
-                        <td><?php echo $row["password"] ?></td>
+                        <td><?php echo $row["order_id"] ?></td>
+                        <td><?php echo number_format($row["total"], 0, '', ',') ?> VND</td>
+                        <td><?php echo $row["full_name"] ?></td>
                         <td><?php echo $row["email"] ?></td>
+                        <td><?php echo $row["address"] ?></td>
                         <td><?php echo $row["phone"] ?></td>
-                        <td><?php echo $row["role"] ?></td>
-                        <td><?php echo $row["date_create_user"] ?></td>
+                        <td><?php echo $row["request"] ?></td>
+                        <td><?php echo $row["date_order"] ?></td>
                         <td><?php echo $row["status"] ?></td>
                         <td style="width: 15%;">
-                            <a href="?module=setpermission&id=<?php echo $row["user_id"]?>" name="update">Phân quyền</a>
-                            <a href="?module=deleteaccount&id=<?php echo $row["user_id"]?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" name="remove">Xóa</a>
+                            <a href="?module=detailsorder&id=<?php echo $row["order_id"]?>" name="update">Xem chi tiết</a>
+                            <a href="?module=deleteorder&id=<?php echo $row["order_id"]?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" name="remove">Xóa</a>
                         </td>
                     </tr>
                    <?php }

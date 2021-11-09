@@ -15,7 +15,6 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="index.php?module=addaccount">Thêm mới tài khoản</a>
                                     <a class="nav-link" href="index.php?module=listaccount">Danh sách tài khoản</a>
                                 </nav>
                             </div>
@@ -39,6 +38,16 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="index.php?module=addproduct">Thêm mới sản phẩm</a>
                                     <a class="nav-link" href="index.php?module=listproduct">Danh sách</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                                Quản lý đơn hàng
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">        
+                                    <a class="nav-link" href="index.php?module=listorder">Danh sách</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

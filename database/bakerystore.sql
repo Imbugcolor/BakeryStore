@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 08, 2021 lúc 10:31 PM
+-- Thời gian đã tạo: Th10 09, 2021 lúc 11:20 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -80,8 +80,11 @@ INSERT INTO `order-details` (`orderdetail_id`, `order_id`, `id`, `price`, `quant
 (9, 7, 9, 55000, 2, 110000, '2021-11-04 05:38:31'),
 (10, 8, 3, 65000, 2, 130000, '2021-11-07 11:07:13'),
 (11, 8, 22, 30000, 2, 60000, '2021-11-07 11:07:13'),
-(12, 9, 3, 65000, 2, 130000, '2021-11-07 11:27:16'),
-(13, 9, 20, 57000, 2, 114000, '2021-11-07 11:27:16');
+(14, 10, 8, 40000, 2, 80000, '2021-11-09 10:28:12'),
+(15, 10, 4, 75000, 3, 225000, '2021-11-09 10:28:12'),
+(16, 11, 24, 999999, 2, 1999998, '2021-11-09 11:15:05'),
+(17, 11, 3, 65000, 2, 130000, '2021-11-09 11:15:05'),
+(18, 11, 23, 54000, 1, 54000, '2021-11-09 11:15:05');
 
 -- --------------------------------------------------------
 
@@ -114,7 +117,8 @@ INSERT INTO `order-info` (`order_id`, `total`, `user_id`, `full_name`, `email`, 
 (6, 152000, 1, 'Cao Lê Thuần', 'vietdinh105@gmail.com', '209 Le Duc Tho TpHcm', '8888888778', '', '2021-11-04 05:37:00', 1),
 (7, 430000, 1, 'Cao Lê Thuần', 'vietdinh105@gmail.com', '209 Le Duc Tho TpHcm', '1472583697', 'Anh Bạn à', '2021-11-04 05:38:31', 1),
 (8, 190000, 1, 'Cao Lê Thuần', 'vietdinh105@gmail.com', '209 Le Duc Tho TpHcm', '8888888778', 'OWO', '2021-11-07 11:07:13', 1),
-(9, 244000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', 'NGON', '2021-11-07 11:27:16', 1);
+(10, 305000, 10, 'Trần Văn Đại', 'multiple@gmail.com', '123 Binh Thanh', '0887766554', 'Gửi nhanh nhanh nha ', '2021-11-09 10:28:12', 1),
+(11, 2183998, 11, 'Nguyễn Văn Chuối', 'viet18@gmail.com', '605 Nguyen Van Luong ', '0988553321', 'Shop gói hàng chắc chắn vô nha', '2021-11-09 11:15:05', 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +148,7 @@ INSERT INTO `product` (`id`, `name`, `image`, `description`, `price`, `cat_id`) 
 (6, 'Bánh Kem Dâu', 'seller-product-2.jpg', 'Bánh kem kết hợp hương vị dâu tây tinh khiết', 55000, 99),
 (7, 'Bánh Bông Lan', 'seller-product-3.jpg', 'Bánh Bông Lan mềm tươi ngon', 50000, 99),
 (8, 'Cupcake Chocolate', 'seller-product-4.jpg', 'Bánh Cupcake mang bản sắc mới vị lạ mới', 40000, 99),
-(9, 'Bánh Quy', 'seller-product-3.jpg', 'Đây là loại bánh quy pha trộn với hương vị sữa tươi', 55000, 99),
+(9, 'Bánh Quy', 'seller-product-3.jpg', 'Đây là loại bánh quy pha trộn với hương vị sữa tươi', 59000, 99),
 (22, 'Bánh Mật', 'product-cake1-4.jpg', 'Mật ong ngọt từ trong ra ngoài', 35000, 102),
 (23, 'Bánh hạnh nhân', 'product-cake1-3.jpg', 'NGON!', 54000, 102),
 (24, 'Bánh đẹp trai 6 múi', 'r2_auto_x2.jpg', 'Yupp!', 999999, 102);
@@ -200,9 +204,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `user_name`, `password`, `email`, `phone`, `full_name`, `address`, `role`, `date_create_user`, `status`) VALUES
 (1, 'Viethoangdinh', 'b41cb62ec6767f2e41f9df7a2d161515', 'vietdinh105@gmail.com', '0555444666', 'Cao Lê Thuần', '209 Le Duc Tho TpHcm', 0, '0000-00-00 00:00:00', 1),
 (3, 'thuan1303', '2ed72a22d24014d96f06b84aab68476f', 'thuan1303@gmail.com', NULL, NULL, NULL, 1, '2021-11-02 14:59:00', 1),
-(8, 'vietu20', '841bc03ba82960e091dae30c1d0427f5', 'DHviet100@gmail.com', '0987654345', 'Đinh Hoàng Việt', '110 Nguyễn Gia Trí', 1, '2021-11-03 09:28:57', 1),
-(9, 'viet0111', '2c034ac7eb7120d1d3e38f4d7dc13e89', 'viet2921@gmail.com', NULL, NULL, NULL, 1, '2021-11-03 16:23:17', 1),
-(10, 'Vietdz123', 'd9e9bc0a9e53769f067a115037c03a6f', 'multiple@gmail.com', '0159785354', 'Trần Văn A', '900 Hoa Binh', 1, '2021-11-06 22:27:29', 1);
+(8, 'vietu20', '841bc03ba82960e091dae30c1d0427f5', 'DHviet100@gmail.com', '0987654345', 'Đinh Hoàng Việt', '110 Nguyễn Gia Trí', 0, '2021-11-03 09:28:57', 1),
+(10, 'Vietdz123', 'd9e9bc0a9e53769f067a115037c03a6f', 'multiple@gmail.com', '0159785354', 'Trần Văn A', '900 Hoa Binh', 1, '2021-11-06 22:27:29', 1),
+(11, 'dododo123', 'd9e9bc0a9e53769f067a115037c03a6f', 'viet18@gmail.com', NULL, NULL, NULL, 0, '2021-11-09 11:09:34', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -218,7 +222,9 @@ ALTER TABLE `category`
 -- Chỉ mục cho bảng `order-details`
 --
 ALTER TABLE `order-details`
-  ADD PRIMARY KEY (`orderdetail_id`);
+  ADD PRIMARY KEY (`orderdetail_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Chỉ mục cho bảng `order-info`
@@ -253,25 +259,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT cho bảng `order-details`
 --
 ALTER TABLE `order-details`
-  MODIFY `orderdetail_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `orderdetail_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `order-info`
 --
 ALTER TABLE `order-info`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `product-seller`
@@ -283,11 +289,18 @@ ALTER TABLE `product-seller`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `order-details`
+--
+ALTER TABLE `order-details`
+  ADD CONSTRAINT `order-details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order-info` (`order_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `order-details_ibfk_2` FOREIGN KEY (`id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `product`

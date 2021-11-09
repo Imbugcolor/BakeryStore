@@ -38,7 +38,7 @@
             </div>
             <div class="input-group">
                 <label>Vai trò:</label>
-                <input type="text" placeholder="Tài khoản" name="username" disabled value="<?php if($_SESSION["login"]["7"]==0){echo "Admin";} else{echo "Người dùng";}  ?>" required>
+                <input type="text" placeholder="Tài khoản" name="username" disabled value="<?php if($_SESSION["login"]["7"]==1){echo "Admin";} else{echo "Người dùng";}  ?>" required>
             </div>
             <div class="input-group">
                 <label>Email:</label>

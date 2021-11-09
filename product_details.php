@@ -96,7 +96,7 @@
                             <div class="box-detail">
                                 <h2 class="title">Chi tiết sản phẩm</h2>
                                 <div class="img-detail">
-                                    <img src="./assets/images/<?=$row['image']?>" style="width: 100%;" alt="">
+                                    <img src="./upload/<?=$row['image']?>" style="width: 100%;" alt="">
                                 </div>
                             </div>
                         </div>
