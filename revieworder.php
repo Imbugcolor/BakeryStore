@@ -24,6 +24,8 @@
    table th,
    table td{
        font-size: 16px;
+       color: #040E27;
+       font-weight: 700;
    }
    thead tr th a{
        text-decoration: none;
@@ -40,10 +42,14 @@
    }
    .removeOrder{
         color: #FF1654;
-       font-weight: 700;
+        font-weight: 700;
    }
    tbody tr td{
     text-align: center;
+   }
+   tr td span{
+    color: #FF4A52;
+
    }
    tr td img{
        width: 150px;
@@ -53,21 +59,32 @@
         font-size: 20px;
    }
    .container{
-       padding: 35px 0;
+       padding-bottom: 35px;
    }
+   .totalSummary span{
+       color: #F44336;
+   }
+   h2{
+       color: #4752C4;
+   }
+   .label{
+       border-bottom: 1px solid #ccc;
+       padding-bottom: 15px;
+   }
+}
 </style>
 <div class="myorder-container">
     <div class="row">
         <div class="product-order col-12">
             <div class="container"> 
-                <h2>Chi tiết đơn hàng</h2> 
+                <h2 class="label">Chi tiết đơn hàng</h2> 
                     <div style="overflow-x:auto;">    
                         <table>
                             <thead>
                                 <tr>
                                     <th><a href="index.php"><i class="fas fa-store"></i>BAKERY</a></th>
                                     <th colspan="3">tình trạng</th>
-                                    <th></th>
+                                    
                                 </tr>
                             </thead>
                             <?php 
@@ -78,12 +95,12 @@
                                     while($row = mysqli_fetch_array($sql_rsl)){ ?>
                             <tbody>
                                 <tr>    
-                                    <td>Sản phẩm: <?php echo $row["name"] ?></td>
+                                    <td>Sản phẩm: <span><?php echo $row["name"] ?></span></td>
                                     <td><img src="./upload/<?php echo $row["image"]?>" alt=""></td>
-                                    <td>Giá tiền: <?php echo number_format($row["orderprice"], 0, '', ','); ?> VND</td>
-                                    <td>Số lượng: <?php echo $row["quantity"] ?></td>
-                                    <td>Thành tiền: <?php echo number_format($row["total"], 0, '', ','); ?> VND</td>
-                                    <td>Ngày đặt: <?php echo $row["datecreate"]?></td>
+                                    <td>Giá tiền: <span><?php echo number_format($row["orderprice"], 0, '', ','); ?> VND</span></td>
+                                    <td>Số lượng: <span><?php echo $row["quantity"] ?></span></td>
+                                    <td>Thành tiền: <span><?php echo number_format($row["total"], 0, '', ','); ?> VND</span></td>
+                                    <td>Ngày đặt: <span><?php echo $row["datecreate"]?></span></td>
                                                              
                                 </tr>
                               
@@ -102,14 +119,14 @@
                     $row2 = mysqli_fetch_array($sql_rsl2);
                 }
             ?>
-            <h2>Tổng cộng: <span><?php echo number_format($row2["total"], 0, '', ','); ?> VND </span></h2>
+            <h3 class="totalSummary">Tổng cộng: <span><?php echo number_format($row2["total"], 0, '', ','); ?> VND </span></h3>
         </div>
         </div>
         <div class="info-order col-12">
             <div class="container">
 
             
-            <h2>Thông tin nhận hàng</h2>
+            <h2 class="label">Thông tin nhận hàng</h2>
             <?php 
                 if(isset($_GET["userid"])){
                     $sql_sl2 = "SELECT * FROM `order-info` WHERE `order_id`=".$_GET['id']." AND `user_id` =".$_GET["userid"];

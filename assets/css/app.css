@@ -390,6 +390,9 @@
     width: 100%;
     border-radius: 8px;
   }
+  .img-item{
+      margin-bottom: 5px;
+  }
   #footer .footer_widget_single{
     margin-bottom: 40px;
   }
@@ -586,6 +589,9 @@
     }
     .sideNavtoggle h2, .sideNavtoggle p{
         display: none;
+    }
+    .myorder-container{
+        margin:100px 15px;
     }
 }
 

@@ -28,14 +28,17 @@
        background-color: #01CE69;
        width: 20%;
    }
+
    .revieworder{
        color: #4C95F3;
        font-weight: 700;
    }
+
    .removeOrder{
         color: #FF1654;
        font-weight: 700;
    }
+   
    tbody tr td{
     text-align: center;
    }
@@ -44,6 +47,7 @@
     <h2>Đơn hàng của tôi</h2>
     <div class="row">
         <div class="col-12">
+            <div style="overflow-x:auto;">
             <?php 
                 if(isset($_GET["id"])){
                     $sql_sl = "SELECT * FROM `order-info` WHERE `user_id` =".$_GET["id"];
@@ -68,20 +72,17 @@
                                     <td><a class="revieworder" href="revieworder.php?id=<?=$row["order_id"];?>&userid=<?=$row["user_id"]?>">Xem chi tiết</a>
                                     <?php
                                         if($row["status"]==1){ ?>
-                                        <a class="removeOrder" href="deleteorder.php?id=<?=$row["order_id"];?>" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này không?')">Hủy đơn</a>
+                                        <a class="removeOrder" href="deleteorder.php?id=<?=$row["order_id"];?>&userid=<?=$row["user_id"];?>" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này không?')">Hủy đơn</a>
                                    <?php     }
                                     ?>
-                                    </td>
-                                    
-
-                                </tr>
-                              
+                                    </td>                                  
+                                </tr>                          
                             </tbody>
                         </table>
               <?php  }
                 }
             ?>
-            
+            </div>
         </div>
     </div>
 </div>
