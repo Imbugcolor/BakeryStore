@@ -17,17 +17,26 @@
     }
     tbody td a:nth-child(2){
         padding: 5px;
+        background-color: #01CE69;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #01CE69;
+        transition: 0.3s;
+    }
+    tbody td a:nth-child(3){
+        padding: 5px;
         background-color: #FF4A52;
         color: #fff;
         text-decoration: none;
         border: 1px solid #FF4A52;
         transition: 0.3s;
     }
+    tbody td a:nth-child(2):hover,
     tbody td a:first-child:hover{
         color: #0F90F2;
         background-color: #fff;
     }
-    tbody td a:nth-child(2):hover{
+    tbody td a:nth-child(3):hover{
         color: #FF4A52;
         background-color: #fff;
     }
@@ -82,9 +91,10 @@
                         <td><?php echo $row["phone"] ?></td>
                         <td><?php echo $row["request"] ?></td>
                         <td><?php echo $row["date_order"] ?></td>
-                        <td><?php echo $row["status"] ?></td>
+                        <td><?php if($row["status"]==1){ echo "Đang xử lý";} if($row["status"]==2){ echo "Đang chuyển hàng";} if($row["status"]==3){ echo  "Đã xác nhận";} ?></td>
                         <td style="width: 15%;">
-                            <a href="?module=detailsorder&id=<?php echo $row["order_id"]?>" name="update">Xem chi tiết</a>
+                            <a href="?module=detailsorder&id=<?php echo $row["order_id"]?>" name="review">Xem chi tiết</a>
+                            <a href="?module=commitOrder&id=<?php echo $row["order_id"]?>" name="update">Cập nhật trạng thái</a>
                             <a href="?module=deleteorder&id=<?php echo $row["order_id"]?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" name="remove">Xóa</a>
                         </td>
                     </tr>

@@ -83,6 +83,7 @@
                                 ?>
                                 <li><a href="infor_user.php"><i class="fas fa-info-circle"></i> Thông tin</a></li>
                                 <?php if(isset($_SESSION["login"])){ ?>
+                                <li><a href="myorder.php?id=<?=$_SESSION["login"]["0"];?>"><i class="fas fa-box"></i> Đơn hàng của tôi</a></li>    
                                 <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
                                 <?php 
                                     }

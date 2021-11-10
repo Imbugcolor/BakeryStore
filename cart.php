@@ -23,10 +23,10 @@
             $subTotal += $total;
         }
         $sqlInsertOrder = 'INSERT INTO `order-info` (total,`user_id`,`full_name`,email,`address`,phone,request,date_order,`status`) VALUES("'.$subTotal.'","'.$currentUserid.'","'.$name.'","'.$email.'","'.$address.'","'.$phone.'","'.$request.'","'.date("Y-m-d H:i:s").'","1")';
-        mysqli_query($connect,$sqlInsertOrder);
+        mysqli_query($connect,$sqlInsertOrder) or die("Lỗi!");
         $last_id = mysqli_insert_id($connect);
         foreach($_SESSION["cart"] as $key => $value){        
-            $sqlInsertDetail = 'INSERT INTO `order-details` (`order_id`,`id`,`price`,`quantity`,`total`,`datecreate`) VALUES("'.$last_id.'","'.$key.'","'.$value["price"].'","'.$value["num"].'","'.$value["num"]*$value["price"].'","'.date("Y-m-d H:i:s").'")';
+            $sqlInsertDetail = 'INSERT INTO `order-details` (`order_id`,`id`,`orderprice`,`quantity`,`total`,`datecreate`) VALUES("'.$last_id.'","'.$key.'","'.$value["price"].'","'.$value["num"].'","'.$value["num"]*$value["price"].'","'.date("Y-m-d H:i:s").'")';
             mysqli_query($connect,$sqlInsertDetail);
         }   
         unset($_SESSION["cart"]);
