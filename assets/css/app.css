@@ -266,6 +266,7 @@
 }
 #best-seller-section .container{
     margin-top: 80px;
+    box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%);
 }
 .product{
     text-align: center;
@@ -333,6 +334,101 @@
     box-shadow: 0 0 30px 0 rgb(82 63 105 / 30%);
 }
 /*end content css */
+
+/* menu section css */
+#menu-section{
+    color: #fff;
+    margin: 50px -35px;
+    background-image: url('../images/bg-info-v3.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 80px 0;
+}
+#menu-section .menu-header{
+    text-align: center;
+    padding-bottom: 25px;
+}
+#menu-section .menu-header h2{
+    font-size: 30px;
+    position: relative;
+}
+#menu-section .title-heading:before{
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid;
+    border-color: currentColor;
+    display: inline-block;
+    width: 5%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#menu-section .menu-header p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+#menu-section .container{
+    padding: 0 35px;
+}
+#menu-section .line{
+    border-bottom: 1px dashed #fff;
+    padding-top: 15px;
+}
+#menu-section .material{
+    display: flex;
+    justify-content: space-between;
+}
+.name-cake{
+    margin-bottom: 25px;
+}
+.material span{
+    color: #EDD83C;
+    font-weight: 700;
+}
+/* end menu section css */
+
+/* imgslider css */
+#imgslider img{
+    width: calc(100% / 6);
+}
+#imgslider .imgtrack{
+    display: flex;
+}
+
+/* Blur-zoom Container */
+.imgtrack img {
+    transition: transform 2s, filter 0.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(50%);
+}
+/*End Blur-zoom Container */ 
+
+/* The Transformation */
+.imgtrack img:hover {
+    filter: brightness(100%);
+    transform: scale(1.2);
+}
+/*End The Transformation */
+
+/*end imgslider css */
+
+/* @instagram css  */
+#instagram {
+    margin: 100px 0;
+    text-align: center;
+}
+#instagram i{
+    font-size: 100px;
+    color: #FF4A52;
+}
+#instagram h4 span{
+    color: #FF4A52;
+    font-weight: 700;
+}
+#instagram p{
+    font-size: 18px;
+}
+/*end @instagram css  */
 
 /* footer css*/
 #footer {
@@ -592,6 +688,19 @@
     }
     .myorder-container{
         margin:100px 15px;
+    }
+    #menu-section{
+        margin: 50px -15px;
+        
+    }
+    #menu-section .container{
+        padding: 0 15px;
+    }
+    #menu-section .menu-header p{
+        padding: 0 10px;
+    }
+    #footer .container {
+        padding: 0 15px;
     }
 }
 

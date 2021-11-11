@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css"/>
     <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web/css/all.css">
     <title>Cửa Hàng Bánh Ngọt</title>
 </head>
@@ -121,14 +123,15 @@
                     <div class="line"></div>
                 </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="slickslider" style="overflow: hidden;">
+                        
                         <?php
                             $query = "SELECT * FROM `product` WHERE cat_id=99";
                             $result = mysqli_query($connect, $query);
                             
                             while($row = mysqli_fetch_array($result)) {?>
-                             <div class="product col-3 col-md-4 col-sm-12">
-                                <form method="get" action="index.php?id=<?=$row['id'] ?>" >  
+                             <div class="product" style="padding:0 15px;">
+                                <form  method="get" action="index.php?id=<?=$row['id'] ?>" >  
                                     <div class="product-single">
                                         <div class="img-product">
                                             <img src="./upload/<?=$row['image']?>" alt="">
@@ -148,15 +151,100 @@
                            <?php }
                             
                         ?>
-                        
+    
                     </div>
                 </div>
             </div>
             <!--end best-seller-section-->
+
+            <!--menu section-->
+            <div id="menu-section">
+                <div class="menu-header">
+                    <h2 class="title-heading">MENU</h2>
+                    <p>Những chiếc bánh ngon nhất trong cửa hàng! Được làm bằng tình yêu thương, đừng bỏ lỡ.</p>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-md-6 col-sm-12">
+                                <div class="name-cake">
+                                    <h4>Bánh Vòng Dâu</h4>
+                                    <div class="material">
+                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="name-cake">
+                                    <h4>Bánh Vòng Dâu</h4>
+                                    <div class="material">
+                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="name-cake">
+                                    <h4>Bánh Vòng Dâu</h4>
+                                    <div class="material">
+                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>                   
+                        </div>
+                        <div class="col-6 col-md-6 col-sm-12">
+                                <div class="name-cake">
+                                    <h4>Bánh Vòng Dâu</h4>
+                                    <div class="material">
+                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="name-cake">
+                                    <h4>Bánh Vòng Dâu</h4>
+                                    <div class="material">
+                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="name-cake">
+                                    <h4>Bánh Vòng Dâu</h4>
+                                    <div class="material">
+                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>                   
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <!--end menu section-->
+
         </div>
         <!--end content-->
+        
+        <!-- @instagram  -->
+        <div id="instagram">
+            <div class="container">
+                <i class="fab fa-instagram"></i>
+                <h4><span>BAKERY</span> ON INSTAGRAM</h4>
+                <p>@abcd1234</p>
+            </div>
+        </div>
+        <!--end @instagram -->
 
-
+        <!--slider track img -->                       
+        <div id="imgslider">
+            <div class="container">
+                <div class="imgtrack slick">
+                    <img src="./assets/images/imgslidefooter1.jpg" alt="">
+                    <img src="./assets/images/imgslidefooter2.jpg" alt="">
+                    <img src="./assets/images/imgslidefooter3.jpg" alt="">
+                    <img src="./assets/images/imgslidefooter4.jpg" alt="">
+                    <img src="./assets/images/imgslidefooter5.jpg" alt="">
+                    <img src="./assets/images/imgslidefooter6.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!--slider track img -->                       
+        
         <!--footer-->
          <?php
             include('footer.php');
@@ -168,7 +256,10 @@
     <script src="./assets/js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/owl.carousel.min.js"></script>
-     <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="assets/slick/slick.min.js"></script>
+    <script>
       
          /* slide carousel jquery custom */
          $('.owl-carousel').owlCarousel({
@@ -183,6 +274,57 @@
             autoplaySpeed:1000
         });
         /*end slide carousel jquery custom*/
+
+        /* slide slick track */
+        $('.imgtrack').slick({
+            infinite: true,
+            slidesToShow: 4,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            prevArrow: false,
+            nextArrow: false,
+            slidesToScroll: 1
+
+        });
+
+        $('.slickslider').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            arrows: true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+            });
+        /* end slide slick track */
+        
     </script>
 </body>
 </html>
