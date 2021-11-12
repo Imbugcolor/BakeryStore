@@ -14,6 +14,10 @@
                 $sql_set = "UPDATE `order-info` SET `status`='3' WHERE `order_id`=".$_GET["id"];
                 mysqli_query($connect,$sql_set) or die ("Lỗi!");
             }
+            if($_POST["status"] == "Four"){
+                $sql_set = "UPDATE `order-info` SET `status`='4' WHERE `order_id`=".$_GET["id"];
+                mysqli_query($connect,$sql_set) or die ("Lỗi!");
+            }
         }
     }
 ?>
@@ -36,13 +40,14 @@
                         }
                         ?>
                         <label for="" style="opacity: 0.6;">ID đơn hàng</label><br>
-                        <input type="text" name="orderId" value="<?php echo $row["order_id"] ?>"><br>
+                        <input type="text" name="orderId" value="<?php echo $row["order_id"] ?>" disabled ><br>
                         <label for="" style="opacity: 0.6;">Tên khách hàng</label><br>
-                        <input type="text" name="orderId" value="<?php echo $row["full_name"] ?>"><br>
+                        <input type="text" name="orderId" value="<?php echo $row["full_name"] ?>" disabled><br>
                 
                         <label style="margin: 3px;"for="" class="custom-checkbox"><input type="radio" class="custom-control-input" name="status" value="First" <?php if(isset($row) && $row["status"]==1){ ?> checked <?php } ?> ><span class="custom-control-label">Đang xử lý</span></label><br>
-                        <label style="margin: 3px;"for="" class="custom-checkbox"><input type="radio" class="custom-control-input" name="status" value="Second" <?php if(isset($row) && $row["status"]==2){ ?> checked <?php } ?> ><span class="custom-control-label">Đang chuyển hàng</span></label><br>
-                        <label style="margin: 3px;"for="" class="custom-checkbox"><input type="radio" class="custom-control-input" name="status" value="Third" <?php if(isset($row) && $row["status"]==3){ ?> checked <?php } ?> ><span class="custom-control-label">Đã xác nhận</span></label><br>                       
+                        <label style="margin: 3px;"for="" class="custom-checkbox"><input type="radio" class="custom-control-input" name="status" value="Second" <?php if(isset($row) && $row["status"]==2){ ?> checked <?php } ?> ><span class="custom-control-label">Đã xử lý</span></label><br>
+                        <label style="margin: 3px;"for="" class="custom-checkbox"><input type="radio" class="custom-control-input" name="status" value="Third" <?php if(isset($row) && $row["status"]==3){ ?> checked <?php } ?> ><span class="custom-control-label">Đang vận chuyển</span></label><br>
+                        <label style="margin: 3px;"for="" class="custom-checkbox"><input type="radio" class="custom-control-input" name="status" value="Four" <?php if(isset($row) && $row["status"]==4){ ?> checked <?php } ?> ><span class="custom-control-label">Đã xác nhận</span></label><br>                       
                         <input id="setstatus"  type="submit" name="set" value="Xác nhận">
                     </div>
                 </form>

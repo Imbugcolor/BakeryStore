@@ -25,8 +25,13 @@
    }
    
    thead tr th:nth-child(3){
+       text-align: end;
+   } 
+
+   thead tr th:nth-child(4) {
        background-color: #01CE69;
        width: 20%;
+       color: #fff;
    }
 
    .revieworder{
@@ -58,17 +63,18 @@
                             <thead>
                                 <tr>
                                     <th><a href="index.php"><i class="fas fa-store"></i>BAKERY</a></th>
-                                    <th colspan="3">tình trạng</th>
-                                    <th><?php if($row["status"]==1){ echo "Đang xử lý";} if($row["status"]==2){ echo "Đang vận chuyển";} if($row["status"]==3){ echo "Đã xử lý";} ?></th>
+                                    <th colspan="2"></th>
+                                    <th>Tình trạng:</th>
+                                    <th><?php if($row["status"]==1){ echo "Đang xử lý";} if($row["status"]==2){ echo "Đã xử lý";} if($row["status"]==3){ echo "Đang vận chuyển";} if($row["status"]==4){ echo "Đã xác nhận";} ?></th>
                                 </tr>
                             </thead>
                         
                             <tbody>
                                 <tr>
                                     <td>Mã đơn:<?php echo $row["order_id"] ?></td>
+                                    <td colspan="2">Tổng giá: <?php echo number_format($row["total"], 0, '', ','); ?> VND</td>
                                     <td>Ngày đặt: <?php echo $row["date_order"]?></td>
-                                    <td>Tổng giá: <?php echo number_format($row["total"], 0, '', ','); ?> VND</td>
-                                    <td>Số lượng:</td>
+                                       
                                     <td><a class="revieworder" href="revieworder.php?id=<?=$row["order_id"];?>&userid=<?=$row["user_id"]?>">Xem chi tiết</a>
                                     <?php
                                         if($row["status"]==1){ ?>

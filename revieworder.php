@@ -83,7 +83,15 @@
                             <thead>
                                 <tr>
                                     <th><a href="index.php"><i class="fas fa-store"></i>BAKERY</a></th>
+                                    <?php 
+                                        if(isset($_GET["id"])){
+                                            $sql_status = "SELECT * FROM `order-info` WHERE `order_id` =".$_GET["id"];
+                                
+                                            $status_rsl = mysqli_query($connect,$sql_status);
+                                            $row = mysqli_fetch_array($status_rsl); 
+                                        } ?>                
                                     <th colspan="3">tình trạng</th>
+                                    <th><?php if($row["status"]==1){ echo "Đang xử lý";} if($row["status"]==2){ echo "Đã xử lý";} if($row["status"]==3){ echo "Đang vận chuyển";} if($row["status"]==4){ echo "Đã xác nhận";} ?></th>
                                     
                                 </tr>
                             </thead>

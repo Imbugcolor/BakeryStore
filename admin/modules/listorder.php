@@ -91,7 +91,7 @@
                         <td><?php echo $row["phone"] ?></td>
                         <td><?php echo $row["request"] ?></td>
                         <td><?php echo $row["date_order"] ?></td>
-                        <td><?php if($row["status"]==1){ echo "Đang xử lý";} if($row["status"]==2){ echo "Đang chuyển hàng";} if($row["status"]==3){ echo  "Đã xác nhận";} ?></td>
+                        <td><?php if($row["status"]==1){ echo "Đang xử lý";} if($row["status"]==2){ echo "Đã xử lý";} if($row["status"]==3){ echo "Đang vận chuyển";} if($row["status"]==4){ echo "Đã xác nhận";} ?></td>
                         <td style="width: 15%;">
                             <a href="?module=detailsorder&id=<?php echo $row["order_id"]?>" name="review">Xem chi tiết</a>
                             <a href="?module=commitOrder&id=<?php echo $row["order_id"]?>" name="update">Cập nhật trạng thái</a>

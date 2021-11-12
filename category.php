@@ -44,7 +44,7 @@
                     if(isset($_GET['id'])){
                         
                     $id = $_GET['id'];
-                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:6;
+                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:8;
                     $current_page = !empty($_GET['page'])?$_GET['page']:1;
                     $offset = ($current_page - 1) * $item_per_page;   
                     if($search){
@@ -79,7 +79,7 @@
                     </div>
                     <?php }}else {
                     $id = 0;
-                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:6;
+                    $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:8;
                     $current_page = !empty($_GET['page'])?$_GET['page']:1;
                     $offset = ($current_page - 1) * $item_per_page;
                     if($search){
@@ -94,7 +94,7 @@
                     $totalRecords = $totalRecords -> num_rows;
                     $totalPages = ceil($totalRecords / $item_per_page);      
                     while($row = mysqli_fetch_array($result2)) {?>
-                    <div class="product col-3 col-md-4 col-sm-12">
+                    <div class="product col-3 col-md-4 col-sm-6">
                         <form method="get" action="category.php?id=<?=$row['id'] ?>" > 
                             <div class="product-single">
                                 <div class="img-product">

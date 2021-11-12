@@ -88,7 +88,7 @@
                         <div class="small">Logged in as:</div>
                         <?php
                             include('../conn.php');
-                            if(isset($_SESSION["login"]) && $_SESSION["login"]["7"] == 0){ 
+                            if(isset($_SESSION["login"]) && $_SESSION["login"]["7"] == 1){ 
                                 echo $_SESSION["login"]["1"];
                         } 
                         ?>

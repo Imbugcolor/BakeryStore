@@ -45,7 +45,7 @@
     width: 100%;
 }
 /*medium screen*/
-@media only screen and (max-width: 1280px){
+@media only screen and (max-width: 1279px){
     .col-md-1{
         width: 8.33%;
     }
