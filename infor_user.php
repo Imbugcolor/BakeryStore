@@ -18,6 +18,20 @@
         header("location: infor_user.php?success=Cập nhật thông tin thành công!");
     }  
 ?>
+<style>
+.changepass{
+    background-color: #0F3B68; padding: 5px; color: #fff; text-decoration: none;
+    border: 1px solid #0F3B68;
+    transition: .3s;
+}
+.changepass:hover{
+    background-color: #fff;
+    color: #0F3B68;
+}
+.updatebtn{
+    cursor: pointer;
+}
+</style>
 <div class="inforuser_container">
     <h2>Thông tin khách hàng</h2>
     <form action="" method="post">
@@ -35,6 +49,11 @@
             <div class="input-group">
                 <label>Tên tài khoản:</label>
                 <input type="text" placeholder="Tài khoản" name="username" disabled value="<?php echo $row["user_name"]; ?>" required>
+            </div>
+            <div class="input-group" >
+                <label>Mật khẩu:</label>
+                <input style="margin-bottom: 15px;" type="password" placeholder="Mật khẩu" name="password" disabled value="<?php echo $row["password"]; ?>" required>
+                <a class="changepass" href="changepassword.php?id=<?=$currentUser_id?>" >Đổi mật khẩu</a>
             </div>
             <div class="input-group">
                 <label>Vai trò:</label>

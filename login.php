@@ -14,8 +14,6 @@
         $result = mysqli_query($connect,$sqlLogin);
         $row = mysqli_fetch_row($result);
         if(mysqli_num_rows($result)==0){
-            // $message = "Sai tài khoản hoặc mật khẩu!";
-            // echo "<script type='text/javascript'>alert('$message');</script>";
             header("location: login.php?error=Sai tài khoản hoặc mật khẩu");
             exit(); 
         } 

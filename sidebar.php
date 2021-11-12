@@ -84,6 +84,7 @@
     color: #3C5A98;
     font-weight: 700;
     line-height: 40px;
+    display: block;
   }
   .categoryNav  a i{
     color: #353E4E;

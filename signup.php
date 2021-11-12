@@ -8,7 +8,6 @@
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $fullname = $_POST['fullname'];
         $password = md5($_POST['password']);
         $password_verify = md5($_POST['password-verify']);
         if ($password == $password_verify) {
@@ -32,7 +31,6 @@
                     header('location: signup.php?success=Tạo tài khoản thành công, đăng nhập ngay và trải nghiệm!');
                     $username ='';
                     $email = '';
-                    $_POST['fullname'] = '';
                     $_POST['password'] = '';
                     $_POST['password-verify'] = '';
                 } else {               
@@ -74,9 +72,6 @@
             </div>
             <div class="input-group">
                 <input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Họ và tên" name="fullname" value="<?php echo $_POST['fullname']; ?>" required>
             </div>
             <div class="input-group">
                 <input type="password" placeholder="Mật khẩu" name="password" value="<?php echo $_POST['password']; ?>" required>
