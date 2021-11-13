@@ -1,39 +1,45 @@
 <?php
-    ob_start();
-    session_start();
-    include("conn.php");
-    if(isset($_POST["login"])){
-        $userName = $_POST["username"];
-        $password = md5($_POST["password"]);
+ob_start();
+session_start();
+include("conn.php");
+if (isset($_POST["login"])) {
+    $userName = $_POST["username"];
+    $password = md5($_POST["password"]);
 
-        if(isset($_POST["remember"])){
-            setcookie("username",$userName);
-            setcookie("password",$_POST["password"]);
-        }
-        $sqlLogin = "SELECT * FROM `user` WHERE `user_name`='$userName' AND `password`='$password' LIMIT 1 ";
-        $result = mysqli_query($connect,$sqlLogin);
-        $row = mysqli_fetch_row($result);
-        if(mysqli_num_rows($result)==0){
-            header("location: login.php?error=Sai tài khoản hoặc mật khẩu");
-            exit(); 
-        } 
-        else{     
-            $_SESSION["login"] = $row;
-            header("location: infor_user.php");
-            exit();
-        } 
+    if (isset($_POST["remember"])) {
+        setcookie("username", $userName);
+        setcookie("password", $_POST["password"]);
     }
-    $userName ="";
-    $password = "";
-    $check = false;
-    if(isset($_COOKIE["username"]) && isset($_COOKIE["password"])){
-        $userName = $_COOKIE["username"];
-        $password = $_COOKIE["password"];
-        $check = true;
+    $sqlLogin = "SELECT * FROM `user` WHERE `user_name`='$userName' AND `password`='$password' LIMIT 1 ";
+    $result = mysqli_query($connect, $sqlLogin);
+    $row = mysqli_fetch_row($result);
+    if (mysqli_num_rows($result) == 0) {
+        header("location: login.php?error=Sai tài khoản hoặc mật khẩu");
+        exit();
+    } else {
+        $_SESSION["login"] = $row;
+        header("location: infor_user.php");
+        exit();
     }
+}
+$userName = "";
+$password = "";
+$check = false;
+if (isset($_COOKIE["username"]) && isset($_COOKIE["password"])) {
+    $userName = $_COOKIE["username"];
+    $password = $_COOKIE["password"];
+    $check = true;
+}
+require_once "config.php";
+
+$redirectURL = "http://localhost/BakeryStore/fb-callback.php";
+$permissions = ['email'];
+$loginURL = $helper->getLoginUrl($redirectURL, $permissions);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,15 +49,16 @@
     <link rel="stylesheet" href="./assets/css/logincss.css">
     <title>Đăng nhập</title>
 </head>
+
 <body>
     <div class="container">
         <div class="home"> <a href="index.php"><i class="fas fa-arrow-left"></i> Quay về trang chủ</a></div>
         <form class="login-email" action="" method="post">
             <p class="login-text" style="font-size: 2rem; font-weight: 700;">Đăng nhập</p>
             <?php
-                if(isset($_GET['error'])){ ?>
-                    <p style="background-color: #FF4A52; border-radius: 50px; color: #fff; text-align: center; padding:5px 0; margin-bottom: 10px;" class="error"><?php echo $_GET['error']; ?></p>
-              <?php  }
+            if (isset($_GET['error'])) { ?>
+                <p style="background-color: #FF4A52; border-radius: 50px; color: #fff; text-align: center; padding:5px 0; margin-bottom: 10px;" class="error"><?php echo $_GET['error']; ?></p>
+            <?php  }
             ?>
             <div class="input-group">
                 <input type="text" name="username" placeholder="Tên tài khoản" value="<?php echo $userName ?>" required>
@@ -60,7 +67,7 @@
                 <input type="password" name="password" placeholder="Mật khẩu" value="<?php echo $password ?>" required>
             </div>
             <div class="input-group">
-                <input <?php echo ($check)?"checked":"" ?> class="remember" type="checkbox" name="remember" value="1"><span>Ghi nhớ tài khoản</span>
+                <input <?php echo ($check) ? "checked" : "" ?> class="remember" type="checkbox" name="remember" value="1"><span>Ghi nhớ tài khoản</span>
             </div>
             <div class="input-group">
                 <button class="btn" name="login">Login</button>
@@ -69,4 +76,5 @@
         <p class="login-register-text">Chưa có tài khoản? <a href="signup.php">Đăng ký ngay</a></p>
     </div>
 </body>
+
 </html>

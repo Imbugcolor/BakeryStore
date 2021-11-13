@@ -1,9 +1,10 @@
 <?php
-    session_start();
-    $connect = mysqli_connect("localhost", "root", "", "bakerystore");
+session_start();
+$connect = mysqli_connect("localhost", "root", "", "bakerystore");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,16 +14,17 @@
     <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css" />
     <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web/css/all.css">
     <title>Cửa Hàng Bánh Ngọt</title>
 </head>
+
 <body>
     <div id="main">
         <!--header-->
         <?php
-            include('header.php');
+        include('header.php');
         ?>
         <!--end header-->
 
@@ -30,35 +32,35 @@
         <div id="slider">
             <div class="owl-carousel owl-theme">
                 <div class="container">
-                        <div class="intro-content">
-                                <h1>Bánh Ngon</h1>
-                                <h2>Giảm giá <span>30%</span></h2>
-                                <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
-                                <button>Mua ngay</button>
-                        </div>
-                        <div class="img-slideshow"> 
-                            <img src="./assets/images/slideshow-v2-img2.png" alt="">
-                        </div>
+                    <div class="intro-content">
+                        <h1>Bánh Ngon</h1>
+                        <h2>Giảm giá <span>30%</span></h2>
+                        <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
+                        <button>Mua ngay</button>
+                    </div>
+                    <div class="img-slideshow">
+                        <img src="./assets/images/slideshow-v2-img2.png" alt="">
+                    </div>
                 </div>
                 <div class="container">
                     <div class="intro-content">
-                            <h1>Bánh Cupcake</h1>
-                            <h2>Giảm giá <span>10%</span></h2>
-                            <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
-                            <button>Mua ngay</button>
+                        <h1>Bánh Cupcake</h1>
+                        <h2>Giảm giá <span>10%</span></h2>
+                        <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
+                        <button>Mua ngay</button>
                     </div>
-                    <div class="img-slideshow"> 
+                    <div class="img-slideshow">
                         <img src="./assets/images/slideshow-v2-img1.png" alt="">
                     </div>
                 </div>
                 <div class="container">
                     <div class="intro-content">
-                            <h1>Bánh Kem Tươi</h1>
-                            <h2>Giảm giá <span>40%</span></h2>
-                            <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
-                            <button>Mua ngay</button>
+                        <h1>Bánh Kem Tươi</h1>
+                        <h2>Giảm giá <span>40%</span></h2>
+                        <p>Bakery cung cấp bánh ngọt và đồ ngọt tốt nhất cho bạn</p>
+                        <button>Mua ngay</button>
                     </div>
-                    <div class="img-slideshow"> 
+                    <div class="img-slideshow">
                         <img src="./assets/images/slideshow-v2-img3.png" alt="">
                     </div>
                 </div>
@@ -106,13 +108,13 @@
 
             <!--sidebar-social-->
             <?php
-                include('socialsidebar.php');
+            include('socialsidebar.php');
             ?>
             <!--end sidebar-social-->
-            
+
             <!--back-to-top-scroll-->
             <?php
-                include('backtotop.php');
+            include('backtotop.php');
             ?>
             <!--end back-to-top-scroll-->
 
@@ -124,34 +126,34 @@
                 </div>
                 <div class="container">
                     <div class="slickslider" style="overflow: hidden;">
-                        
+
                         <?php
-                            $query = "SELECT * FROM `product` WHERE cat_id=99";
-                            $result = mysqli_query($connect, $query);
-                            
-                            while($row = mysqli_fetch_array($result)) {?>
-                             <div class="product" style="padding:0 15px;">
-                                <form  method="get" action="index.php?id=<?=$row['id'] ?>" >  
+                        $query = "SELECT * FROM `product` WHERE cat_id=99";
+                        $result = mysqli_query($connect, $query);
+
+                        while ($row = mysqli_fetch_array($result)) { ?>
+                            <div class="product" style="padding:0 15px;">
+                                <form method="get" action="index.php?id=<?= $row['id'] ?>">
                                     <div class="product-single">
                                         <div class="img-product">
-                                            <img src="./upload/<?=$row['image']?>" alt="">
+                                            <img src="./upload/<?= $row['image'] ?>" alt="">
                                         </div>
                                         <div class="name-product">
-                                            <p><?=$row['name'];?></p>
+                                            <p><?= $row['name']; ?></p>
                                         </div>
                                         <div class="price-product">
-                                            <p><?=number_format($row['price'], 0, '', ',');?> <span>VND</span></p>
+                                            <p><?= number_format($row['price'], 0, '', ','); ?> <span>VND</span></p>
                                         </div>
                                         <div class="view-product">
-                                            <a href="product_details.php?id=<?=$row['id'];?>" class="view-details" >Xem chi tiết</a>
+                                            <a href="product_details.php?id=<?= $row['id']; ?>" class="view-details">Xem chi tiết</a>
                                         </div>
-                                    </div>                              
+                                    </div>
                                 </form>
                             </div>
-                           <?php }
-                            
+                        <?php }
+
                         ?>
-    
+
                     </div>
                 </div>
             </div>
@@ -167,59 +169,59 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6 col-md-6 col-sm-12">
-                                <div class="name-cake">
-                                    <h4>Bánh Vòng Dâu</h4>
-                                    <div class="material">
-                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
-                                    </div>
-                                    <div class="line"></div>
+                            <div class="name-cake">
+                                <h4>Bánh Vòng Dâu</h4>
+                                <div class="material">
+                                    <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
                                 </div>
-                                <div class="name-cake">
-                                    <h4>Bánh Vòng Dâu</h4>
-                                    <div class="material">
-                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
-                                    </div>
-                                    <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="name-cake">
+                                <h4>Bánh Vòng Dâu</h4>
+                                <div class="material">
+                                    <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
                                 </div>
-                                <div class="name-cake">
-                                    <h4>Bánh Vòng Dâu</h4>
-                                    <div class="material">
-                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
-                                    </div>
-                                    <div class="line"></div>
-                                </div>                   
+                                <div class="line"></div>
+                            </div>
+                            <div class="name-cake">
+                                <h4>Bánh Vòng Dâu</h4>
+                                <div class="material">
+                                    <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                </div>
+                                <div class="line"></div>
+                            </div>
                         </div>
                         <div class="col-6 col-md-6 col-sm-12">
-                                <div class="name-cake">
-                                    <h4>Bánh Vòng Dâu</h4>
-                                    <div class="material">
-                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
-                                    </div>
-                                    <div class="line"></div>
+                            <div class="name-cake">
+                                <h4>Bánh Vòng Dâu</h4>
+                                <div class="material">
+                                    <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
                                 </div>
-                                <div class="name-cake">
-                                    <h4>Bánh Vòng Dâu</h4>
-                                    <div class="material">
-                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
-                                    </div>
-                                    <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="name-cake">
+                                <h4>Bánh Vòng Dâu</h4>
+                                <div class="material">
+                                    <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
                                 </div>
-                                <div class="name-cake">
-                                    <h4>Bánh Vòng Dâu</h4>
-                                    <div class="material">
-                                        <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
-                                    </div>
-                                    <div class="line"></div>
-                                </div>                   
+                                <div class="line"></div>
+                            </div>
+                            <div class="name-cake">
+                                <h4>Bánh Vòng Dâu</h4>
+                                <div class="material">
+                                    <p>(trứng, sữa tươi, đường, vanilla)</p><span>50,000 VND</span>
+                                </div>
+                                <div class="line"></div>
+                            </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
             <!--end menu section-->
 
         </div>
         <!--end content-->
-        
+
         <!-- @instagram  -->
         <div id="instagram">
             <div class="container">
@@ -230,7 +232,7 @@
         </div>
         <!--end @instagram -->
 
-        <!--slider track img -->                       
+        <!--slider track img -->
         <div id="imgslider">
             <div class="container">
                 <div class="imgtrack slick">
@@ -243,16 +245,16 @@
                 </div>
             </div>
         </div>
-        <!--slider track img -->                       
-        
+        <!--slider track img -->
+
         <!--footer-->
-         <?php
-            include('footer.php');
-         ?>
+        <?php
+        include('footer.php');
+        ?>
         <!--end footer-->
 
     </div>
-    
+
     <script src="./assets/js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/owl.carousel.min.js"></script>
@@ -260,18 +262,17 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="assets/slick/slick.min.js"></script>
     <script>
-      
-         /* slide carousel jquery custom */
-         $('.owl-carousel').owlCarousel({
-            items:1,
+        /* slide carousel jquery custom */
+        $('.owl-carousel').owlCarousel({
+            items: 1,
             lazyLoad: true,
             loop: true,
-            margin: 10,          
+            margin: 10,
             autoplay: true,
             autoPlaySpeed: 5000,
             autoPlayTimeout: 5000,
             autoplayHoverPause: true,
-            autoplaySpeed:1000
+            autoplaySpeed: 1000
         });
         /*end slide carousel jquery custom*/
 
@@ -294,37 +295,36 @@
             arrows: true,
             slidesToShow: 4,
             slidesToScroll: 4,
-            responsive: [
-                {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
                 },
                 {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
                 },
                 {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
                 }
                 // You can unslick at a given breakpoint now by adding:
                 // settings: "unslick"
                 // instead of a settings object
             ]
-            });
+        });
         /* end slide slick track */
-        
     </script>
 </body>
+
 </html>
