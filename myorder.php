@@ -50,9 +50,34 @@ if (!isset($_SESSION["login"])) {
         font-weight: 600;
 
     }
+
+    .listStt {
+        color: #0B5ED7;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .listStt span {
+        color: #FF1654;
+        font-size: 18px;
+    }
 </style>
 <div class="myorder-container">
     <h2>Đơn hàng của tôi</h2>
+    <?php
+    if (isset($_GET["id"])) {
+        $count_stt1 = mysqli_query($connect, "SELECT * FROM `order-info` WHERE `status`='1' AND `user_id` =" . $_GET["id"]);
+        $count_stt2 = mysqli_query($connect, "SELECT * FROM `order-info` WHERE `status`='2' AND `user_id` =" . $_GET["id"]);
+        $count_stt3 = mysqli_query($connect, "SELECT * FROM `order-info` WHERE `status`='3' AND `user_id` =" . $_GET["id"]);
+        $count_stt4 = mysqli_query($connect, "SELECT * FROM `order-info` WHERE `status`='4' AND `user_id` =" . $_GET["id"]);
+        $count_stt0 = mysqli_query($connect, "SELECT * FROM `order-info` WHERE `status`='0' AND `user_id` =" . $_GET["id"]);
+        $row1 = mysqli_num_rows($count_stt1);
+        $row2 = mysqli_num_rows($count_stt2);
+        $row3 = mysqli_num_rows($count_stt3);
+        $row4 = mysqli_num_rows($count_stt4);
+        $row0 = mysqli_num_rows($count_stt0);  ?>
+        <p class="listStt">Bạn có <span><?= $row1 ?></span> đơn đang được xử lý, <span><?= $row2 ?></span> đơn đã xử lý, <span><?= $row3 ?></span> đơn đang vận chuyển, <span><?= $row4 ?></span> đã giao hàng thành công và <span><?= $row0 ?></span> đơn đã hủy </p>
+    <?php }  ?>
     <div class="row">
         <div class="col-12">
             <div style="overflow-x:auto;">

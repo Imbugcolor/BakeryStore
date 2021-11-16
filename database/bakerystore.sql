@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2021 lúc 10:27 PM
+-- Thời gian đã tạo: Th10 16, 2021 lúc 11:21 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -70,25 +70,10 @@ CREATE TABLE `order-details` (
 --
 
 INSERT INTO `order-details` (`orderdetail_id`, `order_id`, `id`, `orderprice`, `quantity`, `total`, `datecreate`) VALUES
-(16, 11, 24, 999999, 2, 1999998, '2021-11-09 11:15:05'),
-(17, 11, 3, 65000, 2, 130000, '2021-11-09 11:15:05'),
-(18, 11, 23, 54000, 1, 54000, '2021-11-09 11:15:05'),
-(24, 17, 1, 76000, 2, 152000, '2021-11-10 10:39:51'),
-(25, 17, 3, 65000, 2, 130000, '2021-11-10 10:39:51'),
 (29, 19, 6, 55000, 2, 110000, '2021-11-10 13:59:23'),
 (30, 19, 4, 75000, 1, 75000, '2021-11-10 13:59:23'),
 (31, 20, 3, 65000, 10, 650000, '2021-11-10 14:21:47'),
 (32, 20, 1, 76000, 2, 152000, '2021-11-10 14:21:47'),
-(40, 25, 27, 220000, 2, 440000, '2021-11-11 11:54:44'),
-(41, 25, 5, 49000, 1, 49000, '2021-11-11 11:54:44'),
-(42, 25, 28, 25000, 2, 50000, '2021-11-11 11:54:44'),
-(44, 27, 6, 55000, 2, 110000, '2021-11-11 18:53:28'),
-(45, 27, 29, 55000, 5, 275000, '2021-11-11 18:53:28'),
-(46, 27, 1, 76000, 1, 76000, '2021-11-11 18:53:28'),
-(47, 28, 32, 50000, 3, 150000, '2021-11-12 11:48:32'),
-(48, 28, 3, 65000, 2, 130000, '2021-11-12 11:48:32'),
-(49, 28, 1, 76000, 2, 152000, '2021-11-12 11:48:32'),
-(50, 28, 4, 45000, 2, 90000, '2021-11-12 11:48:32'),
 (51, 29, 8, 45000, 2, 90000, '2021-11-12 15:48:48'),
 (52, 29, 6, 55000, 1, 55000, '2021-11-12 15:48:48'),
 (53, 29, 7, 50000, 4, 200000, '2021-11-12 15:48:48'),
@@ -104,13 +89,32 @@ INSERT INTO `order-details` (`orderdetail_id`, `order_id`, `id`, `orderprice`, `
 (63, 32, 4, 45000, 2, 90000, '2021-11-13 11:30:09'),
 (64, 32, 31, 20000, 2, 40000, '2021-11-13 11:30:09'),
 (65, 32, 6, 55000, 1, 55000, '2021-11-13 11:30:09'),
-(69, 34, 4, 45000, 1, 45000, '2021-11-13 22:04:24'),
-(70, 34, 22, 35000, 4, 140000, '2021-11-13 22:04:24'),
-(71, 34, 29, 55000, 3, 165000, '2021-11-13 22:04:24'),
-(72, 34, 5, 49000, 1, 49000, '2021-11-13 22:04:24'),
-(73, 34, 1, 76000, 1, 76000, '2021-11-13 22:04:24'),
-(74, 34, 7, 50000, 2, 100000, '2021-11-13 22:04:24'),
-(75, 34, 35, 34000, 1, 34000, '2021-11-13 22:04:24');
+(78, 37, 4, 45000, 1, 45000, '2021-11-15 14:50:31'),
+(79, 37, 6, 55000, 2, 110000, '2021-11-15 14:50:31'),
+(80, 37, 22, 35000, 1, 35000, '2021-11-15 14:50:31'),
+(81, 37, 32, 15000, 3, 45000, '2021-11-15 14:50:31'),
+(82, 37, 40, 25000, 1, 25000, '2021-11-15 14:50:31'),
+(83, 37, 29, 55000, 2, 110000, '2021-11-15 14:50:31'),
+(84, 38, 6, 55000, 10, 550000, '2021-11-15 21:59:20'),
+(106, 50, 8, 45000, 2, 90000, '2021-11-16 10:53:47'),
+(107, 50, 27, 220000, 4, 880000, '2021-11-16 10:53:47'),
+(108, 50, 32, 15000, 5, 75000, '2021-11-16 10:53:47'),
+(109, 51, 4, 45000, 4, 180000, '2021-11-16 10:57:33'),
+(110, 51, 33, 30000, 2, 60000, '2021-11-16 10:57:33'),
+(111, 51, 35, 34000, 3, 102000, '2021-11-16 10:57:33'),
+(112, 51, 5, 49000, 1, 49000, '2021-11-16 10:57:33'),
+(113, 52, 4, 45000, 1, 45000, '2021-11-16 11:00:52'),
+(114, 52, 7, 50000, 4, 200000, '2021-11-16 11:00:52'),
+(115, 52, 8, 45000, 4, 180000, '2021-11-16 11:00:52'),
+(116, 52, 37, 25000, 4, 100000, '2021-11-16 11:00:52'),
+(117, 53, 7, 50000, 1, 50000, '2021-11-16 11:13:04'),
+(118, 53, 5, 49000, 2, 98000, '2021-11-16 11:13:04'),
+(119, 53, 3, 35000, 2, 70000, '2021-11-16 11:13:04'),
+(120, 53, 40, 25000, 3, 75000, '2021-11-16 11:13:04'),
+(121, 54, 4, 45000, 4, 180000, '2021-11-16 11:18:04'),
+(122, 54, 28, 25000, 2, 50000, '2021-11-16 11:18:04'),
+(123, 54, 29, 55000, 3, 165000, '2021-11-16 11:18:04'),
+(124, 54, 2, 50000, 4, 200000, '2021-11-16 11:18:04');
 
 -- --------------------------------------------------------
 
@@ -136,18 +140,19 @@ CREATE TABLE `order-info` (
 --
 
 INSERT INTO `order-info` (`order_id`, `total`, `user_id`, `full_name`, `email`, `address`, `phone`, `request`, `date_order`, `status`) VALUES
-(11, 2183998, 11, 'Nguyễn Văn Chuối', 'viet18@gmail.com', '605 Nguyen Van Luong ', '0988553321', 'Shop gói hàng chắc chắn vô nha', '2021-11-09 11:15:05', 4),
-(17, 282000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', 'AAA', '2021-11-10 10:39:51', 2),
-(19, 185000, 10, 'Trần Đại Test', 'multiple@gmail.com', '900 Test', '0099938882', 'Test Sp', '2021-11-10 13:59:23', 3),
-(20, 802000, 1, 'Trần Mới Mua', 'thuan1303@gmail.com', '291 Binh Thanh', '0123456767', 'KHONG CO GI', '2021-11-10 14:21:47', 1),
-(25, 539000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', '', '2021-11-11 11:54:44', 1),
-(27, 461000, 10, 'Lâm Dương Anh Thư', 'nu1206@gmail.com', 'X38 Nguyễn Thị Mười', '0123453212', 'Cho em thêm cái muỗng xúc bánh ăn', '2021-11-11 18:53:28', 4),
-(28, 522000, 10, 'Nguyễn Duy Tân', 'multiple@gmail.com', '107 Nguyen Oanh', '05762345684', 'Nothing!', '2021-11-12 11:48:32', 0),
-(29, 535000, 10, 'Dương Duy Khoa', 'khoa12345@gmail.com', '108 Vo Oanh', '2233541212', 'Không có gì', '2021-11-12 15:48:48', 1),
-(30, 337000, 1, 'Nguyễn Trung Thành', 'vietdinh105@gmail.com', '1008 Phường Tân Phú, Quận 9, thành phố Hồ Chí Minh', '0892365963', 'NICE PRODUCT', '2021-11-12 15:55:22', 1),
+(19, 185000, 10, 'Trần Đại Test', 'multiple@gmail.com', '900 Test', '0099938882', 'Test Sp', '2021-11-10 13:59:23', 0),
+(20, 802000, 1, 'Trần Mới Mua', 'thuan1303@gmail.com', '291 Binh Thanh', '0123456767', 'KHONG CO GI', '2021-11-10 14:21:47', 4),
+(29, 535000, 10, 'Dương Duy Khoa', 'khoa12345@gmail.com', '108 Vo Oanh', '2233541212', 'Không có gì', '2021-11-12 15:48:48', 4),
+(30, 337000, 1, 'Nguyễn Trung Thành', 'vietdinh105@gmail.com', '1008 Phường Tân Phú, Quận 9, thành phố Hồ Chí Minh', '0892365963', 'NICE PRODUCT', '2021-11-12 15:55:22', 4),
 (31, 355000, 12, 'Đinh Hữu Nam', 'viet888@gmail.com', '182 Phường 29 Xã ABC Tỉnh XYZ', '0837756452', 'GOOD!', '2021-11-12 16:02:46', 2),
-(32, 337000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', '', '2021-11-13 11:30:09', 0),
-(34, 609000, 10, 'Vũ Đức Lợi', 'multiple@gmail.com', '87 Le Thanh Tong', '0147258369', 'Free ship nha ', '2021-11-13 22:04:24', 3);
+(32, 337000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', '', '2021-11-13 11:30:09', 3),
+(37, 370000, 10, 'Vũ Đức Lợi', 'viet198@gmail.com', '128 Le Duc Tho', '0987635421', 'Very good!', '2021-11-15 14:50:31', 2),
+(38, 550000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', '', '2021-11-15 21:59:20', 1),
+(50, 1045000, 10, 'Lê Thành An', 'viethd123456@gmail.com', '292 P25 XVNT TpHCM', '0789789789', 'Good product phù hợp giá tiền!', '2021-11-16 10:53:47', 1),
+(51, 391000, 10, 'Dương Minh Ngọc', 'viethd123456@gmail.com', '211, Thanh Binh 1, Binh Thanh, Duc Trong', '0123789987', 'I hope eating it now!', '2021-11-16 10:57:33', 1),
+(52, 525000, 10, 'Cao Lê Thuần', '1951120153@sv.ut.edu.vn', '124 P22 Nguyen Xi  TpHcm', '0754125456', 'Nice cake!', '2021-11-16 11:00:52', 1),
+(53, 293000, 10, 'Bùi Thảo Linh', 'viethd123456@gmail.com', '900 Hoa Binh', '0159785354', 'Sản phẩm trông bắt mắt rất đáng  để mua!', '2021-11-16 11:13:04', 1),
+(54, 595000, 10, 'Lại Thu Hương', 'viethd123456@gmail.com', '211, Thanh Binh 1, Binh Thanh, Duc Trong', '0788999999', 'Very Nice product!', '2021-11-16 11:18:04', 3);
 
 -- --------------------------------------------------------
 
@@ -169,13 +174,13 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `image`, `description`, `price`, `cat_id`) VALUES
-(1, 'Bánh Quy Sữa', 'product-cake1-1.jpg', '<p><span style=\"font-size:14px\"><span style=\"color:#2980b9\">B&aacute;nh quy </span>nhiều lớp, giữa c&aacute;c lớp c&oacute; nh&acirc;n kem sữa ngọt. B&aacute;nh chứa bột, đường v&agrave; một số loại dầu hoặc chất b&eacute;o. B&aacute;nh quy bao gồm c&aacute;c th&agrave;nh phần kh&aacute;c như nho kh&ocirc;, yến mạch, s&ocirc; c&ocirc; la chip, c&aacute;c loại hạt, v.v.</span></p>\r\n', 76000, 1),
+(1, 'Bánh Quy Sữa', 'product-cake1-1.jpg', '<p><span style=\"font-size:14px\"><span style=\"color:#2980b9\">B&aacute;nh quy </span>nhiều lớp, giữa c&aacute;c lớp c&oacute; nh&acirc;n kem sữa ngọt. B&aacute;nh chứa bột, đường v&agrave; một số loại dầu hoặc chất b&eacute;o. B&aacute;nh quy bao gồm c&aacute;c th&agrave;nh phần kh&aacute;c như nho kh&ocirc;, yến mạch, s&ocirc; c&ocirc; la chip, c&aacute;c loại hạt, v.v.</span></p>\r\n', 16000, 1),
 (2, 'Bánh Kem Việt Quất', 'product-cake1-2.jpg', '<p><strong><span style=\"color:#8e44ad\">M&aacute;t lạnh c&ugrave;ng với thị thanh của việt quất</span></strong></p>\r\n', 50000, 2),
 (3, 'Bánh Vòng A', 'product-cake1-3.jpg', '<p><strong><span style=\"color:#e74c3c\">B&aacute;nh v&ograve;ng dinh dưỡng ăn v&agrave;o kh&ocirc;ng mập</span></strong></p>\r\n', 35000, 3),
-(4, 'Cupcake sweet', 'imgslidefooter6.jpg', '<h4><span style=\"font-size:14px\"><span style=\"color:#e74c3c\"><strong>B&aacute;nh cupcake - phi&ecirc;n bản b&aacute;nh kem thu nhỏ</strong></span></span></h4>\r\n\r\n<p><a href=\"https://www.dienmayxanh.com/vao-bep/cach-phan-biet-banh-muffin-va-banh-cupcake-02623\">Cupcake</a> l&agrave; loại b&aacute;nh kem thu nhỏ, kh&ocirc;ng c&oacute; nh&acirc;n hoặc sử dụng nh&acirc;n ngọt, cốt b&aacute;nh thường nhẹ, mềm, vị ngọt tan v&agrave; c&oacute; lớp b&ocirc;ng kem ph&iacute;a tr&ecirc;n.</p>\r\n\r\n<p><span style=\"color:#c0392b\">Nguy&ecirc;n liệu</span> l&agrave;m l&agrave;m b&aacute;nh cupcake cũng tương tự như l&agrave;m b&aacute;nh kem lớn vậy, nhưng thợ l&agrave;m b&aacute;nh sẽ cho bột v&agrave;o khu&ocirc;n giấy nhỏ hơn rồi đem đi nướng.</p>\r\n\r\n<p>Sau đ&oacute;, mới trang tr&iacute; lớp b&ocirc;ng kem v&agrave; một số nguy&ecirc;n liệu kh&aacute;c để l&agrave;m cho b&aacute;nh cupcake trở n&ecirc;n bắt mắt hơn.</p>\r\n', 45000, 1),
+(4, 'Cupcake sweet', 'imgslidefooter6.jpg', '<h4><span style=\"font-size:14px\"><span style=\"color:#e74c3c\"><strong>B&aacute;nh cupcake - phi&ecirc;n bản b&aacute;nh kem thu nhỏ</strong></span></span></h4>\r\n\r\n<p><a href=\"https://www.dienmayxanh.com/vao-bep/cach-phan-biet-banh-muffin-va-banh-cupcake-02623\">Cupcake</a> l&agrave; loại b&aacute;nh kem thu nhỏ, kh&ocirc;ng c&oacute; nh&acirc;n hoặc sử dụng nh&acirc;n ngọt, cốt b&aacute;nh thường nhẹ, mềm, vị ngọt tan v&agrave; c&oacute; lớp b&ocirc;ng kem ph&iacute;a tr&ecirc;n.</p>\r\n\r\n<p><span style=\"color:#c0392b\">Nguy&ecirc;n liệu</span> l&agrave;m l&agrave;m b&aacute;nh cupcake cũng tương tự như l&agrave;m b&aacute;nh kem lớn vậy, nhưng thợ l&agrave;m b&aacute;nh sẽ cho bột v&agrave;o khu&ocirc;n giấy nhỏ hơn rồi đem đi nướng.</p>\r\n\r\n<p>Sau đ&oacute;, mới trang tr&iacute; lớp b&ocirc;ng kem v&agrave; một số nguy&ecirc;n liệu kh&aacute;c để l&agrave;m cho b&aacute;nh cupcake trở n&ecirc;n bắt mắt hơn.</p>\r\n', 45000, 4),
 (5, 'Bánh Kem Chocolate', 'seller-product-1.jpg', 'Bánh kem kết hợp hương vị chocolate đậm đà', 49000, 2),
 (6, 'Bánh Kem Dâu', 'seller-product-2.jpg', 'Bánh kem kết hợp hương vị dâu tây tinh khiết', 55000, 99),
-(7, 'Bánh Bông Lan', 'seller-product-3.jpg', 'Bánh Bông Lan mềm tươi ngon', 50000, 99),
+(7, 'Kem dâu chocolate', 'seller-product-3.jpg', '<p><strong>Th&agrave;nh phần:&nbsp;</strong>B&aacute;nh kem tươi cốt 5 lớp vani, nh&acirc;n hạt dẻ, trang tr&iacute; hoa v&agrave; quả kem tươi</p>\r\n', 50000, 2),
 (8, 'Bánh kem vanilla', 'seller-product-4.jpg', '<p><span style=\"color:#2980b9\">B&aacute;nh kem</span>&nbsp;vani mềm mịn thơm nhẹ hương vani,&nbsp;<em>b&aacute;nh kem</em>&nbsp;ngon, ko ngọt, ăn ko bị ng&aacute;n.</p>\r\n', 45000, 2),
 (9, 'Bánh Quy', 'seller-product-3.jpg', 'Đây là loại bánh quy pha trộn với hương vị sữa tươi', 59000, 99),
 (22, 'Bánh nhiều màu', 'product-cake1-4.jpg', '<p><span style=\"color:#e74c3c\">b&aacute;nh bao gồm 2 mặt b&aacute;nh ngọt ngọt được bọc bởi lớp socola b&ecirc;n ngo&agrave;i, ở giữa b&aacute;nh l&agrave; một lớp nh&acirc;n được l&agrave;m từ kẹo marshmallow m&agrave;u trắng c&oacute; vị ngọt v&agrave;o dẻo</span></p>\r\n', 35000, 101),
@@ -187,11 +192,12 @@ INSERT INTO `product` (`id`, `name`, `image`, `description`, `price`, `cat_id`) 
 (31, 'Bánh ngọt chocolate', 'pro19.jpg', 'Bánh socola với lớp socola vị ca cao béo, thơm mà không bị đắng phủ bên ngoài lớp bánh xốp mịn rất ngon. Kẹp giữa của Bánh vị ca cao là lớp kem marshmallow dẻo thơm. (3 cái)', 20000, 99),
 (32, 'Su kem dâu', 'pro22_cf5f4b91-2ef5-4ffd-a5e4-fae215bfcecc.jpg', '<p><span style=\"color:#27ae60\">B&aacute;nh kem l&agrave; một loại b&aacute;nh thường c&oacute; &yacute; nghĩa quan trọng v&agrave; đặc biệt nhất trong dịp kỷ niệm sinh nhật của người d&ugrave;ng. Đ&acirc;y l&agrave; một loại b&aacute;nh ngọt dạng th&aacute;p như b&aacute;nh b&ocirc;ng lan xốp v&agrave; được phủ l&ecirc;n một lớp kem d&agrave;y hoặc mỏng vừa để trang tr&iacute; vừa để tăng th&ecirc;m hương</span></p>\r\n', 15000, 99),
 (33, 'Giảm giá 6', 'pro24.jpg', 'Bánh kem là một loại bánh thường có ý nghĩa quan trọng và đặc biệt nhất trong dịp kỷ niệm sinh nhật của người dùng. Đây là một loại bánh ngọt dạng tháp như bánh bông lan xốp và được phủ lên một lớp kem dày hoặc mỏng vừa để trang trí vừa để tăng thêm hương', 30000, 99),
-(34, 'bánh nhân marshmalow', 'pro2.jpg', '<p><span style=\"color:#8e44ad\">Vẻ bề ngo&agrave;i đơn giản nhưng b&ecirc;n trong lại chứa đựng hương vị tinh tế, thanh nhẹ l&agrave; những g&igrave; m&agrave; người ta mi&ecirc;u tả về b&aacute;nh su kem &ndash; loại b&aacute;nh đến từ nước Ph&aacute;p xi', 34000, 104),
-(35, 'Su kem sầu riêng', 'banh-su-kem-sau-rieng.jpg', '<p><span style=\"color:#e74c3c\"><strong>Vẻ bề ngo&agrave;i đơn giản nhưng b&ecirc;n trong lại chứa đựng hương vị tinh tế, thanh nhẹ l&agrave; những g&igrave; m&agrave; người ta mi&ecirc;u tả về b&aacute;nh su kem &ndash; loại b&aacute;nh đến từ nước Ph&aacute;p xinh đẹp.</strong></span></p>\r\n\r\n<p><span style=\"color:#8e44ad\"><em>B&aacute;nh su c&ograve;n c&oacute; nhiều t&ecirc;n gọi kh&aacute;c như <strong>choux &agrave; la creme</strong>, <strong>profiterole</strong> hay người Việt vẫn gọi l&agrave; b&aacute;nh su hột g&agrave;. Lớp vỏ thuộc d&ograve;ng <strong>choux pastry</strong> nhẹ, kh&ocirc;, ẩm b&ecirc;n trong nhưng gi&ograve;n dai b&ecirc;n ngo&agrave;i.</em></span></p>\r\n', 34000, 108),
-(36, 'Su kem Singapore', 'banh-su-kem-singapore-bat-mat-600x400.jpg', '<p><span style=\"color:#e74c3c\"><em>B&aacute;nh Su Kem Singapore&nbsp; &ndash; Hương vị ngọt ng&agrave;o, thơm ngon của b&aacute;nh su Singapore chắc hẳn đ&atilde; khiến kh&ocirc;ng &iacute;t người phải m&ecirc; mẩn v&agrave; &ldquo;tương tư&rdquo;. Tuy nhi&ecirc;n, gi&aacute; th&agrave;nh của loại b&aacute;nh n&agrave;y tr&ecirc;n thị trường n&agrave;y lại kh&ocirc;ng hề dễ chịu.</em></span></p>\r\n\r\n<p>Ngay từ khi xuất hiện tr&ecirc;n thị trường Việt,&nbsp;<strong>b&aacute;nh su Singapore</strong>&nbsp;đ&atilde; nhanh ch&oacute;ng tạo th&agrave;nh một cơn sốt trong giới trẻ. Đều l&agrave; b&aacute;nh su nhưng m&oacute;n b&aacute;nh n&agrave;y lại c&oacute; hương vị kh&aacute;c hẳn v&agrave; hấp dẫn hơn rất nhiều so với b&aacute;nh su kem truyền thống.</p>\r\n\r\n<p>Vỏ b&aacute;nh vừa mềm mềm lại c&oacute; độ dai đặc trưng, nh&acirc;n b&aacute;nh ngọt ng&agrave;o kết hợp c&ugrave;ng topping được th&ecirc;m l&ecirc;n mặt b&aacute;nh th&igrave; quả thật l&agrave; cực phẩm.</p>\r\n', 45000, 108),
-(37, 'Bông Lan bơ', 'imgslidefooter6.jpg', '<p><strong><span style=\"color:#ffffff\"><span style=\"background-color:#8e44ad\">High-fat cake</span></span> c</strong>h&iacute;nh l&agrave; d&ograve;ng b&aacute;nh b&ocirc;ng lan ngọt cổ điển chứa nhiều chất b&eacute;o như dầu bơ. V&igrave; vậy b&aacute;nh c&oacute; độ mềm mại cộng với độ phồng từ muối nở. B&aacute;nh c&oacute; kết cấu ẩm, tơi v&agrave; nở c&ugrave;ng vị thơm ngậy của bơ, l&agrave; vị b&ocirc;ng lan ưa th&iacute;ch của nhiều người.</p>\r\n', 25000, 4),
-(38, 'Cupcake kem', 'cupcakekem.jpg', '<p><span style=\"font-size:16px\"><span style=\"color:#2980b9\"><strong>B&aacute;nh cupcake</strong> </span>được trang tr&iacute; kh&aacute; cầu k&igrave; với lớp b&ocirc;ng kem ph&iacute;a tr&ecirc;n, vừa l&agrave; m&oacute;n b&aacute;nh thưởng thức tại nh&agrave;, lại vừa c&oacute; thể l&agrave;m qu&agrave; tặng d&agrave;nh cho bạn b&egrave;, người th&acirc;n nh&acirc;n dịp đặc biệt.</span></p>\r\n', 35000, 1);
+(34, 'Marshmalow', 'pro2.jpg', '<p><span style=\"color:#8e44ad\">Vẻ bề ngo&agrave;i đơn giản nhưng b&ecirc;n trong lại chứa đựng hương vị tinh tế, thanh nhẹ l&agrave; những g&igrave; m&agrave; người ta mi&ecirc;u tả về b&aacute;nh su kem &ndash; loại b&aacute;nh đến từ nước Ph&aacute;p xi</span></p>\r\n', 34000, 99),
+(35, 'Su kem sầu riêng', 'kemsaurieng.jpg', '<p><span style=\"color:#e74c3c\"><strong>Vẻ bề ngo&agrave;i đơn giản nhưng b&ecirc;n trong lại chứa đựng hương vị tinh tế, thanh nhẹ l&agrave; những g&igrave; m&agrave; người ta mi&ecirc;u tả về b&aacute;nh su kem &ndash; loại b&aacute;nh đến từ nước Ph&aacute;p xinh đẹp.</strong></span></p>\r\n\r\n<p><span style=\"color:#8e44ad\"><em>B&aacute;nh su c&ograve;n c&oacute; nhiều t&ecirc;n gọi kh&aacute;c như <strong>choux &agrave; la creme</strong>, <strong>profiterole</strong> hay người Việt vẫn gọi l&agrave; b&aacute;nh su hột g&agrave;. Lớp vỏ thuộc d&ograve;ng <strong>choux pastry</strong> nhẹ, kh&ocirc;, ẩm b&ecirc;n trong nhưng gi&ograve;n dai b&ecirc;n ngo&agrave;i.</em></span></p>\r\n', 34000, 108),
+(36, 'Su kem Singapore', 'banh1.jpg', '<p><span style=\"color:#e74c3c\"><em>B&aacute;nh Su Kem Singapore&nbsp; &ndash; Hương vị ngọt ng&agrave;o, thơm ngon của b&aacute;nh su Singapore chắc hẳn đ&atilde; khiến kh&ocirc;ng &iacute;t người phải m&ecirc; mẩn v&agrave; &ldquo;tương tư&rdquo;. Tuy nhi&ecirc;n, gi&aacute; th&agrave;nh của loại b&aacute;nh n&agrave;y tr&ecirc;n thị trường n&agrave;y lại kh&ocirc;ng hề dễ chịu.</em></span></p>\r\n\r\n<p>Ngay từ khi xuất hiện tr&ecirc;n thị trường Việt,&nbsp;<strong>b&aacute;nh su Singapore</strong>&nbsp;đ&atilde; nhanh ch&oacute;ng tạo th&agrave;nh một cơn sốt trong giới trẻ. Đều l&agrave; b&aacute;nh su nhưng m&oacute;n b&aacute;nh n&agrave;y lại c&oacute; hương vị kh&aacute;c hẳn v&agrave; hấp dẫn hơn rất nhiều so với b&aacute;nh su kem truyền thống.</p>\r\n\r\n<p>Vỏ b&aacute;nh vừa mềm mềm lại c&oacute; độ dai đặc trưng, nh&acirc;n b&aacute;nh ngọt ng&agrave;o kết hợp c&ugrave;ng topping được th&ecirc;m l&ecirc;n mặt b&aacute;nh th&igrave; quả thật l&agrave; cực phẩm.</p>\r\n', 45000, 108),
+(37, 'Cupcake chocolate', 'imgslidefooter6.jpg', '<p><strong><span style=\"color:#ffffff\"><span style=\"background-color:#8e44ad\">High-fat cake</span></span> c</strong>h&iacute;nh l&agrave; d&ograve;ng b&aacute;nh b&ocirc;ng lan ngọt cổ điển chứa nhiều chất b&eacute;o như dầu bơ. V&igrave; vậy b&aacute;nh c&oacute; độ mềm mại cộng với độ phồng từ muối nở. B&aacute;nh c&oacute; kết cấu ẩm, tơi v&agrave; nở c&ugrave;ng vị thơm ngậy của bơ, l&agrave; vị b&ocirc;ng lan ưa th&iacute;ch của nhiều người.</p>\r\n', 25000, 4),
+(38, 'Cupcake kem', 'imgslidefooter2.jpg', '<p><span style=\"font-size:16px\"><span style=\"color:#2980b9\"><strong>B&aacute;nh cupcake</strong> </span>được trang tr&iacute; kh&aacute; cầu k&igrave; với lớp b&ocirc;ng kem ph&iacute;a tr&ecirc;n, vừa l&agrave; m&oacute;n b&aacute;nh thưởng thức tại nh&agrave;, lại vừa c&oacute; thể l&agrave;m qu&agrave; tặng d&agrave;nh cho bạn b&egrave;, người th&acirc;n nh&acirc;n dịp đặc biệt.</span></p>\r\n', 35000, 4),
+(40, 'Bánh bao chay', 'banhbaochay.jpg', '<p><strong><em>B&aacute;nh bao chay với nh&acirc;n b&aacute;nh l&agrave;m từ rau củ sẽ l&agrave; một m&oacute;n ăn dinh dưỡng m&agrave; kh&ocirc;ng k&eacute;m phần ngon miệng.</em></strong></p>\r\n\r\n<p>&ndash;&nbsp;<em><strong>Nh&acirc;n b&aacute;nh</strong></em></p>\r\n\r\n<p>+ C&agrave; rốt</p>\r\n\r\n<p>+ Củ sắn</p>\r\n\r\n<p>+ Nấm</p>\r\n', 25000, 104);
 
 -- --------------------------------------------------------
 
@@ -275,19 +281,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `order-details`
 --
 ALTER TABLE `order-details`
-  MODIFY `orderdetail_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `orderdetail_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT cho bảng `order-info`
 --
 ALTER TABLE `order-info`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT cho bảng `user`

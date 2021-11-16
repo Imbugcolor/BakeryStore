@@ -232,6 +232,30 @@ $connect = mysqli_connect("localhost", "root", "", "bakerystore");
         </div>
         <!--end @instagram -->
 
+        <!--time-open-->
+        <div id="opentime">
+            <video src="./assets/videos/videooverlay.mp4" muted loop autoplay></video>
+            <div class="opentime-container">
+                <h2 class="title-heading">GIỜ MỞ CỬA</h2>
+                <p class="slogan-title">Đến với cửa hàng của chúng tôi</p>
+                <div class="timedate">
+                    <div class="mon-to-thur">
+                        <h4>Thứ 2 đến thứ 5</h4>
+                        <p>09:00</p>
+                        <p>22:00</p>
+                    </div>
+                    <div class="fri-to-sat">
+                        <h4>Thứ 6 đến thứ 7</h4>
+                        <p>11:00</p>
+                        <p>19:00</p>
+                    </div>
+                </div>
+                <p class="text-phone">+84 877 9988 29</p>
+            </div>
+            <div class="overflow"></div>
+        </div>
+        <!--end time-open-->
+
         <!--slider track img -->
         <div id="imgslider">
             <div class="container">

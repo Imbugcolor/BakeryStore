@@ -38,12 +38,12 @@
                     <li class="category"><a href="category.php">SẢN PHẨM</a>
 
                     </li>
-                    <li><a href="#">TIN TỨC</a></li>
+                    <li><a href="blogs.php">TIN TỨC</a></li>
                     <li><a href="#">LIÊN HỆ</a></li>
                     <?php
                     if (isset($_SESSION["login"]) && $_SESSION["login"]["7"] == 1) {
                     ?>
-                        <li><a href="admin/index.php">ADMIN</a></li>
+                        <li><a href="admin/index.php">QUẢN LÝ</a></li>
                     <?php  }
                     ?>
                 </ul>
