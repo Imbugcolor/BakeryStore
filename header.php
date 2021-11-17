@@ -99,6 +99,15 @@
 
         </div>
         <!--end header-->
+
+        <!--loader-->
+        <div class="loader-bg">
+            <div class="loader-p">
+
+            </div>
+        </div>
+        <!--end loader-->
+
     </div>
 
 
@@ -196,6 +205,11 @@
                 $("#iCart").load("http://localhost/BakeryStore/cart.php #numberCart");
             });
         }
+
+        //set time loader
+        setTimeout(function() {
+            $('.loader-bg').fadeToggle();
+        }, 1000);
     </script>
 </body>
 

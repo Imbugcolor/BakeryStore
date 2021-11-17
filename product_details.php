@@ -65,13 +65,13 @@ $result = mysqli_query($connect, $sql_query);
         }
 
         .add-cart button {
-            border: none;
+            border: 1px solid #FF4A52;
+            cursor: pointer;
         }
 
         .add-cart-btn:hover {
             color: #FF4A52;
             background-color: #fff;
-            border: 1px solid #FF4A52;
         }
 
         .price-detail span {
