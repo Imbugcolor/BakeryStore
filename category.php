@@ -17,7 +17,7 @@ include('backtotop.php');
 
 <div class="category-product">
     <div class="row">
-        <div class="col-3 col-md-2 " style="box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%); border-radius:5px;">
+        <div class="col-3 col-md-2" style="box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%); border-radius:5px;">
             <div class="sbar">
                 <?php
                 include('sidebar.php')
@@ -26,18 +26,47 @@ include('backtotop.php');
         </div>
         <div class="col-9 col-md-10 col-sm-12">
             <?php
+            $param = "";
+            $sortParam = "";
+            $orderBy = "";
+            $orderField = isset($_GET['field']) ? $_GET['field'] : "";
+            $orderSort = isset($_GET['sort']) ? $_GET['sort'] : "";
             $search = isset($_GET['product-name']) ? $_GET['product-name'] : "";
-
+            //Tim kiem
             if ($search) {
                 $where = "AND `name` LIKE '%" . $search . "%'";
+                $param .= "product-name=" . $search . "&";
+                $sortParam = "product-name=" . $search . "&";
+            }
+
+            //sap xep
+            if (!empty($orderField) && !empty($orderSort)) {
+                $orderBy = "ORDER BY `product`.`" . $orderField . "` " . $orderSort;
+                $param .= "field=" . $orderField . "&sort=" . $orderSort . "&";
             }
             ?>
-            <div class="search-product">
-                <form action="" method="GET">
-                    <label for="">Tìm kiếm sản phẩm</label>
-                    <input class="search_input" type="text" value="<?= isset($_GET['product-name']) ? $_GET['product-name'] : ""; ?>" placeholder="Nhập tên sản phẩm..." name="product-name">
-                    <input class="search_submit" type="submit" value="Tìm kiếm">
-                </form>
+            <div id="filter">
+                <div class="row">
+                    <div class="col-8 col-md-8 col-sm-12">
+                        <div class="search-product">
+                            <form action="" method="GET">
+                                <label for="">Tìm kiếm sản phẩm</label><br>
+                                <input class="search_input" type="text" value="<?= isset($_GET['product-name']) ? $_GET['product-name'] : ""; ?>" placeholder="Nhập tên sản phẩm..." name="product-name">
+                                <input class="search_submit" type="submit" value="Tìm kiếm">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4 col-sm-12">
+                        <div class="sort-product">
+                            <label for="">Sắp xếp</label><br>
+                            <select onchange="this.options[this.selectedIndex].value && (window.location=this.options[this.selectedIndex].value);">
+                                <option value="">Sắp xếp theo</option>
+                                <option <?php if (isset($_GET['sort']) && $_GET['sort'] == "desc") { ?> selected <?php } ?> value="?<?= $sortParam ?>field=price&sort=desc">Giá cao đến thấp</option>
+                                <option <?php if (isset($_GET['sort']) && $_GET['sort'] == "asc") { ?> selected <?php } ?> value="?<?= $sortParam ?>field=price&sort=asc">Giá thấp đến cao</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="list-product product-container">
                 <div class="row">
@@ -49,11 +78,11 @@ include('backtotop.php');
                         $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         $offset = ($current_page - 1) * $item_per_page;
                         if ($search) {
-                            $productquery = "SELECT * FROM `product` WHERE cat_id = $id AND `name` LIKE '%" . $search . "%' ORDER BY `id` ASC LIMIT " . $item_per_page . " OFFSET " . $offset;
+                            $productquery = "SELECT * FROM `product` WHERE cat_id = $id AND `name` LIKE '%" . $search . "%' " . $orderBy . " LIMIT " . $item_per_page . " OFFSET " . $offset;
                             $result2 = mysqli_query($connect, $productquery);
                             $totalRecords = mysqli_query($connect, "SELECT * FROM `product` WHERE cat_id = $id AND `name` LIKE '%" . $search . "%' ");
                         } else {
-                            $productquery = "SELECT * FROM `product` WHERE cat_id = $id ORDER BY `id` ASC LIMIT " . $item_per_page . " OFFSET " . $offset;
+                            $productquery = "SELECT * FROM `product` WHERE cat_id = $id " . $orderBy . " LIMIT " . $item_per_page . " OFFSET " . $offset;
                             $result2 = mysqli_query($connect, $productquery);
                             $totalRecords = mysqli_query($connect, "SELECT * FROM `product` WHERE cat_id = $id ");
                         }
@@ -80,16 +109,16 @@ include('backtotop.php');
                             </div>
                         <?php }
                     } else {
-                        $id = 0;
+                        // $id = 0;
                         $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 8;
                         $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         $offset = ($current_page - 1) * $item_per_page;
                         if ($search) {
-                            $productquery = "SELECT * FROM `product` WHERE `name` LIKE '%" . $search . "%' ORDER BY `id` ASC LIMIT " . $item_per_page . " OFFSET " . $offset;
+                            $productquery = "SELECT * FROM `product` WHERE `name` LIKE '%" . $search . "%' " . $orderBy . " LIMIT " . $item_per_page . " OFFSET " . $offset;
                             $result2 = mysqli_query($connect, $productquery);
                             $totalRecords = mysqli_query($connect, "SELECT * FROM `product` WHERE `name` LIKE '%" . $search . "%' ");
                         } else {
-                            $productquery = "SELECT * FROM `product` ORDER BY `id` ASC LIMIT " . $item_per_page . " OFFSET " . $offset;
+                            $productquery = "SELECT * FROM `product` " . $orderBy . " LIMIT " . $item_per_page . " OFFSET " . $offset;
                             $result2 = mysqli_query($connect, $productquery);
                             $totalRecords = mysqli_query($connect, "SELECT * FROM `product` ");
                         }

@@ -63,7 +63,7 @@ if (!isset($_SESSION["login"])) {
     }
 </style>
 <div class="myorder-container">
-    <h2>Đơn hàng của tôi</h2>
+    <h2><i class="fas fa-box" style="color:#F4511E;"></i> Đơn hàng của tôi</h2>
     <?php
     if (isset($_GET["id"])) {
         $count_stt1 = mysqli_query($connect, "SELECT * FROM `order-info` WHERE `status`='1' AND `user_id` =" . $_GET["id"]);

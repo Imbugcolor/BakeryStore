@@ -121,7 +121,7 @@ $connect = mysqli_connect("localhost", "root", "", "bakerystore");
             <!--best-seller-section-->
             <div id="best-seller-section">
                 <div class="best-seller-header">
-                    <h2 class="title-heading">SẢN PHẨM GIẢM GIÁ</h2>
+                    <h2 class="title-heading">SẢN PHẨM NỔI BẬT</h2>
                     <div class="line"></div>
                 </div>
                 <div class="container">

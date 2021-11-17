@@ -32,6 +32,10 @@ include('../conn.php');
         justify-content: center;
         align-items: center;
     }
+
+    .card-footer a {
+        text-decoration: none;
+    }
 </style>
 <main>
     <div class="container-fluid px-4">
@@ -48,7 +52,10 @@ include('../conn.php');
                     $count = mysqli_num_rows($count_rsl);
                     ?>
                     <div class="card-body flex">Đang xử lý</div> <span style="text-align: center; font-size: 50px; color:#fff; padding-bottom: 5px; "><?php echo $count ?></span>
-
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="?module=listorder&set=1">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
@@ -59,7 +66,10 @@ include('../conn.php');
                     $count2 = mysqli_num_rows($count_rsl2);
                     ?>
                     <div class="card-body flex">Đã xử lý</div> <span style="text-align: center; font-size: 50px; color:#fff; padding-bottom: 5px; "><?php echo $count2 ?></span>
-
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="?module=listorder&set=2">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
@@ -70,6 +80,10 @@ include('../conn.php');
                     $count3 = mysqli_num_rows($count_rsl3);
                     ?>
                     <div class="card-body flex">Đang vận chuyển</div> <span style="text-align: center; font-size: 50px; color:#fff; padding-bottom: 5px; "><?php echo $count3 ?></span>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="?module=listorder&set=3">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
@@ -80,7 +94,10 @@ include('../conn.php');
                     $count4 = mysqli_num_rows($count_rsl4);
                     ?>
                     <div class="card-body flex">Đã giao hàng</div> <span style="text-align: center; font-size: 50px; color:#fff; padding-bottom: 5px; "><?php echo $count4 ?></span>
-
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="?module=listorder&set=4">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
@@ -91,6 +108,10 @@ include('../conn.php');
                     $count5 = mysqli_num_rows($count_rsl5);
                     ?>
                     <div class="card-body flex">Đã Hủy</div> <span style="text-align: center; font-size: 50px; color:#fff; padding-bottom: 5px; "><?php echo $count5 ?></span>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="?module=listorder&set='0'">Xem chi tiết</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
                 </div>
             </div>
         </div>

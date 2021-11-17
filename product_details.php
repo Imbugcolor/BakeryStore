@@ -92,6 +92,22 @@ $result = mysqli_query($connect, $sql_query);
             padding: 0 15px;
             width: 100px;
         }
+
+        .back {
+            background-color: #FF4A52;
+            border-radius: 5px;
+            width: 50px;
+            text-align: center;
+        }
+
+        .back a {
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .back a:hover {
+            opacity: 0.6;
+        }
     </style>
 </head>
 <!--sidebar-social-->
@@ -107,6 +123,9 @@ include('socialsidebar.php');
         <div class="row">
             <div class="col-5 col-sm-12">
                 <div class="box-detail">
+                    <div class="back">
+                        <a href="category.php"><i class="fas fa-reply"></i></a>
+                    </div>
                     <h2 class="title">Chi tiết sản phẩm</h2>
                     <div class="img-detail">
                         <img src="./upload/<?= $row['image'] ?>" style="width: 100%;" alt="">

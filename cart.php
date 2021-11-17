@@ -30,7 +30,7 @@ if (isset($_POST["thanhtoan"])) {
         $sqlInsertOrder = 'INSERT INTO `order-info` (total,`user_id`,`full_name`,email,`address`,phone,request,date_order,`status`) VALUES("' . $subTotal . '","' . $currentUserid . '","' . $name . '","' . $email . '","' . $address . '","' . $phone . '","' . $request . '","' . date("Y-m-d H:i:s") . '","1")';
         mysqli_query($connect, $sqlInsertOrder) or die("Lỗi!");
         $last_id = mysqli_insert_id($connect);
-        $content_mail = "<table width='500' border='1'>";
+        $content_mail = "<table width='1000' border='1' style='border-collapse:collapse;'>";
         $content_mail .= "<tr><th>STT</th><th>Ảnh sản phẩm</th><th>Tên sản phẩm</th><th>Đơn giá</th><th>Số lượng</th><th>Thành tiền</th></tr>";
         $i = 0;
         foreach ($_SESSION["cart"] as $key => $value) {
@@ -38,9 +38,10 @@ if (isset($_POST["thanhtoan"])) {
             $total = $value["price"] * $value["num"];
             $sqlInsertDetail = 'INSERT INTO `order-details` (`order_id`,`id`,`orderprice`,`quantity`,`total`,`datecreate`) VALUES("' . $last_id . '","' . $key . '","' . $value["price"] . '","' . $value["num"] . '","' . $value["num"] * $value["price"] . '","' . date("Y-m-d H:i:s") . '")';
             mysqli_query($connect, $sqlInsertDetail);
-            $content_mail .= "<tr><td>$i</td><td><img src='.upload/" . $value['image'] . "' width='100' /></td><td>" . $value['name'] . "</td><td>" . $value['price'] . "</td><td>" . $value["num"] . "</td><td>$total</td></tr>";
+            $content_mail .= "<tr><td>$i</td><td><img src='.upload/" . $value['image'] . "' width='100' /></td><td>" . $value['name'] . "</td><td>" . number_format($value['price'], 0, '', ',') . " VNĐ</td><td>" . $value["num"] . "</td><td>" . number_format($total, 0, '', ',') . " VNĐ</td></tr>";
         }
-        $content_mail .= '<table>';
+        $content_mail .= '</table>';
+
         //Gửi mail
         include("./PHPMailer/src/PHPMailer.php");
         include("./PHPMailer/src/Exception.php");
@@ -69,20 +70,40 @@ if (isset($_POST["thanhtoan"])) {
 
             $mail->isHTML(true);
             $mail->Subject = 'Chào bạn, Bạn vừa hoàn thành đặt hàng sản phẩm của chúng tôi.';
-            $mail->Body    = $content_mail;
+            $mail->Body    = '<h2 style="color: #FF4A52;">Bạn đã đặt các sản phẩm của BAKERY STORE:</h2></br>' . $content_mail . '<h3 style="color: #FF1654;">Tổng tiền đơn hàng: ' . number_format($subTotal, 0, '', ',') . ' VNĐ</h3>';
             $mail->send();
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
         unset($_SESSION["cart"]);
 ?>
-        <h2 style="padding-top: 150px; text-align:center; color:#01CE69;">Đặt hàng thành công! Bạn có thể xem đơn hàng tại email hoặc trong mục đơn hàng của tôi</a></h2>
+        <h3 style="padding: 0 15px 0 15px; margin-top:150px; text-align:center; color:#fff; background-color:#01CE69; border-radius:50px;">Đặt hàng thành công! Bạn có thể xem đơn hàng tại email hoặc trong mục đơn hàng của tôi</a></h3>
     <?php
     } else { ?>
-        <h2 style="padding-top: 150px; text-align:center; color:#FF0000;">Bạn chưa thêm sản phẩm nào trong giỏ hàng.</h2>
+        <h3 style="padding: 0 15px 0 15px; margin-top:150px; text-align:center; color:#fff; background-color:#FF4A52; border-radius:50px;">Bạn chưa thêm sản phẩm nào trong giỏ hàng.</h3>
 <?php   }
 }
 ?>
+<style>
+    .order-info {
+        box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%);
+        border-radius: 5px;
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    form {
+        padding-top: 15px;
+    }
+
+    .form-group label {
+        font-weight: 700;
+    }
+
+    .form-group label i {
+        color: #FF0000;
+    }
+</style>
 <div class="cart-order">
     <div class="container-cart" id="listCart">
         <div style="overflow-x:auto;">
@@ -133,8 +154,8 @@ if (isset($_POST["thanhtoan"])) {
         </div>
     </div>
     <div class="order-info">
-        <h2>Thông tin đặt hàng</h2>
-        <p>Vui lòng điền đầy đủ thông tin chính xác để chúng tôi hoàn thành đơn hàng!</p>
+        <h2><i class="fas fa-shopping-cart" style="color:#FF0000;"></i> Thông tin đặt hàng</h2>
+        <p style="font-size: 18px;">Vui lòng điền đầy đủ thông tin chính xác để chúng tôi hoàn thành đơn hàng!</p>
         <form action="" method="post">
             <div class="form-group">
                 <div class="row">
@@ -146,9 +167,11 @@ if (isset($_POST["thanhtoan"])) {
                     $row = mysqli_fetch_array($resultO);
                     ?>
                     <div class="col-6 col-md-6 col-sm-12">
+                        <label><i class="fas fa-user"></i> Tên khách hàng</label>
                         <input type="text" name="full_name" value="<?php echo $row["full_name"]; ?>" class="form-control" placeholder="Họ và tên (Bắt buộc)" required="">
                     </div>
                     <div class="col-6 col-md-6 col-sm-12">
+                        <label><i class="fas fa-phone"></i> Điện thoại</label>
                         <input type="number" name="phone" value="<?php echo $row["phone"]; ?>" class="form-control" placeholder="Điện thoại (Bắt buộc)" required="">
                     </div>
                 </div>
@@ -156,9 +179,11 @@ if (isset($_POST["thanhtoan"])) {
             <div class="form-group">
                 <div class="row">
                     <div class="col-6 col-md-6 col-sm-12">
+                        <label><i class="fas fa-at"></i> Email</label>
                         <input type="email" name="email" value="<?php echo $row["email"]; ?>" class="form-control" placeholder="Email (Bắt buộc)" required="">
                     </div>
                     <div class="col-6 col-md-6 col-sm-12">
+                        <label><i class="fas fa-map-marker-alt"></i> Địa chỉ</label>
                         <input type="text" name="address" value="<?php echo $row["address"]; ?>" class="form-control" placeholder="Địa chỉ" required="">
                     </div>
                 </div>
@@ -166,7 +191,8 @@ if (isset($_POST["thanhtoan"])) {
             <div class="form-group">
                 <div class="row">
                     <div class="col-12 col-md-12 col-sm-12">
-                        <textarea type="text" name="request" value="" rows="5" cols="50" placeholder="Yêu cầu..." class="form-control"></textarea>
+                        <label><i class="fas fa-question-circle"></i> Yêu cầu</label>
+                        <textarea type="text" name="request" value="" rows="5" cols="50" placeholder="Nội dung..." class="form-control"></textarea>
                     </div>
                 </div>
             </div>

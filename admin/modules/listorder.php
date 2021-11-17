@@ -45,13 +45,63 @@ include('../conn.php');
         color: #FF4A52;
         background-color: #fff;
     }
+
+    .filterStatus-order,
+    .sort-order {
+        margin-bottom: 10px;
+    }
+
+    .filterStatus-order select,
+    .sort-order select {
+        height: 35px;
+        width: fit-content;
+        color: #0B5ED7;
+    }
 </style>
 <div class="card mb-4">
+    <?php
+    $param = "";
+    $orderBy = "";
+    $sortParam = "";
+    $orderField = isset($_GET['field']) ? $_GET['field'] : "";
+    $orderSort = isset($_GET['sort']) ? $_GET['sort'] : "";
+    $statusfilter = isset($_GET['set']) ? $_GET['set'] : "";
+    //sap xep
+    if (!empty($orderField) && !empty($orderSort)) {
+        $orderBy = "ORDER BY `order-info`.`" . $orderField . "` " . $orderSort;
+        $param .= "field=" . $orderField . "&sort=" . $orderSort . "&";
+    }
+    //Loc tinh trang
+
+    if (!empty($statusfilter)) {
+        $statusCondition = "WHERE status=" . $statusfilter;
+        $sortParam = "set=" . $statusfilter . "&";
+    }
+    ?>
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
         Danh sách đơn hàng
     </div>
     <div class="card-body">
+        <div class="sort-order">
+            <label for="">Sắp xếp</label>
+            <select onchange="this.options[this.selectedIndex].value && (window.location=this.options[this.selectedIndex].value);">
+                <option value="">Sắp xếp theo</option>
+                <option <?php if (isset($_GET['sort']) && $_GET['sort'] == "desc") { ?> selected <?php } ?> value="?module=listorder&<?= $sortParam ?>field=date_order&sort=desc">Mới nhất</option>
+                <option <?php if (isset($_GET['sort']) && $_GET['sort'] == "asc") { ?> selected <?php } ?> value="?module=listorder&<?= $sortParam ?>field=date_order&sort=asc">Cũ nhất</option>
+            </select>
+        </div>
+        <div class="filterStatus-order">
+            <label for="">Lọc</label>
+            <select onchange="this.options[this.selectedIndex].value && (window.location=this.options[this.selectedIndex].value);">
+                <option <?php if (isset($_GET['set']) && $_GET['set'] == "0") { ?> selected <?php } ?> value="?module=listorder&set=0">Tình trạng</option>
+                <option <?php if (isset($_GET['set']) && $_GET['set'] == "1") { ?> selected <?php } ?> value="?module=listorder&set=1">Đang xử lý</option>
+                <option <?php if (isset($_GET['set']) && $_GET['set'] == "2") { ?> selected <?php } ?> value="?module=listorder&set=2">Đã xử lý</option>
+                <option <?php if (isset($_GET['set']) && $_GET['set'] == "3") { ?> selected <?php } ?> value="?module=listorder&set=3">Đang vận chuyển</option>
+                <option <?php if (isset($_GET['set']) && $_GET['set'] == "4") { ?> selected <?php } ?> value="?module=listorder&set=4">Đã giao hàng</option>
+                <option <?php if (isset($_GET['set']) && $_GET['set'] == "'0'") { ?> selected <?php } ?> value="?module=listorder&set='0'">Đã hủy</option>
+            </select>
+        </div>
         <table id="datatablesSimple">
             <thead>
                 <tr>
@@ -83,8 +133,13 @@ include('../conn.php');
             </tfoot>
             <tbody>
                 <?php
-                $sql_sl = "SELECT * FROM `order-info`";
-                $listorder = mysqli_query($connect, $sql_sl);
+                if ($statusfilter) {
+                    $sql_sl = "SELECT * FROM `order-info` " . $statusCondition . " " . $orderBy;
+                    $listorder = mysqli_query($connect, $sql_sl);
+                } else {
+                    $sql_sl = "SELECT * FROM `order-info` " . $orderBy;
+                    $listorder = mysqli_query($connect, $sql_sl);
+                }
                 while ($row = mysqli_fetch_array($listorder)) { ?>
 
                     <tr>
@@ -112,9 +167,9 @@ include('../conn.php');
                                 echo "Đã hủy";
                             } ?></td>
                         <td style="width: 15%;">
-                            <a href="?module=detailsorder&id=<?php echo $row["order_id"] ?>" name="review">Xem chi tiết</a>
-                            <a href="?module=commitOrder&id=<?php echo $row["order_id"] ?>" name="update">Cập nhật trạng thái</a>
-                            <a href="?module=deleteorder&id=<?php echo $row["order_id"] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" name="remove">Xóa</a>
+                            <a href="?module=detailsorder&id=<?php echo $row["order_id"] ?>" name="review"><i class="fas fa-eye"></i></a>
+                            <a href="?module=commitOrder&id=<?php echo $row["order_id"] ?>" name="update"><i class="fas fa-pen-square"></i> Trạng thái</a>
+                            <a href="?module=deleteorder&id=<?php echo $row["order_id"] ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" name="remove"><i class="far fa-times-circle"></i></a>
                         </td>
                     </tr>
                 <?php }

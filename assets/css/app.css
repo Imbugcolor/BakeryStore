@@ -587,16 +587,19 @@ video{
     margin-top: 100px;
     padding: 0 35px;
 }
+.sort-product,
 .search-product{
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%);
     padding: 15px;
 }
+.sort-product,
 .search-product label{
     color: #FF4A52;
     font-weight: 700 ;
 }
+.sort-product select,
 .search-product .search_input{
     width: 200px;
     height: 30px;
@@ -621,6 +624,13 @@ video{
 .search-product .search_submit:hover{
     color: #FF4A52;
     background-color: #fff;
+}
+.sort-product select{
+    height: 32px;
+    width: fit-content;
+}
+.sort-product{
+    width: 100%;
 }
 /*---------------------END CATEGORY PAGE ---------------------*/
 
@@ -685,35 +695,7 @@ video{
 }
 /*------------END USER MENU---------------*/
 
-/*------------PROFILE USER------------*/
-.inforuser_container{
-    margin: 100px 15px 15px 15px;
-}
-.inforuser_container h2{
-    text-align: center;
-    color: #FF4A52;
-}
-.updatebtn{
-    width: 200px;
-    height: 50px;
-    background-color: #FF4A52;
-    color: #fff;
-    border: 1px solid #FF4A52;
-    transition: 0.3s;
-    margin-top: 15px;
-}
-.updatebtn:hover{
-    color:#FF4A52;
-    background-color: #fff;
-}
-.inforuser_container .input-group{
-    margin-bottom: 15px;
-}
-.inforuser_container .input-group label{
-    color: #3C5A98;
-    font-weight: 700;
-}
-/*------------END PROFILE USER------------*/
+
 
 /*responsive */
 @media only screen and (max-width: 1280px){

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2021 lúc 11:21 AM
+-- Thời gian đã tạo: Th10 17, 2021 lúc 03:29 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -43,8 +43,8 @@ INSERT INTO `category` (`cat_id`, `cat_name`, `cat_status`, `date_create`) VALUE
 (2, 'Bánh Kem', 1, 'auto'),
 (3, 'Bánh Vòng', 1, 'auto'),
 (4, 'Cupcake', 1, 'auto'),
-(99, 'Sản phẩm giảm giá', 1, 'auto'),
-(101, 'Bánh Pía', 1, '2021-11-05 05:50:28'),
+(99, 'Sản phẩm nổi bật', 1, 'auto'),
+(101, 'Bánh Bông Lan', 1, '2021-11-05 05:50:28'),
 (102, 'Bánh Flan', 1, '2021-11-06 03:38:37'),
 (104, 'Banh Bao', 1, '2021-11-08 15:00:29'),
 (108, 'Bánh Su Kem', 1, '2021-11-13 13:45:02');
@@ -114,7 +114,29 @@ INSERT INTO `order-details` (`orderdetail_id`, `order_id`, `id`, `orderprice`, `
 (121, 54, 4, 45000, 4, 180000, '2021-11-16 11:18:04'),
 (122, 54, 28, 25000, 2, 50000, '2021-11-16 11:18:04'),
 (123, 54, 29, 55000, 3, 165000, '2021-11-16 11:18:04'),
-(124, 54, 2, 50000, 4, 200000, '2021-11-16 11:18:04');
+(124, 54, 2, 50000, 4, 200000, '2021-11-16 11:18:04'),
+(125, 55, 28, 25000, 1, 25000, '2021-11-16 21:24:55'),
+(126, 55, 27, 220000, 1, 220000, '2021-11-16 21:24:55'),
+(127, 55, 5, 49000, 3, 147000, '2021-11-16 21:24:55'),
+(128, 55, 36, 45000, 1, 45000, '2021-11-16 21:24:55'),
+(129, 55, 29, 55000, 4, 220000, '2021-11-16 21:24:55'),
+(133, 58, 41, 25000, 1, 25000, '2021-11-16 22:17:03'),
+(134, 58, 34, 34000, 2, 68000, '2021-11-16 22:17:03'),
+(135, 58, 3, 35000, 1, 35000, '2021-11-16 22:17:03'),
+(138, 60, 6, 55000, 4, 220000, '2021-11-17 13:45:46'),
+(139, 60, 35, 34000, 2, 68000, '2021-11-17 13:45:46'),
+(140, 60, 33, 30000, 2, 60000, '2021-11-17 13:45:46'),
+(150, 63, 29, 55000, 2, 110000, '2021-11-17 14:25:36'),
+(151, 63, 3, 35000, 4, 140000, '2021-11-17 14:25:36'),
+(152, 63, 27, 220000, 1, 220000, '2021-11-17 14:25:36'),
+(153, 63, 36, 45000, 2, 90000, '2021-11-17 14:25:36'),
+(154, 64, 2, 50000, 3, 150000, '2021-11-17 14:32:08'),
+(155, 64, 8, 45000, 2, 90000, '2021-11-17 14:32:08'),
+(156, 64, 38, 35000, 2, 70000, '2021-11-17 14:32:08'),
+(157, 64, 30, 40000, 1, 40000, '2021-11-17 14:32:08'),
+(158, 65, 1, 16000, 3, 48000, '2021-11-17 15:17:52'),
+(159, 65, 8, 45000, 2, 90000, '2021-11-17 15:17:52'),
+(160, 65, 7, 50000, 3, 150000, '2021-11-17 15:17:52');
 
 -- --------------------------------------------------------
 
@@ -144,15 +166,21 @@ INSERT INTO `order-info` (`order_id`, `total`, `user_id`, `full_name`, `email`, 
 (20, 802000, 1, 'Trần Mới Mua', 'thuan1303@gmail.com', '291 Binh Thanh', '0123456767', 'KHONG CO GI', '2021-11-10 14:21:47', 4),
 (29, 535000, 10, 'Dương Duy Khoa', 'khoa12345@gmail.com', '108 Vo Oanh', '2233541212', 'Không có gì', '2021-11-12 15:48:48', 4),
 (30, 337000, 1, 'Nguyễn Trung Thành', 'vietdinh105@gmail.com', '1008 Phường Tân Phú, Quận 9, thành phố Hồ Chí Minh', '0892365963', 'NICE PRODUCT', '2021-11-12 15:55:22', 4),
-(31, 355000, 12, 'Đinh Hữu Nam', 'viet888@gmail.com', '182 Phường 29 Xã ABC Tỉnh XYZ', '0837756452', 'GOOD!', '2021-11-12 16:02:46', 2),
+(31, 355000, 12, 'Đinh Hữu Nam', 'viet888@gmail.com', '182 Phường 29 Xã ABC Tỉnh XYZ', '0837756452', 'GOOD!', '2021-11-12 16:02:46', 3),
 (32, 337000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', '', '2021-11-13 11:30:09', 3),
 (37, 370000, 10, 'Vũ Đức Lợi', 'viet198@gmail.com', '128 Le Duc Tho', '0987635421', 'Very good!', '2021-11-15 14:50:31', 2),
-(38, 550000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', '', '2021-11-15 21:59:20', 1),
-(50, 1045000, 10, 'Lê Thành An', 'viethd123456@gmail.com', '292 P25 XVNT TpHCM', '0789789789', 'Good product phù hợp giá tiền!', '2021-11-16 10:53:47', 1),
+(38, 550000, 10, 'Trần Văn A', 'multiple@gmail.com', '900 Hoa Binh', '0159785354', '', '2021-11-15 21:59:20', 0),
+(50, 1045000, 10, 'Lê Thành An', 'viethd123456@gmail.com', '292 P25 XVNT TpHCM', '0789789789', 'Good product phù hợp giá tiền!', '2021-11-16 10:53:47', 0),
 (51, 391000, 10, 'Dương Minh Ngọc', 'viethd123456@gmail.com', '211, Thanh Binh 1, Binh Thanh, Duc Trong', '0123789987', 'I hope eating it now!', '2021-11-16 10:57:33', 1),
 (52, 525000, 10, 'Cao Lê Thuần', '1951120153@sv.ut.edu.vn', '124 P22 Nguyen Xi  TpHcm', '0754125456', 'Nice cake!', '2021-11-16 11:00:52', 1),
 (53, 293000, 10, 'Bùi Thảo Linh', 'viethd123456@gmail.com', '900 Hoa Binh', '0159785354', 'Sản phẩm trông bắt mắt rất đáng  để mua!', '2021-11-16 11:13:04', 1),
-(54, 595000, 10, 'Lại Thu Hương', 'viethd123456@gmail.com', '211, Thanh Binh 1, Binh Thanh, Duc Trong', '0788999999', 'Very Nice product!', '2021-11-16 11:18:04', 3);
+(54, 595000, 10, 'Lại Thu Hương', 'viethd123456@gmail.com', '211, Thanh Binh 1, Binh Thanh, Duc Trong', '0788999999', 'Very Nice product!', '2021-11-16 11:18:04', 3),
+(55, 657000, 10, 'Lâm Dương Anh Thư', 'nucute1306@gmail.com', 'X38 Nguyễn Thị Mười', '096789789', 'Cho em thêm cái muỗng nhá shop!', '2021-11-16 21:24:55', 2),
+(58, 128000, 10, 'Đinh Hoàng Việt', 'viethd123456@gmail.com', '211, Thanh Binh 1, Binh Thanh, Duc Trong', '0989897789', 'Shop gói hàng cẩn thận và sạch đẹp với ạ, cảm ơn Shop.', '2021-11-16 22:17:03', 2),
+(60, 348000, 10, 'Trần Mỹ Anh', 'vas@gmail.com', '900 Hoa Binh', '0222555444', '', '2021-11-17 13:45:46', 1),
+(63, 560000, 10, 'Đỗ Đức Khang', 'viethd123456@gmail.com', '889 Nguyen Dinh Chieu', '0111444555', 'Look so beauty!', '2021-11-17 14:25:36', 1),
+(64, 350000, 10, 'Nguyễn Hoàng Phúc', 'viethd123456@gmail.com', '289/25A Xô Viết Nghệ Tĩnh TPHCM', '0987963999', 'Đóng gói sản phẩm chắc chắn giúp mình nha shop!', '2021-11-17 14:32:08', 1),
+(65, 288000, 10, 'Vũ Xuân Hậu', 'viethd123456@gmail.com', '211, Thanh Binh 1, Binh Thanh, Duc Trong', '0999898987', 'Bánh nhìn ngon quá!', '2021-11-17 15:17:52', 2);
 
 -- --------------------------------------------------------
 
@@ -186,7 +214,7 @@ INSERT INTO `product` (`id`, `name`, `image`, `description`, `price`, `cat_id`) 
 (22, 'Bánh nhiều màu', 'product-cake1-4.jpg', '<p><span style=\"color:#e74c3c\">b&aacute;nh bao gồm 2 mặt b&aacute;nh ngọt ngọt được bọc bởi lớp socola b&ecirc;n ngo&agrave;i, ở giữa b&aacute;nh l&agrave; một lớp nh&acirc;n được l&agrave;m từ kẹo marshmallow m&agrave;u trắng c&oacute; vị ngọt v&agrave;o dẻo</span></p>\r\n', 35000, 101),
 (23, 'Bánh hạnh nhân', 'product-cake1-3.jpg', 'NGON!', 54000, 102),
 (27, 'Bánh Kem 3 Tầng', 'pro27_ec5339af-bce5-4de0-851f-b0bb3fe94c63.jpg', 'Bánh kem 3 tầng rất thích hợp cho những bữa tiệc hoành tráng', 220000, 2),
-(28, 'Bánh quy mứt dâu', 'pro3.jpg', 'Bánh Quy phủ lớp sữa kèm mứt dâu mang mùi vị ngọt và thơm hương sữa', 25000, 1),
+(28, 'Bánh quy mứt dâu', 'pro3.jpg', '<p><strong>B&aacute;nh Quy phủ lớp sữa k&egrave;m mứt d&acirc;u mang m&ugrave;i vị ngọt v&agrave; thơm hương sữa</strong></p>\r\n', 25000, 1),
 (29, 'Bánh Plan Cherry', 'pro14.jpg', 'Bánh flan có vị béo của trứng và mùi thơm từ sữa, khi ăn mềm tan trong miệng dễ dàng chinh phục khẩu vị của bất cứ ai, từ trẻ em cho tới người lớn. ', 55000, 102),
 (30, 'Cupcake trái cây', 'pro5.jpg', '<p><strong><em>Nguy&ecirc;n liệu:</em></strong> <span style=\"color:#e74c3c\">Trứng, Nước cốt chanh, d&acirc;u, việt quất</span></p>\r\n', 40000, 4),
 (31, 'Bánh ngọt chocolate', 'pro19.jpg', 'Bánh socola với lớp socola vị ca cao béo, thơm mà không bị đắng phủ bên ngoài lớp bánh xốp mịn rất ngon. Kẹp giữa của Bánh vị ca cao là lớp kem marshmallow dẻo thơm. (3 cái)', 20000, 99),
@@ -197,7 +225,8 @@ INSERT INTO `product` (`id`, `name`, `image`, `description`, `price`, `cat_id`) 
 (36, 'Su kem Singapore', 'banh1.jpg', '<p><span style=\"color:#e74c3c\"><em>B&aacute;nh Su Kem Singapore&nbsp; &ndash; Hương vị ngọt ng&agrave;o, thơm ngon của b&aacute;nh su Singapore chắc hẳn đ&atilde; khiến kh&ocirc;ng &iacute;t người phải m&ecirc; mẩn v&agrave; &ldquo;tương tư&rdquo;. Tuy nhi&ecirc;n, gi&aacute; th&agrave;nh của loại b&aacute;nh n&agrave;y tr&ecirc;n thị trường n&agrave;y lại kh&ocirc;ng hề dễ chịu.</em></span></p>\r\n\r\n<p>Ngay từ khi xuất hiện tr&ecirc;n thị trường Việt,&nbsp;<strong>b&aacute;nh su Singapore</strong>&nbsp;đ&atilde; nhanh ch&oacute;ng tạo th&agrave;nh một cơn sốt trong giới trẻ. Đều l&agrave; b&aacute;nh su nhưng m&oacute;n b&aacute;nh n&agrave;y lại c&oacute; hương vị kh&aacute;c hẳn v&agrave; hấp dẫn hơn rất nhiều so với b&aacute;nh su kem truyền thống.</p>\r\n\r\n<p>Vỏ b&aacute;nh vừa mềm mềm lại c&oacute; độ dai đặc trưng, nh&acirc;n b&aacute;nh ngọt ng&agrave;o kết hợp c&ugrave;ng topping được th&ecirc;m l&ecirc;n mặt b&aacute;nh th&igrave; quả thật l&agrave; cực phẩm.</p>\r\n', 45000, 108),
 (37, 'Cupcake chocolate', 'imgslidefooter6.jpg', '<p><strong><span style=\"color:#ffffff\"><span style=\"background-color:#8e44ad\">High-fat cake</span></span> c</strong>h&iacute;nh l&agrave; d&ograve;ng b&aacute;nh b&ocirc;ng lan ngọt cổ điển chứa nhiều chất b&eacute;o như dầu bơ. V&igrave; vậy b&aacute;nh c&oacute; độ mềm mại cộng với độ phồng từ muối nở. B&aacute;nh c&oacute; kết cấu ẩm, tơi v&agrave; nở c&ugrave;ng vị thơm ngậy của bơ, l&agrave; vị b&ocirc;ng lan ưa th&iacute;ch của nhiều người.</p>\r\n', 25000, 4),
 (38, 'Cupcake kem', 'imgslidefooter2.jpg', '<p><span style=\"font-size:16px\"><span style=\"color:#2980b9\"><strong>B&aacute;nh cupcake</strong> </span>được trang tr&iacute; kh&aacute; cầu k&igrave; với lớp b&ocirc;ng kem ph&iacute;a tr&ecirc;n, vừa l&agrave; m&oacute;n b&aacute;nh thưởng thức tại nh&agrave;, lại vừa c&oacute; thể l&agrave;m qu&agrave; tặng d&agrave;nh cho bạn b&egrave;, người th&acirc;n nh&acirc;n dịp đặc biệt.</span></p>\r\n', 35000, 4),
-(40, 'Bánh bao chay', 'banhbaochay.jpg', '<p><strong><em>B&aacute;nh bao chay với nh&acirc;n b&aacute;nh l&agrave;m từ rau củ sẽ l&agrave; một m&oacute;n ăn dinh dưỡng m&agrave; kh&ocirc;ng k&eacute;m phần ngon miệng.</em></strong></p>\r\n\r\n<p>&ndash;&nbsp;<em><strong>Nh&acirc;n b&aacute;nh</strong></em></p>\r\n\r\n<p>+ C&agrave; rốt</p>\r\n\r\n<p>+ Củ sắn</p>\r\n\r\n<p>+ Nấm</p>\r\n', 25000, 104);
+(40, 'Bánh bao chay', 'banhbaochay.jpg', '<p><strong><em>B&aacute;nh bao chay với nh&acirc;n b&aacute;nh l&agrave;m từ rau củ sẽ l&agrave; một m&oacute;n ăn dinh dưỡng m&agrave; kh&ocirc;ng k&eacute;m phần ngon miệng.</em></strong></p>\r\n\r\n<p>&ndash;&nbsp;<em><strong>Nh&acirc;n b&aacute;nh</strong></em></p>\r\n\r\n<p>+ C&agrave; rốt</p>\r\n\r\n<p>+ Củ sắn</p>\r\n\r\n<p>+ Nấm</p>\r\n', 25000, 104),
+(41, 'Bánh trái cây 2', 'pro33.jpg', '<h2><span style=\"font-size:14px\"><strong>Nguy&ecirc;n Liệu:&nbsp;</strong></span></h2>\r\n\r\n<p>Nguy&ecirc;n liệu ch&iacute;nh của m&oacute;n b&aacute;nh n&agrave;y l&agrave; đậu xanh v&agrave; rau c&acirc;u. Đậu xanh v&agrave; l&aacute; rau c&acirc;u c&oacute; t&iacute;nh m&aacute;t, gi&agrave;u vitamin v&agrave; đạm thực vật. D&ugrave; l&agrave; m&oacute;n ăn chơi nhưng vẫn gi&agrave;u chất dinh dưỡng.</p>\r\n\r\n<p>D&ugrave; l&agrave; loại b&aacute;nh ăn chơi, b&aacute;nh d&ugrave;ng để tr&aacute;ng miệng, nhưng với những nguy&ecirc;n liệu tự nhi&ecirc;n sẵn c&oacute; trong vườn nh&agrave;, kh&ocirc;ng chỉ đẹp mắt m&agrave; c&ograve;n gi&agrave;u chất dinh dưỡng. Cắn một miếng b&aacute;nh, nhấp một ngụm tr&agrave; v&agrave; thưởng l&atilde;m kh&ocirc;ng gian y&ecirc;n tĩnh trong khu vườn Huế, kh&ocirc;ng c&ograve;n g&igrave; tao nh&atilde; hơn...</p>\r\n', 25000, 4);
 
 -- --------------------------------------------------------
 
@@ -226,8 +255,7 @@ INSERT INTO `user` (`user_id`, `user_name`, `password`, `email`, `phone`, `full_
 (1, 'Viethoangdinh', 'b41cb62ec6767f2e41f9df7a2d161515', 'vietdinh105@gmail.com', '0555444666', 'Cao Lê Thuần', '209 Le Duc Tho TpHcm', 0, '0000-00-00 00:00:00', 1),
 (3, 'thuan1303', '2ed72a22d24014d96f06b84aab68476f', 'thuan1303@gmail.com', NULL, NULL, NULL, 1, '2021-11-02 14:59:00', 1),
 (8, 'vietu20', '841bc03ba82960e091dae30c1d0427f5', 'DHviet100@gmail.com', '0987654345', 'Đinh Hoàng Việt', '110 Nguyễn Gia Trí', 0, '2021-11-03 09:28:57', 1),
-(10, 'Vietdz123', 'c0a2ec07370475c8a163d23815a89378', 'multiple@gmail.com', '0159785354', 'Trần Văn A', '900 Hoa Binh', 1, '2021-11-06 22:27:29', 1),
-(11, 'dododo123', 'd9e9bc0a9e53769f067a115037c03a6f', 'viet18@gmail.com', NULL, NULL, NULL, 0, '2021-11-09 11:09:34', 1),
+(10, 'Vietdz123', 'c0a2ec07370475c8a163d23815a89378', 'multiple@gmail.com', '0999898987', 'Đinh Hoàng Việt', '211, Thanh Binh 1, Binh Thanh, Duc Trong', 1, '2021-11-06 22:27:29', 1),
 (12, 'dododo98', 'd9e9bc0a9e53769f067a115037c03a6f', 'viet888@gmail.com', NULL, NULL, NULL, 0, '2021-11-12 16:00:48', 1);
 
 --
@@ -281,19 +309,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `order-details`
 --
 ALTER TABLE `order-details`
-  MODIFY `orderdetail_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `orderdetail_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT cho bảng `order-info`
 --
 ALTER TABLE `order-info`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
