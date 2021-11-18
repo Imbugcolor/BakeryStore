@@ -24,7 +24,8 @@ include('sendmail.php');
     .info-contact {
         line-height: 40px;
         color: #3C5A98;
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: 600;
     }
 
     .form-group {
@@ -36,6 +37,7 @@ include('sendmail.php');
     .form-group i,
     .info-contact i {
         color: #FF5801;
+        width: 30px;
     }
 
     input,
@@ -54,9 +56,9 @@ include('sendmail.php');
     <div class="row" style="align-items: center;">
         <div class="col-4 col-md-4 col-sm-12">
             <div class="info-contact">
-                <p><i class="fas fa-map-marker-alt"></i> Address, City, Country</p>
-                <p><i class="fas fa-at"></i> contact@email.com</p>
-                <p><i class="fas fa-phone"></i> +00 0000 000 000</p>
+                <p><i class="fas fa-map-marker-alt"></i> 29X, P25 Binh Thanh, Ho Chi Minh city</p>
+                <p><i class="fas fa-at"></i> bakerystore@email.com</p>
+                <p><i class="fas fa-phone"></i> +84 988 988 978</p>
                 <p><i class="fas fa-clock"></i> Thứ hai - Thứ 6 : 8:00 AM tới 5:00 PM</p>
             </div>
         </div>
@@ -89,7 +91,7 @@ include('sendmail.php');
                         </div>
                     </div>
                     <div class="order-submit">
-                        <button type="submit" class="send-btn" name="send">Send Message</button>
+                        <button type="submit" class="send-btn" name="send">Gửi</button>
                     </div>
                 </form>
             </div>
@@ -97,6 +99,18 @@ include('sendmail.php');
     </div>
 </div>
 
+
+<!--Contact to us-->
+
+
+<!--Map-->
+<div class="map" style="width: 100%; border: 20px solid #fff; border-radius: 10px; box-shadow: 0 0 30px 0 rgb(82 63 105 / 20%);">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.114950633502!2d106.70935881520147!3d10.802507161664732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528bb2b618487%3A0xa0367c3c1420e674!2zMjkyIFjDtCBWaeG6v3QgTmdo4buHIFTEqW5oLCBQaMaw4budbmcgMjUsIELDrG5oIFRo4bqhbmgsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1637243961055!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<!--End Map-->
+
+
+<!--END Contact to us-->
 
 <script type="text/javascript">
     if (window.history.replaceState) {

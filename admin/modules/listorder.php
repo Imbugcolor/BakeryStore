@@ -106,12 +106,9 @@ include('../conn.php');
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Tổng giá đơn hàng</th>
                     <th>Tên khách hàng</th>
                     <th>Email</th>
-                    <th>Địa chỉ</th>
                     <th>Số điện thoại</th>
-                    <th>Yêu cầu</th>
                     <th>Ngày đặt hàng</th>
                     <th>Trạng thái</th>
                     <th>Cập nhật</th>
@@ -120,12 +117,9 @@ include('../conn.php');
             <tfoot>
                 <tr>
                     <th>ID</th>
-                    <th>Tổng giá đơn hàng</th>
                     <th>Tên khách hàng</th>
                     <th>Email</th>
-                    <th>Địa chỉ</th>
                     <th>Số điện thoại</th>
-                    <th>Yêu cầu</th>
                     <th>Ngày đặt hàng</th>
                     <th>Trạng thái</th>
                     <th>Cập nhật</th>
@@ -144,28 +138,25 @@ include('../conn.php');
 
                     <tr>
                         <td><?php echo $row["order_id"] ?></td>
-                        <td><?php echo number_format($row["total"], 0, '', ',') ?> VND</td>
                         <td><?php echo $row["full_name"] ?></td>
-                        <td style="width: 15%;"><?php echo $row["email"] ?></td>
-                        <td style="width: 15%;"><?php echo $row["address"] ?></td>
+                        <td><?php echo $row["email"] ?></td>
                         <td><?php echo $row["phone"] ?></td>
-                        <td><?php echo $row["request"] ?></td>
-                        <td style=" width: 10%;"><?php echo $row["date_order"] ?></td>
-                        <td style="width: 10%;"><?php if ($row["status"] == 1) {
-                                                    echo "Đang xử lý";
-                                                }
-                                                if ($row["status"] == 2) {
-                                                    echo "Đã xử lý";
-                                                }
-                                                if ($row["status"] == 3) {
-                                                    echo "Đang vận chuyển";
-                                                }
-                                                if ($row["status"] == 4) {
-                                                    echo "Đã giao hàng";
-                                                }
-                                                if ($row["status"] == 0) {
-                                                    echo "Đã hủy";
-                                                } ?></td>
+                        <td><?php echo $row["date_order"] ?></td>
+                        <td><?php if ($row["status"] == 1) {
+                                echo "Đang xử lý";
+                            }
+                            if ($row["status"] == 2) {
+                                echo "Đã xử lý";
+                            }
+                            if ($row["status"] == 3) {
+                                echo "Đang vận chuyển";
+                            }
+                            if ($row["status"] == 4) {
+                                echo "Đã giao hàng";
+                            }
+                            if ($row["status"] == 0) {
+                                echo "Đã hủy";
+                            } ?></td>
                         <td>
                             <a href="?module=detailsorder&id=<?php echo $row["order_id"] ?>" name="review"><i class="fas fa-eye"></i></a>
                             <a href="?module=commitOrder&id=<?php echo $row["order_id"] ?>" name="update"><i class="fas fa-pen-square"></i></a>

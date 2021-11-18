@@ -23,7 +23,7 @@ if (!empty($_GET["id"])) {
             $sql_set = "UPDATE `order-info` SET `status`='0' WHERE `order_id`=" . $_GET["id"];
             mysqli_query($connect, $sql_set) or die("Lỗi!");
         }
-        header('Location: index.php?module=listorder');
+        header('Location: index.php?module=detailsorder&id=' . $_GET["id"]);
     }
 }
 ?>

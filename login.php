@@ -51,6 +51,66 @@ $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
 </head>
 
 <body>
+    <style>
+        /*-------------LOADER CSS-----------------*/
+
+        /*CUSTOM PRELOADER*/
+        .loader-bg {
+            position: fixed;
+            z-index: 999999;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+        }
+
+        .loader-p {
+            border: 0 solid transparent;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: calc(50vh - 75px);
+            left: calc(50vw - 75px);
+        }
+
+        .loader-p:before,
+        .loader-p:after {
+            content: '';
+            border: 1em solid #FF4A52;
+            border-radius: 50%;
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: loader 2s linear infinite;
+            opacity: 0;
+        }
+
+        .loader-p:before {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes loader {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        /*end of custom preloader*/
+
+        /*-------------END LOADER CSS-----------------*/
+    </style>
     <div class="container">
         <div class="home"> <a href="index.php"><i class="fas fa-arrow-left"></i> Quay về trang chủ</a></div>
         <form class="login-email" action="" method="post">
@@ -75,6 +135,20 @@ $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
         </form>
         <p class="login-register-text">Chưa có tài khoản? <a href="signup.php">Đăng ký ngay</a></p>
     </div>
+    <!--loader-->
+    <div class="loader-bg">
+        <div class="loader-p">
+
+        </div>
+    </div>
+    <!--end loader-->
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    //set time loader
+    setTimeout(function() {
+        $('.loader-bg').fadeToggle();
+    }, 1000);
+</script>
 
 </html>

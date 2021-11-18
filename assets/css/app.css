@@ -57,7 +57,7 @@
     line-height: 80px;
     color: #3C5A98;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     display: block;
 }
 #navbar .subnav{
@@ -196,10 +196,15 @@
     font-size: 16px;
     font-weight: 600;
     transition: 0.3s;
+    cursor: pointer;
 }
 #slider .container button:hover{
     color: #000;
     background: #FF4A52;
+}
+.container button a{
+    padding:20px 0px;
+    text-decoration: none;
 }
 .img-slideshow{
     position: absolute;
@@ -273,6 +278,7 @@
     margin: 30px 0; 
 }
 .product p{
+    font-weight: 600;
     font-size: 18px;
     padding: 5px 0;
 }
@@ -306,7 +312,7 @@
     background-color: #fff;
 }
 .view-product{
-    padding:15px 0 30px;
+    padding:12px 0 30px;
 }
 .view-product a{
     width: 80%;
@@ -317,6 +323,7 @@
     text-decoration: none;
     border:1px solid #01ce69;
     transition: 0.3s;
+    border-radius: 5px;
 }
 .view-product a:hover{
     cursor: pointer;
@@ -364,7 +371,7 @@
     transform: translateX(-50%);
 }
 #menu-section .menu-header p{
-    font-family: 'Times New Roman', Times, serif;
+
     font-size: 20px;
 }
 #menu-section .container{
@@ -495,7 +502,7 @@ video{
     background-color: #040E27;
     color: #fff;
     padding-top: 80px;
-    margin-top: 5%;
+    margin-top: 0;
   }
   #footer .container{
     padding:0 60px;
