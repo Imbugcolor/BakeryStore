@@ -82,10 +82,17 @@ if (!isset($_SESSION["login"])) {
         <div class="col-12">
             <div style="overflow-x:auto;">
                 <?php
+                $param = "";
                 if (isset($_GET["id"])) {
-                    $sql_sl = "SELECT * FROM `order-info` WHERE `user_id` =" . $_GET["id"] . " ORDER BY `order-info`.`date_order` DESC";
-
+                    $id = $_GET['id'];
+                    $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 8;
+                    $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
+                    $offset = ($current_page - 1) * $item_per_page;
+                    $sql_sl = "SELECT * FROM `order-info` WHERE `user_id` =" . $_GET["id"] . " ORDER BY `order-info`.`date_order` DESC LIMIT " . $item_per_page . " OFFSET " . $offset;
                     $sql_rsl = mysqli_query($connect, $sql_sl);
+                    $totalRecords = mysqli_query($connect, "SELECT * FROM `order-info` WHERE `user_id` =" . $_GET["id"]);
+                    $totalRecords = $totalRecords->num_rows;
+                    $totalPages = ceil($totalRecords / $item_per_page);
                     while ($row = mysqli_fetch_array($sql_rsl)) { ?>
                         <table>
                             <thead>
@@ -130,6 +137,9 @@ if (!isset($_SESSION["login"])) {
                 <?php  }
                 }
                 ?>
+            </div>
+            <div style="text-align: center; padding-bottom: 25px;" class="pagination">
+                <?php include("pagination.php");     ?>
             </div>
         </div>
     </div>

@@ -103,7 +103,7 @@
 
 /* menu-toggle mobile css */
 #header .menu-toggle {
-    color: #01ce69;
+    color: #FF4A52;
     float: left;
     margin-left: 15px;
     line-height: 80px;
@@ -115,7 +115,6 @@
 
 /*cart css */
 #cart {
-    margin-right: 3%;
     line-height: 80px;
     cursor: pointer;
     color: #FF4A52;
@@ -634,6 +633,71 @@ video{
 }
 /*---------------------END CATEGORY PAGE ---------------------*/
 
+/*-----------------Cart order---------------*/
+.cart-order{
+    padding: 0 35px;
+}
+.container-cart{
+    margin-top:100px;
+    box-shadow: 0 0 30px 0 rgb(82 63 105 / 10%);
+    padding: 15px 0;
+    border-radius: 5px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table, th, td{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+table{
+    border-collapse:collapse;
+}
+.container-cart table{
+    text-align: center;
+}
+.container-cart table img{
+    width: 100%;
+}
+table {
+    counter-reset: section;
+}
+  
+.count:before {
+    counter-increment: section;
+    content: counter(section);
+}
+form input{
+    width: 100%;
+    padding: 15px 5px;
+    margin: 5px 0;
+}
+form textarea{
+    width: 100%;
+    padding: 0 5px;
+    margin: 5px 0;
+}
+
+.order-submit{
+    text-align: center;
+}
+.order-submit button{
+    color: #fff;
+    background-color: #FF4A52;
+    border: 1px solid #FF4A52;
+    width: 200px;
+    height: 50px;
+    transition: 0.3s;
+}
+.order-submit button:hover{
+    color: #FF4A52;
+    background-color: #fff;
+    cursor: pointer;
+}
+/*---------------------END Cart-order---------------------*/
+
 /*------------USER MENU---------------*/
 .loginBtn-header{
     border: 1px solid #3C5A98;
@@ -950,73 +1014,15 @@ video{
     #social-link-sidebar {
         display: none;
     }
+    .cart-order{
+        padding: 0;
+    }
 }
 
 /*end responsive */
 
 
-/*-----------------Cart order---------------*/
-.cart-order{
-    padding: 0 35px;
-}
-.container-cart{
-    padding-top:100px;
-    margin: 0 -35px;
-}
-table{
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-table, th, td{
-    border-top:1px solid #ccc;
-    border-bottom:1px solid #ccc;
-}
-table{
-    border-collapse:collapse;
-}
-.container-cart table{
-    text-align: center;
-}
-.container-cart table img{
-    width: 100%;
-}
-table {
-    counter-reset: section;
-}
-  
-.count:before {
-    counter-increment: section;
-    content: counter(section);
-}
-form input{
-    width: 100%;
-    padding: 15px 5px;
-    margin: 5px 0;
-}
-form textarea{
-    width: 100%;
-    padding: 0 5px;
-    margin: 5px 0;
-}
 
-.order-submit{
-    text-align: center;
-}
-.order-submit button{
-    color: #fff;
-    background-color: #FF4A52;
-    border: 1px solid #FF4A52;
-    width: 200px;
-    height: 50px;
-    transition: 0.3s;
-}
-.order-submit button:hover{
-    color: #FF4A52;
-    background-color: #fff;
-    cursor: pointer;
-}
-/*---------------------END Cart-order---------------------*/
 
 
 

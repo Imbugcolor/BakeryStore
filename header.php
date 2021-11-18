@@ -38,8 +38,8 @@
                     <li class="category"><a href="category.php">SẢN PHẨM</a>
 
                     </li>
-                    <li><a href="blogs.php">TIN TỨC</a></li>
-                    <li><a href="#">LIÊN HỆ</a></li>
+                    <li><a href="blogs.php">BLOG</a></li>
+                    <li><a href="contact.php">LIÊN HỆ</a></li>
                     <?php
                     if (isset($_SESSION["login"]) && $_SESSION["login"]["7"] == 1) {
                     ?>
@@ -69,7 +69,7 @@
                 <?php }
                 ?>
                 <div class="user" onclick="menuUserToggle();">
-                    <i class="usertoggle fas fa-user"></i>
+                    <i class="usertoggle fas fa-user"><i class="fas fa-caret-down"></i></i>
                     <div class="user-menu">
                         <h4 class="user_name">Chào!
                             <?php if (isset($_SESSION["login"])) {

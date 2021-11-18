@@ -4,14 +4,45 @@ session_start();
 ?>
 <style>
     #slider-blog {
-        background: #eb01a5;
-        background-image: url('./assets/images/banner-blog.jpg'), linear-gradient(to top, transparent, #18151f);
+        background-image: url('./assets/images/banner-blogs.png');
         position: relative;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-        height: 650px;
+        height: 550px;
         z-index: 1;
+    }
+
+    #layout {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        height: 550px;
+    }
+
+    .header-titl {
+        position: absolute;
+        bottom: 200px;
+        left: 15px;
+        padding: 3px 17px 7px;
+        background: #e75a39;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .text {
+        position: absolute;
+        bottom: 45px;
+        left: 15px;
+        width: 50%;
+        background: #fff;
+        border-bottom: 3px solid #e75a39;
+        padding: 3px 17px 7px;
+    }
+
+    .text p {
+        opacity: 0.7;
     }
 </style>
 
@@ -30,6 +61,15 @@ session_start();
 
                 </div>
             </div>
+            <div class="header-titl">
+                <h2>Do you like our cakes?</h2>
+            </div>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo cequat.</p>
+            </div>
+        </div>
+        <div id="layout">
+
         </div>
         <!--end slider-->
 
