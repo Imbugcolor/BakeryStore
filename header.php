@@ -100,16 +100,16 @@
         </div>
         <!--end header-->
 
-        <!--loader-->
-        <div class="loader-bg">
-            <div class="loader-p">
 
-            </div>
-        </div>
-        <!--end loader-->
 
     </div>
+    <!--loader-->
+    <div class="loader-bg">
+        <div class="loader-p">
 
+        </div>
+    </div>
+    <!--end loader-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/owl.carousel.min.js"></script>
@@ -173,12 +173,13 @@
         });
 
         /*end slide carousel jquery custom*/
+
         function addCart(id) {
             num = $("#num").val();
-            $.post('addcart.php', {
+            $.post('addcart.php', /*gui du lieu */ {
                 'id': id,
                 'num': num
-            }, function(data) {
+            }, function(data) /*khi nhan dc du lieu goi ham callback */ {
                 alert("Thêm vào giỏ hàng thành công!");
                 $('#numberCart').text(data);
             });

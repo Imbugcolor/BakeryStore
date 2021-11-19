@@ -40,14 +40,17 @@ if (empty($_GET["id"])) {
             $sql = "UPDATE `product` SET `name`='$name',`image`='$img',`description`='$description',`price`='$price',`cat_id`='$cat_product' WHERE id=" . $_GET["id"];
             mysqli_query($connect, $sql);
 
-            $message = "Cập nhật sản phẩm thành công!";
-            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo "<script>
+            alert('Cập nhật sản phẩm thành công!');
+            window.location.href='index.php?module=listproduct';
+            </script>";
         } else {
             $sql = "UPDATE `product` SET `name`='$name',`description`='$description',`price`='$price',`cat_id`='$cat_product' WHERE id=" . $_GET["id"];
             mysqli_query($connect, $sql);
-            $message = "Cập nhật sản phẩm thành công!";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-            header('location: index.php?module=listproduct');
+            echo "<script>
+            alert('Cập nhật sản phẩm thành công!');
+            window.location.href='index.php?module=listproduct';
+            </script>";
         }
     }
 }
@@ -119,16 +122,31 @@ if (empty($_GET["id"])) {
             </tr>
             <tr>
                 <td>Danh mục sản phẩm</td>
-                <td><select name="cat_product" id="cat_select">
-                        <?php
-                        $listCat = "SELECT * FROM `category`";
-                        $result = mysqli_query($connect, $listCat);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <option value="<?php echo $row["cat_id"]; ?>"><?php echo $row["cat_name"]; ?></option>
-                        <?php } ?>
+                <?php
+                if (!empty($_GET["id"])) { ?>
+                    <?php
+                    $listCat = "SELECT * FROM `category`,`product` WHERE `product`.`cat_id`=`category`.`cat_id` AND `product`.`id`=" . $_GET["id"];
+                    $result = mysqli_query($connect, $listCat);
+                    $row = mysqli_fetch_array($result)
+                    ?>
+                    <td><select name="cat_product" id="cat_select">
 
-                    </select></td>
+                            <option value="<?php echo $row["cat_id"]; ?>"><?php echo $row["cat_name"]; ?></option>
+
+                        </select></td>
+                <?php  } else {
+                ?>
+                    <td><select name="cat_product" id="cat_select">
+                            <?php
+                            $listCat = "SELECT * FROM `category`";
+                            $result = mysqli_query($connect, $listCat);
+                            while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                                <option value="<?php echo $row["cat_id"]; ?>"><?php echo $row["cat_name"]; ?></option>
+                            <?php } ?>
+
+                        </select></td>
+                <?php } ?>
             </tr>
             <tr>
                 <td><input type="submit" class="editbtn" name="add_product" value="<?= !empty($_GET["id"]) ? "Cập nhật" : "Thêm mới" ?>"></td>
